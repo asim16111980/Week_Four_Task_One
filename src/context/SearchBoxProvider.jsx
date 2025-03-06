@@ -1,23 +1,13 @@
-import React, { createContext, useReducer } from "react";
+import React, { createContext, useState } from "react";
 
 const SearchBoxContext = createContext();
 
-// Reducer function to handle state updates
-const searchBoxReducer = (state, action) => {
-    switch (action.type) {
-        case "TOGGLE":
-            return { ...state, isSearchBoxOpened: !state.isSearchBoxOpened };
-        default:
-            return state;
-    }
-};
-
 const SearchBoxProvider = ({ children }) => {
-    // Using useReducer for state management
-    const [state, dispatch] = useReducer(searchBoxReducer, { isSearchBoxOpened: false });
+    // Using useState for state management
+    const [isSearchBoxOpened, setIsSearchBoxOpened] = useState( false );
 
     return (
-        <SearchBoxContext.Provider value={{ state, dispatch }}>
+        <SearchBoxContext.Provider value={{ isSearchBoxOpened, setIsSearchBoxOpened }}>
             {children}
         </SearchBoxContext.Provider>
     );

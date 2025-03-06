@@ -1,7 +1,8 @@
 import './App.css';
 import Header from './components/Header';
 import TopHeader from './components/TopHeader';
-import {  SearchBoxProvider } from './context/SearchBoxProvider';
+import { SearchBoxProvider } from './context/SearchBoxProvider';
+import { MenusContext, MenusProvider } from './context/MenusProvider';
 
 function App() {
 
@@ -9,7 +10,9 @@ function App() {
     <>
       <TopHeader />
       <SearchBoxProvider>
-        <Header />
+        <MenusProvider>
+          <Header />
+        </MenusProvider>
       </SearchBoxProvider>
     </>
   )
