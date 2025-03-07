@@ -5,12 +5,20 @@ const MenusContext = createContext();
 // Function to open menu
 const openMenu = (menus, currentMenu) => {
     return Object.fromEntries(
-        Object.entries(menus).map(([key, value]) => key === currentMenu ?[key, !value ] : [key,value = false])
+        Object.entries(menus).map(([key, value]) => key === currentMenu ? [key, !value] : [key, value = false])
     );
 };
 // Reducer function to handle state updates
 const MenusReducer = (state, action) => {
-    return openMenu(state, action.currentMenu);
+    switch (action.currentMenu) {
+        case null:
+            state = { NavMenuOpened: false, CatsMenuOpened: false, UserMenuOpened: false };
+            break;
+
+        default: state = openMenu(state, action.currentMenu);
+            break;
+    }
+    return state;
 };
 
 const MenusProvider = ({ children }) => {
