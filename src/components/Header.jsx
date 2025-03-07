@@ -3,8 +3,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch, faBars, faTimes, faThLarge, faAngleRight } from '@fortawesome/free-solid-svg-icons';
 import Icon from './Icon';
 import SearchBox from './SearchBox';
-import {  SearchBoxContext } from '../context/SearchBoxProvider';
-import {  MenusContext } from '../context/MenusProvider';
+import { SearchBoxContext } from '../context/SearchBoxProvider';
+import { MenusContext } from '../context/MenusProvider';
 
 const Header = () => {
     const { isSearchBoxOpened, setIsSearchBoxOpened } = useContext(SearchBoxContext);
@@ -23,9 +23,9 @@ const Header = () => {
                 <div>{isSearchBoxOpened && <SearchBox />}</div>
             </div>
             <div className='flex-1 flex items-center gap-2 py-2'>
-                <button type="button" className='w-8 h-8 text-xl text-black md:hidden mr-auto' onClick={() => dispatch(NavMenuOpened)}><FontAwesomeIcon icon={state.NavMenuOpened ? faTimes : faBars} /></button>
+                <button type="button" className='w-8 h-8 text-xl text-black md:hidden mr-auto' onClick={() => dispatch({ currentMenu: "NavMenuOpened" })}><FontAwesomeIcon icon={state.NavMenuOpened ? faTimes : faBars} /></button>
                 <button type='button'><Icon icon="../public/icons/IUser.svg" /></button>
-                <button type="button" className='w-8 h-8 text-xl text-black md:hidden ' onClick={() => dispatch(CatsMenuOpened)}><FontAwesomeIcon icon={state.CatsMenuOpened ? faTimes : faThLarge} /></button>
+                <button type="button" className='w-8 h-8 text-xl text-black md:hidden ' onClick={() => dispatch({currentMenu:"CatsMenuOpened"})}><FontAwesomeIcon icon={state.CatsMenuOpened ? faTimes : faThLarge} /></button>
             </div>
             <nav className={`w-full h-auto md:gap-6 absolute md:static top-full left-0 text-black bg-white transition-all duration-300 ease-in-out shadow  ${state.NavMenuOpened ? "block" : "hidden"
                 }`}>

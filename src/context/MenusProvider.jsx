@@ -4,14 +4,13 @@ const MenusContext = createContext();
 
 // Function to open menu
 const openMenu = (menus, currentMenu) => {
-    Object.entries(menus).forEach((item) => {
-        item[0] != currentMenu ? item[1] = false : item[1] = true;
-    })
-    return state;
-}
+    return Object.fromEntries(
+        Object.entries(menus).map(([key, value]) => key === currentMenu ?[key, !value ] : [key,value = false])
+    );
+};
 // Reducer function to handle state updates
 const MenusReducer = (state, action) => {
-    return openMenu(state, action.currentMenu) | state;
+    return openMenu(state, action.currentMenu);
 };
 
 const MenusProvider = ({ children }) => {
