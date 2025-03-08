@@ -11,7 +11,7 @@ const Header = () => {
     const { state, dispatch } = useContext(MenusContext);
 
     return (
-        <header className="w-full h-auto flex flex-col items-stretch relative shadow">
+        <header className="w-full h-auto flex flex-col items-stretch relative shadow z-20">
             <div className='h-12 flex items-center justify-between relative px-2'>
                 <h1 className="font-bold text-black text-lg">
                     Exclusive</h1>
