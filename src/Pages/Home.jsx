@@ -1,5 +1,6 @@
 import Carousel from '../components/Carousel';
 import FlashSaleTimer from '../components/FlashSaleTimer';
+import FlatCard from '../components/FlatCard';
 import NavigationButtons from '../components/NavigationButtons';
 import SectionHeader from '../components/SectionHeader';
 import { MenusContext } from '../context/MenusProvider';
@@ -13,7 +14,8 @@ const Home = () => {
             <div>
                 <SectionHeader title={"Today’s"} subTitle={"Flash Sales"} />
                 <FlashSaleTimer />
-                <NavigationButtons/>
+                <NavigationButtons />
+                <FlatCard img={"/public/images/cart/g92-2-500x500 1.png"} discount={40} title={"HAVIT HV-G92 Gamepad"} netPrice={120 } totalPrice={160} stars={5} ratings={88}/>
             </div>
         </div>
     )
