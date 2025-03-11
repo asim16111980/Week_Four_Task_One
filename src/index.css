@@ -8,19 +8,24 @@ body{
   font-style: normal;
 }
 
-@keyframes marquee {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
+.swiper-pagination-bullet {
+  width: 12px !important;
+  height: 12px !important;
+  background-color: #7F7F7F !important;
+  opacity: 0.75 !important;
+  transition: all 0.3s ease-in-out !important;
 }
 
-.animate-marquee {
-  animation: marquee 10s linear infinite;
-  -webkit-animation: marquee 10s linear infinite;
+.swiper-pagination-bullet-active {
+  background-color: #DB4444 !important;
+  border: 2px solid white !important;
+  width: 12px !important;
+  height: 12px !important;
+  /* opacity: 1 !important; */
+  /* transform: scale(1.2) !important; */
 }
+
+
 /* :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;

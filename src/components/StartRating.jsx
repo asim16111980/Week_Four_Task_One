@@ -1,13 +1,16 @@
 import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faStar, faStarHalf, faStarHalfAlt } from "@fortawesome/free-solid-svg-icons";
+import { faStar, faStarHalf } from "@fortawesome/free-solid-svg-icons";
 
-const StarRating = ({ maxStars = 5, initialRating = 0 }) => {
+const StarRating = ({ maxStars = 5, initialRating = 0, onRatingChange }) => {
   const [rating, setRating] = useState(initialRating);
   const [hoverRating, setHoverRating] = useState(0);
 
   const handleRating = (newRating) => {
     setRating(newRating);
+    if (onRatingChange) {
+      onRatingChange(newRating);
+    }
   };
 
   const handleMouseMove = (event, starValue) => {
@@ -18,7 +21,7 @@ const StarRating = ({ maxStars = 5, initialRating = 0 }) => {
   };
 
   return (
-    <div className="flex space-x-1 text-yellow-400">
+    <div className="flex space-x-1 text-gray-400 text-2xl">
       {Array.from({ length: maxStars }, (_, index) => {
         const starValue = index + 1;
         const displayRating = hoverRating || rating;
@@ -28,17 +31,20 @@ const StarRating = ({ maxStars = 5, initialRating = 0 }) => {
         return (
           <div
             key={starValue}
-            className="relative cursor-pointer text-lg"
+            className="relative cursor-pointer w-6 h-6"
             onMouseMove={(e) => handleMouseMove(e, starValue)}
             onMouseLeave={() => setHoverRating(0)}
             onClick={() => handleRating(displayRating)}
           >
-            {isFull ? (
-              <FontAwesomeIcon icon={faStar} />
-            ) : isHalf ? (
-              <FontAwesomeIcon icon={faStarHalf} />
-            ) : (
-              <FontAwesomeIcon icon={faStar} className="text-gray-400" />
+            <FontAwesomeIcon icon={faStar} className="absolute inset-0 text-gray-400" />
+            {isFull && (
+              <FontAwesomeIcon
+                icon={faStar}
+                className="absolute inset-0 text-yellow-400"
+              />
+            )}
+            {isHalf && (
+              <FontAwesomeIcon icon={faStarHalf} className="absolute inset-0 text-yellow-400" />
             )}
           </div>
         );
@@ -48,3 +54,4 @@ const StarRating = ({ maxStars = 5, initialRating = 0 }) => {
 };
 
 export default StarRating;
+
