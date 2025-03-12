@@ -7,7 +7,7 @@ const FlatCard = ({ img, discount, title, netPrice, totalPrice, stars, ratings }
         console.log("التقييم الجديد:", newRating);
     };
     return (
-        <div className="w-64 h-80 font-['poppins']">
+        <div className="w-64 h-80 font-['poppins'] group">
             <div className="w-full h-56 bg-[#F5F5F5] rounded relative flex justify-center items-center">
                 <img src={img} alt="Cart With Flat Discount Image" />
                 <div className="absolute inset-0 w-full h-full bg-transparent flex flex-col justify-between">
@@ -18,7 +18,7 @@ const FlatCard = ({ img, discount, title, netPrice, totalPrice, stars, ratings }
                             <FontAwesomeIcon icon={faEye} className="rounded-full p-2 bg-white" />
                         </div>
                     </div>
-                    <button type="button" className="w-full h-10 bg-black rounded-b text-base font-medium text-white">Add To Cart</button>
+                    <button type="button" className="hidden group-hover:block w-full h-10 bg-black rounded-b text-base font-medium text-white">Add To Cart</button>
                 </div>
             </div>
             <div className="flex flex-col items-start gap-2">
@@ -27,7 +27,7 @@ const FlatCard = ({ img, discount, title, netPrice, totalPrice, stars, ratings }
                     <span className="text-base font-medium text-[#DB4444]">${netPrice}</span>
                     <span className="text-base font-medium text-[#727272] line-through">${totalPrice}</span>
                 </div>
-                <div className="flex gap-2">
+                <div className="flex items-center gap-2">
                     <StarRating maxStars={5} initialRating={3.5} />
                     <span className="text-sm font-semibold text-[#727272]">({ratings})</span>
                 </div>

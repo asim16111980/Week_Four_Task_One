@@ -21,7 +21,7 @@ const StarRating = ({ maxStars = 5, initialRating = 0, onRatingChange }) => {
   };
 
   return (
-    <div className="flex space-x-1 text-gray-400 text-2xl">
+    <div className="flex items-center gap-px">
       {Array.from({ length: maxStars }, (_, index) => {
         const starValue = index + 1;
         const displayRating = hoverRating || rating;
@@ -31,20 +31,20 @@ const StarRating = ({ maxStars = 5, initialRating = 0, onRatingChange }) => {
         return (
           <div
             key={starValue}
-            className="relative cursor-pointer w-6 h-6"
+            className="relative cursor-pointer size-4"
             onMouseMove={(e) => handleMouseMove(e, starValue)}
             onMouseLeave={() => setHoverRating(0)}
             onClick={() => handleRating(displayRating)}
           >
-            <FontAwesomeIcon icon={faStar} className="absolute inset-0 text-gray-400" />
+            <FontAwesomeIcon icon={faStar} className="size-4 absolute inset-0 text-black opacity-25" />
             {isFull && (
               <FontAwesomeIcon
                 icon={faStar}
-                className="absolute inset-0 text-yellow-400"
+                className="size-4 absolute inset-0 text-[#FFAD33]"
               />
             )}
             {isHalf && (
-              <FontAwesomeIcon icon={faStarHalf} className="absolute inset-0 text-yellow-400" />
+              <FontAwesomeIcon icon={faStarHalf} className="size-4 absolute inset-0 text-[#FFAD33]" />
             )}
           </div>
         );
