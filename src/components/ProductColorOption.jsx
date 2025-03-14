@@ -1,7 +1,10 @@
 
-const ProductColorOption = ({bgColor}) => {
+const ProductColorOption = ({ id, bgColor, onCheck, state }) => {
   return (
-    <> <input type="radio" name="color" className={`size-5 appearance-none relative before:content-none before:inset-0 before:absolute before:size-full before:bg-[${bgColor}] border-red-800  border rounded-full bg-green-900`} /></>
+    <div className={`relative size-5 rounded-full ${state ? "border-2 border-black" : "border-0"}`} style={{ backgroundColor: state ? "transparent" : bgColor }}>
+      <span className="absolute size-3 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-black" style={{ backgroundColor: state ? bgColor : "transparent" }} ></span>
+      <input id={id} type="radio" name="color" className="appearance-none absolute inset-0 z-10 size-full bg-transparent rounded-full" onChange={onCheck} />
+    </div>
   )
 }
 

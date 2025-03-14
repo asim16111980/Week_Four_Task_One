@@ -1,8 +1,19 @@
 import { faEye, faHeart } from "@fortawesome/free-regular-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import StarRating from "./StartRating";
+import ProductColorOption from "./ProductColorOption";
+import { useState } from "react";
 
-const ProductCard = ({ img, discount = null, discountStyle, title, netPrice, totalPrice = null, stars, ratings, }) => {
+const ProductCard = ({ img, discount = null, discountStyle, title, netPrice, totalPrice = null, ratings, }) => {
+    const [productColorOptions, setProductColorOptions] = useState([{ id: "red", color: "red", state: false }, { id: "blue", color: "blue", state: false }]);
+    const handleProductColorOption = (e) => {
+        setProductColorOptions(productColors =>
+            productColors.map(option => ({
+                ...option,
+                state: option.id === e.target.id
+            }))
+        );
+    };
     return (
         <div className="w-64 h-80 font-['poppins'] group">
             <div className="w-full h-56 bg-[#F5F5F5] rounded relative flex justify-center items-center">
@@ -31,8 +42,9 @@ const ProductCard = ({ img, discount = null, discountStyle, title, netPrice, tot
                     </div>
                 </div>
                 <div>
-                    
-                    </div>
+                    <ProductColorOption id="red" bgColor={productColorOptions[0].color} onCheck={(e) => handleProductColorOption(e)} state={productColorOptions[0].state} />
+                    <ProductColorOption id="blue" bgColor={productColorOptions[1].color} onCheck={(e) => handleProductColorOption(e)} state={productColorOptions[1].state} />
+                </div>
             </div>
         </div>
     );
