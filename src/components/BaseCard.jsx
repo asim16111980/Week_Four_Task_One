@@ -1,18 +1,8 @@
 import { faEye, faHeart } from "@fortawesome/free-regular-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import StarRating from "./StartRating";
-import { useState } from "react";
 
-const BaseCard = ({cardImg,altText, badge, badgeBgColor, cardTitle, netPrice, totalPrice = null, rating, rateCount,children }) => {
-    const [productColorOptions, setProductColorOptions] = useState([{ id: "red", color: "red", state: false }, { id: "blue", color: "blue", state: false }]);
-    const handleProductColorOption = (e) => {
-        setProductColorOptions(productColors =>
-            productColors.map(option => ({
-                ...option,
-                state: option.id === e.target.id
-            }))
-        );
-    };
+const BaseCard = ({ cardImg, altText, badge, badgeBgColor, cardTitle, netPrice, totalPrice = null, rating, rateCount, children }) => {
     return (
         <div className="w-64 h-80 font-['poppins'] group">
             <div className="w-full h-56 bg-[#F5F5F5] rounded relative flex justify-center items-center">

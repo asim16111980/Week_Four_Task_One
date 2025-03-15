@@ -9,6 +9,7 @@ import { useContext } from 'react';
 import FlatCard from '../components/FlatCard';
 import DiscCard from '../components/DiscCard';
 import BlackCard from '../components/BlackCard';
+import ServiceCard from '../components/ServiceCard';
 
 const Home = () => {
     const { state, dispatch } = useContext(MenusContext);
@@ -25,7 +26,8 @@ const Home = () => {
                 <Button style={"px-4 py-2"} value={"View All Products"} />
                 <Button filled={false} style={"px-12 py-4"} value={"View All Products"} />
                 <CategoryPhone img={"/public/images/phone/Category-CellPhone.svg"} title={"Phones"} style={"w-20 h-24"} />
-                <BlackCard cardStyle={""} img={"/public/images/cart/g92-2-500x500 1.png"} alt={""}/>
+                <BlackCard cardStyle={""} img={"/public/images/cart/g92-2-500x500 1.png"} alt={""} />
+                <ServiceCard img="/public/images/service/icon-delivery.svg" alt="" title="FREE AND FAST DELIVERY" subTitle="Free delivery for all orders over $140" />
             </div>
         </div>
     )
