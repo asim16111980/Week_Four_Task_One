@@ -4,7 +4,7 @@ import StarRating from "./StartRating";
 
 const BaseCard = ({ cardImg, altText, badge, badgeBgColor, cardTitle, netPrice, totalPrice = null, rating, rateCount, children }) => {
     return (
-        <div className="w-64 h-80 font-['poppins'] group">
+        <div className="w-full flex flex-col gap-4 h-80 font-['poppins'] group">
             <div className="w-full h-56 bg-[#F5F5F5] rounded relative flex justify-center items-center">
                 <img src={cardImg} alt={altText} />
                 <div className="absolute inset-0 w-full h-full bg-transparent flex flex-col justify-between">

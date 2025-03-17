@@ -24,8 +24,6 @@ export default function ImageCarousel() {
         pagination={{ clickable: true, horizontalClass: "pagination", bulletClass: "bullet", bulletActiveClass: "bullet-active" }}
         grabCursor={true}
         speed={800}
-
-      // className="relative [&_.swiper-pagination-bullet]:!size-3 [&_.swiper-pagination-bullet]:!bg-[#7F7F7F] [&_.swiper-pagination-bullet-active]:!bg-[#DB4444] [&_.swiper-pagination-bullet-active]:!border-2 [&_.swiper-pagination-bullet-active]:!border-white"
       >
         {images.map((src, index) => (
           <SwiperSlide key={index}>
