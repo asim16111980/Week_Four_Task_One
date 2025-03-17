@@ -3,16 +3,19 @@ import FlashSaleTimer from "../components/FlashSaleTimer";
 import NavigationButtons from "../components/NavigationButtons";
 import SectionHeader from "../components/SectionHeader";
 import DiscCard from "../components/DiscCard";
+import Button from "../components/Button";
 import { MenusContext } from "../context/MenusProvider";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import productsData from "../data/mockData.json";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
+import Divider from "../components/Divider";
 
 const Home = () => {
   const { state, dispatch } = useContext(MenusContext);
+  const [sliderPosition, setSliderPosition] = useState("start");
   return (
     <div
       className="w-full h-screen"
@@ -20,14 +23,28 @@ const Home = () => {
     >
       <Carousel />
       <div className="flex flex-col gap-8 py-4">
-        <section>
+        <section className="flex flex-col items-center gap-3">
           <header className="flex flex-col items-center gap-3 px-2">
             <SectionHeader title="Today’s" subTitle="Flash Sales" />
             <FlashSaleTimer />
-            <NavigationButtons prevId="prevBtn" NextId="nextBtn" style="w-full justify-between"/>
+            <NavigationButtons
+              prevId="prevBtn"
+              NextId="nextBtn"
+              style="w-full justify-between"
+              sliderPosition={sliderPosition}
+            />
           </header>
           <div className="w-full max-w-3xl mx-auto">
-            <Swiper modules={[Navigation]} grabCursor={true} navigation={{prevEl:"#prevBtn",nextEl:"#nextBtn"}}>
+            <Swiper
+              modules={[Navigation]}
+              grabCursor={true}
+              navigation={{ prevEl: "#prevBtn", nextEl: "#nextBtn" }}
+              onSlideChange={(swiper) => {
+                setSliderPosition(
+                  (swiper.isBeginning && "start") || (swiper.isEnd && "end")
+                );
+              }}
+            >
               {productsData.map((product) => (
                 <SwiperSlide key={product.id}>
                   <DiscCard
@@ -44,7 +61,9 @@ const Home = () => {
               ))}
             </Swiper>
           </div>
+          <Button filled={true} value="View All Products" />
         </section>
+        <Divider thickness={0.5}/>
       </div>
     </div>
   );
