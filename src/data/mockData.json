@@ -1,82 +1,104 @@
 [
   {
-    "id": 0,
-    "discount": 40,
-    "img_src": "g92-2-500x500.png",
-    "name": "HAVIT HV-G92 Gamepad",
-    "net_price": 120,
-    "total_price": 160,
-    "rating": 5,
-    "rate_count": 88
+    "sectionName": "Flash Sales",
+    "sectionData": [
+      {
+        "id": 0,
+        "discount": 40,
+        "img_src": "g92-2-500x500.png",
+        "name": "HAVIT HV-G92 Gamepad",
+        "net_price": 120,
+        "total_price": 160,
+        "rating": 5,
+        "rate_count": 88
+      },
+      {
+        "id": 1,
+        "discount": 35,
+        "img_src": "ak-900-01-500x500.png",
+        "name": "AK-900 Wired Keyboard",
+        "net_price": 960,
+        "total_price": 1160,
+        "rating": 4,
+        "rate_count": 75
+      },
+      {
+        "id": 2,
+        "discount": 30,
+        "img_src": "g27cq4-500x500.png",
+        "name": "IPS LCD Gaming Monitor",
+        "net_price": 370,
+        "total_price": 400,
+        "rating": 5,
+        "rate_count": 99
+      },
+      {
+        "id": 3,
+        "discount": 25,
+        "img_src": "sam-moghadam-khamseh-kvmdsTrGOBM-unsplash.png",
+        "name": "S-Series Comfort Chair",
+        "net_price": 375,
+        "total_price": 400,
+        "rating": 4.5,
+        "rate_count": 99
+      },
+      {
+        "id": 4,
+        "discount": 40,
+        "img_src": "g92-2-500x500.png",
+        "name": "HAVIT HV-G92 Gamepad",
+        "net_price": 120,
+        "total_price": 160,
+        "rating": 5,
+        "rate_count": 88
+      },
+      {
+        "id": 5,
+        "discount": 35,
+        "img_src": "ak-900-01-500x500.png",
+        "name": "AK-900 Wired Keyboard",
+        "net_price": 960,
+        "total_price": 1160,
+        "rating": 4,
+        "rate_count": 75
+      },
+      {
+        "id": 6,
+        "discount": 30,
+        "img_src": "g27cq4-500x500.png",
+        "name": "IPS LCD Gaming Monitor",
+        "net_price": 370,
+        "total_price": 400,
+        "rating": 5,
+        "rate_count": 99
+      },
+      {
+        "id": 7,
+        "discount": 25,
+        "img_src": "sam-moghadam-khamseh-kvmdsTrGOBM-unsplash.png",
+        "name": "S-Series Comfort Chair",
+        "net_price": 375,
+        "total_price": 400,
+        "rating": 4.5,
+        "rate_count": 99
+      }
+    ]
   },
   {
-    "id": 1,
-    "discount": 35,
-    "img_src": "ak-900-01-500x500.png",
-    "name": "AK-900 Wired Keyboard",
-    "net_price": 960,
-    "total_price": 1160,
-    "rating": 4,
-    "rate_count": 75
-  },
-  {
-    "id": 2,
-    "discount": 30,
-    "img_src": "g27cq4-500x500.png",
-    "name": "IPS LCD Gaming Monitor",
-    "net_price": 370,
-    "total_price": 400,
-    "rating": 5,
-    "rate_count": 99
-  },
-  {
-    "id": 3,
-    "discount": 25,
-    "img_src": "sam-moghadam-khamseh-kvmdsTrGOBM-unsplash.png",
-    "name": "S-Series Comfort Chair",
-    "net_price": 375,
-    "total_price": 400,
-    "rating": 4.5,
-    "rate_count": 99
-  },
-  {
-    "id": 4,
-    "discount": 40,
-    "img_src": "g92-2-500x500.png",
-    "name": "HAVIT HV-G92 Gamepad",
-    "net_price": 120,
-    "total_price": 160,
-    "rating": 5,
-    "rate_count": 88
-  },
-  {
-    "id": 5,
-    "discount": 35,
-    "img_src": "ak-900-01-500x500.png",
-    "name": "AK-900 Wired Keyboard",
-    "net_price": 960,
-    "total_price": 1160,
-    "rating": 4,
-    "rate_count": 75
-  },
-  {
-    "id": 6,
-    "discount": 30,
-    "img_src": "g27cq4-500x500.png",
-    "name": "IPS LCD Gaming Monitor",
-    "net_price": 370,
-    "total_price": 400,
-    "rating": 5,
-    "rate_count": 99
-  },
-  {
-    "id": 7,
-    "discount": 25,
-    "img_src": "sam-moghadam-khamseh-kvmdsTrGOBM-unsplash.png",
-    "name": "S-Series Comfort Chair",
-    "net_price": 375,
-    "total_price": 400,
-    "rating": 4.5,
-    "rate_count": 99
+    "sectionName": "Category Phone",
+    "sectionData": [
+      { "id": 0, "name": "Phones", "img_src": "Category-CellPhone.svg" },
+      { "id": 1, "name": "Computers", "img_src": "Category-Computer.svg" },
+      { "id": 2, "name": "SmartWatch", "img_src": "Category-SmartWatch.svg" },
+      { "id": 3, "name": "Camera", "img_src": "Category-Camera.svg" },
+      { "id": 4, "name": "HeadPhones", "img_src": "Category-Headphone.svg" },
+      { "id": 5, "name": "Gaming", "img_src": "Category-Gamepad.svg" },
+      { "id": 6, "name": "Phones", "img_src": "Category-CellPhone.svg" },
+      { "id": 7, "name": "Computers", "img_src": "Category-Computer.svg" },
+      { "id": 8, "name": "SmartWatch", "img_src": "Category-SmartWatch.svg" },
+      { "id": 9, "name": "Camera", "img_src": "Category-Camera.svg" },
+      { "id": 10, "name": "HeadPhones", "img_src": "Category-Headphone.svg" },
+      { "id": 11, "name": "Gaming", "img_src": "Category-Gamepad.svg" }
+    ]
   }
 ]
