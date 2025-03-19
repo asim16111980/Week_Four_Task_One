@@ -1,9 +1,11 @@
 import Carousel from "../components/Carousel";
-import FlashSaleTimer from "../components/FlashSaleTimer";
+import Timer from "../components/Timer";
 import NavigationButtons from "../components/NavigationButtons";
-import SectionHeader from "../components/SectionHeader";
+import SectionTitle from "../components/SectionTitle";
 import DiscCard from "../components/DiscCard";
 import Button from "../components/Button";
+import Divider from "../components/Divider";
+import CategoryPhone from "../components/CategoryPhone";
 import { MenusContext } from "../context/MenusProvider";
 import { useContext, useState } from "react";
 import sectionsData from "../data/mockData.json";
@@ -11,8 +13,6 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
-import Divider from "../components/Divider";
-import CategoryPhone from "../components/CategoryPhone";
 
 const Home = () => {
   const { state, dispatch } = useContext(MenusContext);
@@ -32,8 +32,8 @@ const Home = () => {
       <div className="flex flex-col gap-8 py-4">
         <section className="flex flex-col items-center gap-3">
           <header className="flex flex-col items-center gap-3 px-2">
-            <SectionHeader title="Today’s" subTitle="Flash Sales" />
-            <FlashSaleTimer />
+            <SectionTitle title="Today’s" subTitle="Flash Sales" />
+            <Timer type="flat"  initialTimer={{ days: 4, hours: 0, minutes: 0, seconds: 0 }}/>
             <NavigationButtons
               prevId="flashPrevBtn"
               NextId="flashNextBtn"
@@ -52,28 +52,28 @@ const Home = () => {
                 );
               }}
             >
-              {getSectionData("Flash Sales").map((product) => (
-                <SwiperSlide key={product.id}>
+              {getSectionData("Flash Sales").map((item) => (
+                <SwiperSlide key={item.id}>
                   <DiscCard
-                    img={`../public/images/flash_sales/${product.img_src}`}
-                    alt={product.img_src}
-                    name={product.name}
-                    discount={product.discount}
-                    netPrice={product.net_price}
-                    totalPrice={product.total_price}
-                    rating={product.rating}
-                    rateCount={product.rate_count}
+                    img={`../public/images/flash_sales/${item.img_src}`}
+                    alt={item.img_src}
+                    name={item.name}
+                    discount={item.discount}
+                    netPrice={item.net_price}
+                    totalPrice={item.total_price}
+                    rating={item.rating}
+                    rateCount={item.rate_count}
                   />
                 </SwiperSlide>
               ))}
             </Swiper>
           </div>
-          <Button filled={true} value="View All Products" />
+          <Button value="View All Products" width="234" />
         </section>
         <Divider thickness={0.5} />
         <section className="flex flex-col items-center gap-3">
           <header className="flex flex-col items-center gap-3 px-2">
-            <SectionHeader title="Categories" subTitle="Browse By Category" />
+            <SectionTitle title="Categories" subTitle="Browse By Category" />
             <NavigationButtons
               prevId="catsPrevBtn"
               NextId="catsNextBtn"
@@ -92,12 +92,12 @@ const Home = () => {
                 );
               }}
             >
-              {getSectionData("Category Phone").map((phone) => (
-                <SwiperSlide key={phone.id}>
+              {getSectionData("Category Phone").map((item) => (
+                <SwiperSlide key={item.id}>
                   <CategoryPhone
-                    img={`../public/icons/category_phone/${phone.img_src}`}
-                    alt={phone.img_src}
-                    name={phone.name}
+                    img={`../public/icons/category_phone/${item.img_src}`}
+                    alt={item.img_src}
+                    name={item.name}
                   />
                 </SwiperSlide>
               ))}
@@ -105,6 +105,58 @@ const Home = () => {
           </div>
         </section>
         <Divider thickness={0.5} />
+        <section className="flex flex-col items-center gap-3">
+          <header className="flex flex-col items-center gap-3 px-2">
+            <SectionTitle title="This Month" subTitle="Best Selling Products" />
+            <Button  value="View All" width="159" />
+            <NavigationButtons
+              prevId="bestPrevBtn"
+              NextId="bestNextBtn"
+              style="w-full justify-between"
+              sliderPosition={sliderPosition}
+            />
+          </header>
+          <div className="w-full max-w-3xl mx-auto">
+            <Swiper
+              modules={[Navigation]}
+              grabCursor={true}
+              navigation={{ prevEl: "#bestPrevBtn", nextEl: "#bestNextBtn" }}
+              onSlideChange={(swiper) => {
+                setSliderPosition(
+                  (swiper.isBeginning && "start") || (swiper.isEnd && "end")
+                );
+              }}
+            >
+              {getSectionData("Best Selling").map((item) => (
+                <SwiperSlide key={item.id}>
+                  <DiscCard
+                    img={`../public/images/best_selling/${item.img_src}`}
+                    alt={item.img_src}
+                    name={item.name}
+                    discount={item.discount}
+                    netPrice={item.net_price}
+                    totalPrice={item.total_price}
+                    rating={item.rating}
+                    rateCount={item.rate_count}
+                  />
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          </div>
+        </section>
+        <section className="w-full bg-black">
+          <span className="font-['poppins'] text-base font-semibold text-[#00FF66]">
+            Categories
+          </span>
+          <h2 className="text-5xl font-semibold text-[#FAFAFA]">
+            Enhance Your Music Experience
+          </h2>
+          <Timer
+            type="rounded"
+            initialTimer={{ days: 6, hours: 0, minutes: 0, seconds: 0 }}
+          />
+          <Button isPrimary={false }  value="Buy Now!" width="171"/>
+        </section>
       </div>
     </div>
   );

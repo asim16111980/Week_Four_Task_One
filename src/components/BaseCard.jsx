@@ -2,7 +2,7 @@ import { faEye, faHeart } from "@fortawesome/free-regular-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import StarRating from "./StartRating";
 
-const BaseCard = ({ cardImg, altText, badge, badgeBgColor, cardTitle, netPrice, totalPrice = null, rating, rateCount, children }) => {
+const BaseCard = ({ cardImg, altText, badge, badgeBgColor, cardTitle, netPrice, totalPrice = null, rating, rateCount,ratingInline=false, children }) => {
     return (
         <div className="w-full flex flex-col gap-4 h-80 font-['poppins'] group">
             <div className="w-full h-56 bg-[#F5F5F5] rounded relative flex justify-center items-center">
@@ -20,7 +20,7 @@ const BaseCard = ({ cardImg, altText, badge, badgeBgColor, cardTitle, netPrice, 
             </div>
             <div className="flex flex-col items-start gap-2">
                 <h3 className="text-base font-medium">{cardTitle}</h3>
-                <div className={`flex gap-2 ${totalPrice ? "flex-col" : "flex-row"}`}>
+                <div className={`flex gap-2 ${ratingInline ? "flex-row" : "flex-col"}`}>
                     <div className="flex gap-2">
                         <span className="text-base font-medium text-[#DB4444]">${netPrice}</span>
                         {totalPrice && <span className="text-base font-medium text-[#727272] line-through">${totalPrice}</span>}

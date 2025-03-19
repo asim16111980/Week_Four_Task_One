@@ -100,5 +100,89 @@
       { "id": 10, "name": "HeadPhones", "img_src": "Category-Headphone.svg" },
       { "id": 11, "name": "Gaming", "img_src": "Category-Gamepad.svg" }
     ]
+  },{
+    "sectionName": "Best Selling",
+    "sectionData": [
+      {
+        "id": 0,
+        "discount": null,
+        "img_src": "672462_ZAH9D_5626_002_100_0000_Light-The-North-Face-x-Gucci-coat.png",
+        "name": "The north coat",
+        "net_price": 260,
+        "total_price": 360,
+        "rating": 5,
+        "rate_count": 65
+      },
+      {
+        "id": 1,
+        "discount": null,
+        "img_src": "547953_9C2ST_8746_001_082_0000_Light-Gucci-Savoy-medium-duffle-bag.png",
+        "name": "Gucci duffle bag",
+        "net_price": 960,
+        "total_price": 1160,
+        "rating": 4.5,
+        "rate_count": 65
+      },
+      {
+        "id": 2,
+        "discount": null,
+        "img_src": "gammaxx-l240-argb-1-500x500.png",
+        "name": "RGB liquid CPU Cooler",
+        "net_price": 160,
+        "total_price": 170,
+        "rating": 4.5,
+        "rate_count": 65
+      },
+      {
+        "id": 3,
+        "discount": null,
+        "img_src": "sam-moghadam-khamseh-L_7MQsHl_aU-unsplash.png",
+        "name": "Small BookSelf",
+        "net_price": 360,
+        "total_price": null,
+        "rating": 5,
+        "rate_count": 65
+      },
+      {
+        "id": 4,
+        "discount": null,
+        "img_src": "672462_ZAH9D_5626_002_100_0000_Light-The-North-Face-x-Gucci-coat.png",
+        "name": "The north coat",
+        "net_price": 260,
+        "total_price": 360,
+        "rating": 5,
+        "rate_count": 65
+      },
+      {
+        "id": 5,
+        "discount": null,
+        "img_src": "547953_9C2ST_8746_001_082_0000_Light-Gucci-Savoy-medium-duffle-bag.png",
+        "name": "Gucci duffle bag",
+        "net_price": 960,
+        "total_price": 1160,
+        "rating": 4.5,
+        "rate_count": 65
+      },
+      {
+        "id": 6,
+        "discount": null,
+        "img_src": "gammaxx-l240-argb-1-500x500.png",
+        "name": "RGB liquid CPU Cooler",
+        "net_price": 160,
+        "total_price": 170,
+        "rating": 4.5,
+        "rate_count": 65
+      },
+      {
+        "id": 7,
+        "discount": null,
+        "img_src": "sam-moghadam-khamseh-L_7MQsHl_aU-unsplash.png",
+        "name": "Small BookSelf",
+        "net_price": 360,
+        "total_price": null,
+        "rating": 5,
+        "rate_count": 65
+      }
+    ]
   }
 ]
