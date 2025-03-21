@@ -7,7 +7,7 @@ const BaseCard = ({ cardImg, altText, badge, badgeBgColor, cardTitle, netPrice, 
         <div className="w-full flex flex-col gap-4 font-['poppins'] group">
             <div className="w-full h-[250px] bg-[#F5F5F5] rounded relative flex justify-center pt-6">
                 <div className="size-44 flex items-center justify-center">
-                <img src={cardImg} alt={altText} />
+                <img src={cardImg} alt={altText} loading="lazy"/>
                 </div> 
                 <div className="absolute inset-0 w-full h-full bg-transparent flex flex-col justify-between">
                     <div className="flex justify-between items-start p-3">

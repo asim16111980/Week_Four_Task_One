@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { SendHorizontal, Copyright } from "lucide-react";
+import Icon from "../components/Icon";
 
 const Footer = () => {
   const [email, setEmail] = useState("");
@@ -12,92 +14,159 @@ const Footer = () => {
   };
 
   return (
-    <footer className="flex flex-col items-center bg-black text[#FAFAFA] py-4 px-2 sm:px-4">
-      <div className="mx-auto grid grid-cols-[repeat(auto-fill,minmax(250px,1fr))] gap-6 sm:grid-cols-2 sm:gap-10">
-        <div className="flex flex-col gap-4">
-      <h2 className="text-xl font-bold">Exclusive</h2>
-      <h3 className="text-lg font-medium">Subscribe</h3>
-      <p className="text-sm">Get 10% off your first order</p>
-      {submitted ? (
-        <p className="text-green-400 mt-4">Thank you for subscribing!</p>
-      ) : (
-        <form onSubmit={handleSubmit} className="flex items-center border-2 border-[#FAFAFA] rounded overflow-hidden">
-          <input
-            type="email"
-            placeholder="Enter your email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            className="flex-1 p-2 bg-black text-white focus:outline-none"
-          />
-          <button type="submit" className="p-2 bg-white text-black hover:bg-gray-300 transition">
-            ➤
-          </button>
-        </form>
-      )}
-    </div>
-        <div>
+    <footer className="flex flex-col items-center gap-6 bg-black text-[#FAFAFA] py-4 px-2 sm:px-4">
+      <div className="mx-auto grid grid-cols-[repeat(auto-fill,minmax(250px,1fr))] gap-4 sm:grid-cols-2 sm:gap-10">
+        <div className="flex flex-col gap-2">
           <h3 className="text-xl font-bold">Exclusive</h3>
-          <p className="mt-2 text-lg font-medium">Subscribe</p>
-          <p className="mt-2 text-lg font-medium">Get 10% off your first order</p>
-          <div className="mt-3 flex items-center border border-gray-500 rounded-lg overflow-hidden">
-            <input
-              type="email"
-              placeholder="Enter your email"
-              className="flex-1 px-3 py-2 bg-transparent outline-none text-white placeholder-gray-400"
-            />
-            <button className="px-4 py-2 bg-green-500 hover:bg-green-600">&rarr;</button>
-          </div>
+          <p className="font-['poppins'] text-lg font-medium">Subscribe</p>
+          <p className="font-['poppins'] text-sm">
+            Get 10% off your first order
+          </p>
+          {submitted ? (
+            <p className="text-green-400 mt-4">Thank you for subscribing!</p>
+          ) : (
+            <form
+              onSubmit={handleSubmit}
+              className="font-['poppins'] flex items-center ps-4 py-3 pe-3 gap-4 border-2 border-[#FAFAFA] rounded overflow-hidden"
+            >
+              <input
+                type="email"
+                placeholder="Enter your email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                className="w-11/12 bg-black text-white focus:outline-none"
+              />
+              <button
+                type="submit"
+                className="size-6 hover:text-gray-300 transition"
+              >
+                <SendHorizontal strokeWidth={1.5} />
+              </button>
+            </form>
+          )}
         </div>
-
-        {/* Support Section */}
-        <div>
-          <h3 className="text-lg font-bold">Support</h3>
-          <p className="text-sm mt-2">111 Bijoy Sarani, Dhaka, Bangladesh</p>
+        <div className="flex flex-col gap-2 font-['poppins']">
+          <h3 className="text-lg font-medium">Support</h3>
+          <p className="text-sm">
+            111 Bijoy sarani, Dhaka, DH 1515, Bangladesh.
+          </p>
           <p className="text-sm">exclusive@gmail.com</p>
           <p className="text-sm">+88015-88888-9999</p>
         </div>
-
-        {/* Account Section */}
-        <div>
-          <h3 className="text-lg font-bold">Account</h3>
-          <ul className="text-sm mt-2 space-y-1">
-            <li>My Account</li>
-            <li>Login / Register</li>
-            <li>Cart</li>
-            <li>Wishlist</li>
-            <li>Shop</li>
+        <div className="flex flex-col gap-2 font-['poppins']">
+          <h3 className="text-lg font-medium">Account</h3>
+          <ul className=" flex flex-col gap-4 text-sm">
+            <li>
+              <a href="/myaccount"> My Account</a>
+            </li>
+            <li>
+              <a href="/login"> Login / Register</a>
+            </li>
+            <li>
+              <a href="/cart"> Cart</a>
+            </li>
+            <li>
+              <a href="/wishlist"> Wishlist</a>
+            </li>
+            <li>
+              <a href="/shop"> Shop</a>
+            </li>
           </ul>
         </div>
-
-        {/* Quick Links */}
-        <div>
-          <h3 className="text-lg font-bold">Quick Link</h3>
-          <ul className="text-sm mt-2 space-y-1">
-            <li>Privacy Policy</li>
-            <li>Terms of Use</li>
-            <li>FAQ</li>
-            <li>Contact</li>
+        <div className="flex flex-col gap-2 font-['poppins']">
+          <h3 className="text-lg font-medium">Quick Link</h3>
+          <ul className=" flex flex-col gap-4 text-sm">
+            <li>
+              <a href="/">Privacy Policy</a>
+            </li>
+            <li>
+              <a href="/">Terms of Use</a>
+            </li>
+            <li>
+              <a href="/">FAQ</a>
+            </li>
+            <li>
+              <a href="/">Contact</a>
+            </li>
           </ul>
         </div>
-
-        {/* Social & Download Section */}
-        <div>
-          <h3 className="text-lg font-bold">Download App</h3>
-          <p className="text-sm mt-2">Save $3 with App New User Only</p>
-          <div className="flex space-x-2 mt-3">
-            <div className="bg-gray-700 p-2 rounded-lg">QR</div>
-            <div className="space-y-2">
-              <button className="bg-white text-black px-3 py-1 rounded">Google Play</button>
-              <button className="bg-white text-black px-3 py-1 rounded">App Store</button>
+        <div className="flex flex-col gap-2 font-['poppins']">
+          <h3 className="text-lg font-medium">Download App</h3>
+          <div className="flex flex-col gap-2">
+            <p className="text-xs font-medium text-opacity-70">
+              Save $3 with App New User Only
+            </p>
+            <div className="flex gap-2">
+              <div className="size-20 border-2 border-white">
+                <img src="/public/images/footer/Qrcode.png" alt="Qr Code" />
+              </div>
+              <div className="flex flex-col justify-between">
+                <a
+                  href="https://play.google.com/store"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-black border border-white rounded"
+                >
+                  <img
+                    src="/public/images/footer/png-transparent-google-play-store-logo-google-play-app-store-android-wallets-text-label-logo.png"
+                    alt="Google Play"
+                  />
+                </a>
+                <a
+                  href="https://www.apple.com/app-store/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-black border border-white rounded"
+                >
+                  <img
+                    src="/public/images/footer/download-appstore.png"
+                    alt="App Store"
+                  />
+                </a>
+              </div>
             </div>
           </div>
-          <div className="flex space-x-3 mt-4 text-lg">
-            {/* <FaFacebookF className="hover:text-gray-400 cursor-pointer" />
-            <FaTwitter className="hover:text-gray-400 cursor-pointer" />
-            <FaInstagram className="hover:text-gray-400 cursor-pointer" />
-            <FaLinkedinIn className="hover:text-gray-400 cursor-pointer" /> */}
+          <div className="flex text-lg gap-6 text-white">
+            <a href="#" target="_blank" rel="noopener noreferrer">
+              <Icon
+                icon="/public/icons/social_media/Icon-Facebook.png"
+                alt="Facebook"
+                width={24}
+                height={24}
+              />
+            </a>
+            <a href="#" target="_blank" rel="noopener noreferrer">
+              <Icon
+                icon="/public/icons/social_media/Icon-Twitter.png"
+                alt="Twitter"
+                width={24}
+                height={24}
+              />
+            </a>
+            <a href="#" target="_blank" rel="noopener noreferrer">
+              <Icon
+                icon="/public/icons/social_media/icon-instagram.png"
+                alt="instagram"
+                width={24}
+                height={24}
+              />
+            </a>
+            <a href="#" target="_blank" rel="noopener noreferrer">
+              <Icon
+                icon="/public/icons/social_media/Icon-Linkedin.png"
+                alt="Linkedin"
+                width={24}
+                height={24}
+              />
+            </a>
           </div>
         </div>
+      </div>
+      <div className="w-full flex justify-center items-end font-['poppins'] text-xs text-white text-opacity-60">
+        <p className="flex items-center gap-1">
+          <Copyright size={20} strokeWidth={1.5} /> Copyright Rimel 2022. All
+          right reserved
+        </p>
       </div>
     </footer>
   );

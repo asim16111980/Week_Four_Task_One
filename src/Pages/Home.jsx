@@ -41,6 +41,7 @@ const Home = () => {
     >
       <Carousel images={images} />
       <div className="flex flex-col gap-12 py-4">
+           {/* Flash Sales Section */}
         <section className="flex flex-col items-center gap-8">
           <header className="flex flex-col items-center gap-2 px-2">
             <SectionTitle title="Today’s" subTitle="Flash Sales" />
@@ -85,6 +86,7 @@ const Home = () => {
           <Button value="View All Products" width="234" />
         </section>
         <Divider thickness={0.5} />
+          {/* Category Phone Section */}
         <section className="flex flex-col items-center gap-8">
           <header className="flex flex-col items-center gap-2 px-2">
             <SectionTitle title="Categories" subTitle="Browse By Category" />
@@ -119,6 +121,7 @@ const Home = () => {
           </div>
         </section>
         <Divider thickness={0.5} />
+         {/* Best Selling Section */}
         <section className="flex flex-col items-center gap-8">
           <header className="flex flex-col items-center gap-2 px-2">
             <SectionTitle title="This Month" subTitle="Best Selling Products" />
@@ -143,6 +146,7 @@ const Home = () => {
             </Swiper>
           </div>
         </section>
+         {/*  Enhance Music Section */}
         <section className="w-full flex flex-col bg-black px-3 py-6">
           <div className="flex flex-col items-center gap-6">
             <span className="font-['poppins'] text-base font-semibold text-[#00FF66]">
@@ -166,6 +170,7 @@ const Home = () => {
             />
           </div>
         </section>
+         {/* Our Products Section */}
         <section className="flex flex-col items-center gap-8">
           <header className="flex flex-col items-center gap-2 px-2">
             <SectionTitle
@@ -244,6 +249,7 @@ const Home = () => {
           </div>
           <Button value="View All Products" width="234" />
         </section>
+         {/* New Arrival Section */}
         <section className="flex flex-col items-center gap-8">
           <header className="flex flex-col items-center gap-2 px-2">
             <SectionTitle title="Featured" subTitle="New Arrival" />
@@ -260,6 +266,7 @@ const Home = () => {
             ))}
           </div>
         </section>
+         {/* Services Section */}
         <section className="flex flex-col items-center gap-12">
         {getSectionData("Services").map((item) => (
               <ServiceCard

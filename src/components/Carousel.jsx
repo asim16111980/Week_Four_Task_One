@@ -6,7 +6,7 @@ import { Pagination, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 
-const Carousel = ({images=[]}) => {
+const Carousel = ({ images = [] }) => {
   return (
     <div className="w-full max-w-3xl mx-auto">
       <Swiper
@@ -46,6 +46,7 @@ const Carousel = ({images=[]}) => {
                 <img
                   src={src}
                   alt={`Slide ${index + 1}`}
+                  loading="lazy"
                   className="w-full h-64 object-cover"
                 />
               </div>
