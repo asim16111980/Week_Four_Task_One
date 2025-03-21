@@ -6,6 +6,9 @@ import DiscCard from "../components/DiscCard";
 import Button from "../components/Button";
 import Divider from "../components/Divider";
 import CategoryPhone from "../components/CategoryPhone";
+import FlatCard from "../components/FlatCard";
+import BlackCard from "../components/BlackCard";
+import ServiceCard from "../components/ServiceCard";
 import { MenusContext } from "../context/MenusProvider";
 import { useContext, useState } from "react";
 import sectionsData from "../data/mockData.json";
@@ -14,6 +17,14 @@ import { Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 
+const images = [
+  "/public/images/carousel/carousel_slide_1.png",
+  "/public/images/carousel/carousel_slide_1.png",
+  "/public/images/carousel/carousel_slide_1.png",
+  "/public/images/carousel/carousel_slide_1.png",
+  "/public/images/carousel/carousel_slide_1.png",
+];
+
 const Home = () => {
   const { state, dispatch } = useContext(MenusContext);
   const [sliderPosition, setSliderPosition] = useState("start");
@@ -21,19 +32,22 @@ const Home = () => {
     const section = sectionsData.find(
       (data) => data.sectionName === sectionName
     );
-    return section ? section.sectionData : []; // بدلاً من null، نرجّع []
+    return section ? section.sectionData : [];
   };
   return (
     <div
-      className="w-full h-screen"
+      className="w-full"
       onClick={() => dispatch({ currentMenu: null })}
     >
-      <Carousel />
-      <div className="flex flex-col gap-8 py-4">
-        <section className="flex flex-col items-center gap-3">
-          <header className="flex flex-col items-center gap-3 px-2">
+      <Carousel images={images} />
+      <div className="flex flex-col gap-12 py-4">
+        <section className="flex flex-col items-center gap-8">
+          <header className="flex flex-col items-center gap-2 px-2">
             <SectionTitle title="Today’s" subTitle="Flash Sales" />
-            <Timer type="flat"  initialTimer={{ days: 4, hours: 0, minutes: 0, seconds: 0 }}/>
+            <Timer
+              type="flat"
+              initialTimer={{ days: 4, hours: 0, minutes: 0, seconds: 0 }}
+            />
             <NavigationButtons
               prevId="flashPrevBtn"
               NextId="flashNextBtn"
@@ -55,7 +69,7 @@ const Home = () => {
               {getSectionData("Flash Sales").map((item) => (
                 <SwiperSlide key={item.id}>
                   <DiscCard
-                    img={`../public/images/flash_sales/${item.img_src}`}
+                    img={`/public/images/flash_sales/${item.img_src}`}
                     alt={item.img_src}
                     name={item.name}
                     discount={item.discount}
@@ -71,8 +85,8 @@ const Home = () => {
           <Button value="View All Products" width="234" />
         </section>
         <Divider thickness={0.5} />
-        <section className="flex flex-col items-center gap-3">
-          <header className="flex flex-col items-center gap-3 px-2">
+        <section className="flex flex-col items-center gap-8">
+          <header className="flex flex-col items-center gap-2 px-2">
             <SectionTitle title="Categories" subTitle="Browse By Category" />
             <NavigationButtons
               prevId="catsPrevBtn"
@@ -95,7 +109,7 @@ const Home = () => {
               {getSectionData("Category Phone").map((item) => (
                 <SwiperSlide key={item.id}>
                   <CategoryPhone
-                    img={`../public/icons/category_phone/${item.img_src}`}
+                    img={`/public/icons/category_phone/${item.img_src}`}
                     alt={item.img_src}
                     name={item.name}
                   />
@@ -105,32 +119,17 @@ const Home = () => {
           </div>
         </section>
         <Divider thickness={0.5} />
-        <section className="flex flex-col items-center gap-3">
-          <header className="flex flex-col items-center gap-3 px-2">
+        <section className="flex flex-col items-center gap-8">
+          <header className="flex flex-col items-center gap-2 px-2">
             <SectionTitle title="This Month" subTitle="Best Selling Products" />
-            <Button  value="View All" width="159" />
-            <NavigationButtons
-              prevId="bestPrevBtn"
-              NextId="bestNextBtn"
-              style="w-full justify-between"
-              sliderPosition={sliderPosition}
-            />
+            <Button value="View All" width="159" />
           </header>
           <div className="w-full max-w-3xl mx-auto">
-            <Swiper
-              modules={[Navigation]}
-              grabCursor={true}
-              navigation={{ prevEl: "#bestPrevBtn", nextEl: "#bestNextBtn" }}
-              onSlideChange={(swiper) => {
-                setSliderPosition(
-                  (swiper.isBeginning && "start") || (swiper.isEnd && "end")
-                );
-              }}
-            >
+            <Swiper modules={[Navigation]} grabCursor={true}>
               {getSectionData("Best Selling").map((item) => (
                 <SwiperSlide key={item.id}>
                   <DiscCard
-                    img={`../public/images/best_selling/${item.img_src}`}
+                    img={`/public/images/best_selling/${item.img_src}`}
                     alt={item.img_src}
                     name={item.name}
                     discount={item.discount}
@@ -144,18 +143,133 @@ const Home = () => {
             </Swiper>
           </div>
         </section>
-        <section className="w-full bg-black">
-          <span className="font-['poppins'] text-base font-semibold text-[#00FF66]">
-            Categories
-          </span>
-          <h2 className="text-5xl font-semibold text-[#FAFAFA]">
-            Enhance Your Music Experience
-          </h2>
-          <Timer
-            type="rounded"
-            initialTimer={{ days: 6, hours: 0, minutes: 0, seconds: 0 }}
-          />
-          <Button isPrimary={false }  value="Buy Now!" width="171"/>
+        <section className="w-full flex flex-col bg-black px-3 py-6">
+          <div className="flex flex-col items-center gap-6">
+            <span className="font-['poppins'] text-base font-semibold text-[#00FF66]">
+              Categories
+            </span>
+            <h2 className="text-4xl font-semibold text-center text-[#FAFAFA]">
+              Enhance Your Music Experience
+            </h2>
+            <Timer
+              type="rounded"
+              initialTimer={{ days: 6, hours: 0, minutes: 0, seconds: 0 }}
+            />
+            <Button isPrimary={false} value="Buy Now!" width="171" />
+          </div>
+          <div className="relative flex items-center justify-center bg-black">
+            <div className="w-full aspect-square rounded-full bg-[#D9D9D9] bg-opacity-30 filter blur-[70px]"></div>
+            <img
+              src="/public/images/JBL_BOOMBOX_2_HERO_020_x1.png"
+              alt="Enhance Image"
+              className="w-10/12 absolute"
+            />
+          </div>
+        </section>
+        <section className="flex flex-col items-center gap-8">
+          <header className="flex flex-col items-center gap-2 px-2">
+            <SectionTitle
+              title="Our Products"
+              subTitle="Explore Our Products"
+            />
+            <NavigationButtons
+              prevId="productPrevBtn"
+              NextId="productNextBtn"
+              style="w-full justify-between"
+              sliderPosition={sliderPosition}
+            />
+          </header>
+          <div className="max-w-full flex flex-col items-center gap-14">
+            <div className="w-full max-w-3xl mx-auto">
+              <Swiper
+                modules={[Navigation]}
+                grabCursor={true}
+                navigation={{
+                  prevEl: "#productPrevBtn",
+                  nextEl: "#productNextBtn",
+                }}
+                onSlideChange={(swiper) => {
+                  setSliderPosition(
+                    (swiper.isBeginning && "start") || (swiper.isEnd && "end")
+                  );
+                }}
+              >
+                {getSectionData("Our Products 1").map((item) => (
+                  <SwiperSlide key={item.id}>
+                    <DiscCard
+                      img={`/public/images/our_products/${item.img_src}`}
+                      alt={item.img_src}
+                      name={item.name}
+                      discount={item.discount}
+                      netPrice={item.net_price}
+                      totalPrice={item.total_price}
+                      rating={item.rating}
+                      rateCount={item.rate_count}
+                    />
+                  </SwiperSlide>
+                ))}
+              </Swiper>
+            </div>
+            <div className="w-full max-w-3xl mx-auto">
+              <Swiper
+                modules={[Navigation]}
+                grabCursor={true}
+                navigation={{
+                  prevEl: "#productPrevBtn",
+                  nextEl: "#productNextBtn",
+                }}
+                onSlideChange={(swiper) => {
+                  setSliderPosition(
+                    (swiper.isBeginning && "start") || (swiper.isEnd && "end")
+                  );
+                }}
+              >
+                {getSectionData("Our Products 2").map((item) => (
+                  <SwiperSlide key={item.id}>
+                    <FlatCard
+                      id={item.id}
+                      img={`/public/images/our_products/${item.img_src}`}
+                      alt={item.img_src}
+                      isNew={item.isNew}
+                      name={item.name}
+                      netPrice={item.net_price}
+                      rating={item.rating}
+                      rateCount={item.rate_count}
+                      productColorOptions={item.colors}
+                    />
+                  </SwiperSlide>
+                ))}
+              </Swiper>
+            </div>
+          </div>
+          <Button value="View All Products" width="234" />
+        </section>
+        <section className="flex flex-col items-center gap-8">
+          <header className="flex flex-col items-center gap-2 px-2">
+            <SectionTitle title="Featured" subTitle="New Arrival" />
+          </header>
+          <div className="flex flex-col items-center gap-2">
+            {getSectionData("New Arrival").map((item) => (
+              <BlackCard
+                key={item.id}
+                title={item.title}
+                desc={item.desc}
+                img={`/public/images/new_arrival/${item.img_src}`}
+                alt={item.img_src}
+              />
+            ))}
+          </div>
+        </section>
+        <section className="flex flex-col items-center gap-12">
+        {getSectionData("Services").map((item) => (
+              <ServiceCard
+                key={item.id}
+                title={item.title}
+                desc={item.desc}
+                img={`/public/icons/services/${item.img_src}`}
+                alt={item.img_src}
+              />
+            ))}
         </section>
       </div>
     </div>

@@ -1,23 +1,24 @@
-import './App.css';
-import Header from './components/Header';
-import TopHeader from './components/TopHeader';
-import Home from './Pages/Home';
-import { SearchBoxProvider } from './context/SearchBoxProvider';
-import { MenusProvider } from './context/MenusProvider';
+import "./App.css";
+import Header from "./components/Header";
+import TopHeader from "./components/TopHeader";
+import Home from "./Pages/Home";
+import { SearchBoxProvider } from "./context/SearchBoxProvider";
+import { MenusProvider } from "./context/MenusProvider";
+import Footer from "./components/Footer";
 
 function App() {
-
   return (
     <>
       <SearchBoxProvider>
         <MenusProvider>
-            <TopHeader />
-            <Header />
-            <Home/>
+          <TopHeader />
+          <Header />
+          <Home />
+          <Footer />
         </MenusProvider>
       </SearchBoxProvider>
     </>
-  )
+  );
 }
 
-export default App
+export default App;

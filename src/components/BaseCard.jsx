@@ -4,9 +4,11 @@ import StarRating from "./StartRating";
 
 const BaseCard = ({ cardImg, altText, badge, badgeBgColor, cardTitle, netPrice, totalPrice = null, rating, rateCount,ratingInline=false, children }) => {
     return (
-        <div className="w-full flex flex-col gap-4 h-80 font-['poppins'] group">
-            <div className="w-full h-56 bg-[#F5F5F5] rounded relative flex justify-center items-center">
+        <div className="w-full flex flex-col gap-4 font-['poppins'] group">
+            <div className="w-full h-[250px] bg-[#F5F5F5] rounded relative flex justify-center pt-6">
+                <div className="size-44 flex items-center justify-center">
                 <img src={cardImg} alt={altText} />
+                </div> 
                 <div className="absolute inset-0 w-full h-full bg-transparent flex flex-col justify-between">
                     <div className="flex justify-between items-start p-3">
                         {badge && <span className={`${badgeBgColor} text-[#FAFAFA] text-xs px-3 py-1 rounded`}>{badge}</span>}
@@ -30,7 +32,7 @@ const BaseCard = ({ cardImg, altText, badge, badgeBgColor, cardTitle, netPrice, 
                         <span className="text-sm font-semibold text-[#727272]">({rateCount})</span>
                     </div>
                 </div>
-                <div>
+                <div className="flex items-center gap-1">
                     {children}
                 </div>
             </div>

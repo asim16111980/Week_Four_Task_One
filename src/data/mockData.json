@@ -100,7 +100,8 @@
       { "id": 10, "name": "HeadPhones", "img_src": "Category-Headphone.svg" },
       { "id": 11, "name": "Gaming", "img_src": "Category-Gamepad.svg" }
     ]
-  },{
+  },
+  {
     "sectionName": "Best Selling",
     "sectionData": [
       {
@@ -182,6 +183,236 @@
         "total_price": null,
         "rating": 5,
         "rate_count": 65
+      }
+    ]
+  },
+  {
+    "sectionName": "Our Products 1",
+    "sectionData": [
+      {
+        "id": 0,
+        "discount": null,
+        "img_src": "71RdoeXxtrL.png",
+        "name": "Breed Dry Dog Food",
+        "net_price": 120,
+        "total_price": null,
+        "rating": 3,
+        "rate_count": 35
+      },
+      {
+        "id": 1,
+        "discount": null,
+        "img_src": "eos-250d-03-500x500.png",
+        "name": "CANON EOS DSLR Camera",
+        "net_price": 360,
+        "total_price": null,
+        "rating": 4,
+        "rate_count": 95
+      },
+      {
+        "id": 2,
+        "discount": null,
+        "img_src": "ideapad-gaming-3i-01-500x500.png",
+        "name": "ASUS FHD Gaming Laptop",
+        "net_price": 700,
+        "total_price": null,
+        "rating": 5,
+        "rate_count": 325
+      },
+      {
+        "id": 3,
+        "discount": null,
+        "img_src": "curology-j7pKVQrTUsM-unsplash.png",
+        "name": "Curology Product Set",
+        "net_price": 500,
+        "total_price": null,
+        "rating": 4,
+        "rate_count": 145
+      },
+      {
+        "id": 4,
+        "discount": null,
+        "img_src": "71RdoeXxtrL.png",
+        "name": "Breed Dry Dog Food",
+        "net_price": 120,
+        "total_price": null,
+        "rating": 3,
+        "rate_count": 35
+      },
+      {
+        "id": 5,
+        "discount": null,
+        "img_src": "eos-250d-03-500x500.png",
+        "name": "CANON EOS DSLR Camera",
+        "net_price": 360,
+        "total_price": null,
+        "rating": 4,
+        "rate_count": 95
+      },
+      {
+        "id": 6,
+        "discount": null,
+        "img_src": "ideapad-gaming-3i-01-500x500.png",
+        "name": "ASUS FHD Gaming Laptop",
+        "net_price": 700,
+        "total_price": null,
+        "rating": 5,
+        "rate_count": 325
+      },
+      {
+        "id": 7,
+        "discount": null,
+        "img_src": "curology-j7pKVQrTUsM-unsplash.png",
+        "name": "Curology Product Set",
+        "net_price": 500,
+        "total_price": null,
+        "rating": 4,
+        "rate_count": 145
+      }
+    ]
+  },
+  {
+    "sectionName": "Our Products 2",
+    "sectionData": [
+      {
+        "id": 0,
+        "img_src": "New-Mercedes-Benz-Gtr-Licensed-Ride-on-Car-Kids-Electric-Toy-Car.png",
+        "isNew": true,
+        "name": "Kids Electric Car",
+        "net_price": 960,
+        "total_price": null,
+        "rating": 5,
+        "rate_count": 65,
+        "colors": ["#FB1314", "#DB4444"]
+      },
+      {
+        "id": 1,
+        "img_src": "Copa_Sense.png",
+        "isNew": false,
+        "name": "Jr. Zoom Soccer Cleats",
+        "net_price": 1160,
+        "total_price": null,
+        "rating": 5,
+        "rate_count": 35,
+        "colors": ["#EEFF61", "#DB4444"]
+      },
+      {
+        "id": 2,
+        "img_src": "GP11_PRD3.png",
+        "isNew": true,
+        "name": "GP11 Shooter USB Gamepad",
+        "net_price": 660,
+        "total_price": null,
+        "rating": 4.5,
+        "rate_count": 55,
+        "colors": ["#000000", "#DB4444"]
+      },
+      {
+        "id": 3,
+        "img_src": "698717_Z8A1X_3475_001_100_0000_Light-Reversible-quilted-satin-jacket.png",
+        "isNew": false,
+        "name": "Quilted Satin Jacket",
+        "net_price": 660,
+        "total_price": null,
+        "rating": 4.5,
+        "rate_count": 55,
+        "colors": ["#184A48", "#DB4444"]
+      },
+      {
+        "id": 4,
+        "img_src": "New-Mercedes-Benz-Gtr-Licensed-Ride-on-Car-Kids-Electric-Toy-Car.png",
+        "isNew": true,
+        "name": "Kids Electric Car",
+        "net_price": 960,
+        "total_price": null,
+        "rating": 5,
+        "rate_count": 65,
+        "colors": ["#FB1314", "#DB4444"]
+      },
+      {
+        "id": 5,
+        "img_src": "Copa_Sense.png",
+        "isNew": false,
+        "name": "Jr. Zoom Soccer Cleats",
+        "net_price": 1160,
+        "total_price": null,
+        "rating": 5,
+        "rate_count": 35,
+        "colors": ["#EEFF61", "#DB4444"]
+      },
+      {
+        "id": 6,
+        "img_src": "GP11_PRD3.png",
+        "name": "GP11 Shooter USB Gamepad",
+        "isNew": true,
+        "net_price": 660,
+        "total_price": null,
+        "rating": 4.5,
+        "rate_count": 55,
+        "colors": ["#000000", "#DB4444"]
+      },
+      {
+        "id": 7,
+        "img_src": "698717_Z8A1X_3475_001_100_0000_Light-Reversible-quilted-satin-jacket.png",
+        "isNew": false,
+        "name": "Quilted Satin Jacket",
+        "net_price": 660,
+        "total_price": null,
+        "rating": 4.5,
+        "rate_count": 55,
+        "colors": ["#184A48", "#DB4444"]
+      }
+    ]
+  },
+  {
+    "sectionName": "New Arrival",
+    "sectionData": [
+      {
+        "id": 0,
+        "img_src": "ps5-slim-goedkope-playstation_large.png",
+        "title": "PlayStation 5",
+        "desc": "Black and White version of the PS5 coming out on sale."
+      },
+      {
+        "id": 1,
+        "img_src": "attractive-woman-wearing-hat-posing-black-background.png",
+        "title": "Women’s Collections",
+        "desc": "Featured woman collections that give you another vibe."
+      },
+      {
+        "id": 2,
+        "img_src": "69-694768_amazon-echo-png-clipart-transparent-amazon-echo-png.png",
+        "title": "Speakers",
+        "desc": "Amazon wireless speakers"
+      },
+      {
+        "id": 3,
+        "img_src": "652e82cd70aa6522dd785109a455904c.png",
+        "title": "Perfume",
+        "desc": "GUCCI INTENSE OUD EDP"
+      }
+    ]
+  },
+  {
+    "sectionName": "Services",
+    "sectionData": [
+      {
+        "id": 0,
+        "img_src": "icon-delivery.svg",
+        "title": "FREE AND FAST DELIVERY",
+        "desc": "Free delivery for all orders over $140"
+      },
+      {
+        "id": 1,
+        "img_src": "Icon-Customer service.svg",
+        "title": "24/7 CUSTOMER SERVICE",
+        "desc": "Friendly 24/7 customer support"
+      },
+      {
+        "id": 2,
+        "img_src": "Icon-secure.svg",
+        "title": "MONEY BACK GUARANTEE",
+        "desc": "We reurn money within 30 days"
       }
     ]
   }

@@ -6,22 +6,19 @@ import { Pagination, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 
-const images = [
-  "../public/images/carousel/carousel_slide_1.png",
-  "../public/images/carousel/carousel_slide_1.png",
-  "../public/images/carousel/carousel_slide_1.png",
-  "../public/images/carousel/carousel_slide_1.png",
-  "../public/images/carousel/carousel_slide_1.png",
-];
-
-export default function ImageCarousel() {
+const Carousel = ({images=[]}) => {
   return (
     <div className="w-full max-w-3xl mx-auto">
       <Swiper
         modules={[Pagination, Autoplay]}
         loop={true}
         autoplay={{ delay: 2000, disableOnInteraction: false }}
-        pagination={{ clickable: true, horizontalClass: "pagination", bulletClass: "bullet", bulletActiveClass: "bullet-active" }}
+        pagination={{
+          clickable: true,
+          horizontalClass: "pagination",
+          bulletClass: "bullet",
+          bulletActiveClass: "bullet-active",
+        }}
         grabCursor={true}
         speed={800}
       >
@@ -46,7 +43,11 @@ export default function ImageCarousel() {
                 </div>
               </div>
               <div className="h-1/2">
-                <img src={src} alt={`Slide ${index + 1}`} className="w-full h-64 object-cover" />
+                <img
+                  src={src}
+                  alt={`Slide ${index + 1}`}
+                  className="w-full h-64 object-cover"
+                />
               </div>
             </div>
           </SwiperSlide>
@@ -54,4 +55,6 @@ export default function ImageCarousel() {
       </Swiper>
     </div>
   );
-}
+};
+
+export default Carousel;

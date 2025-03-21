@@ -1,47 +1,48 @@
 import BaseCard from "./BaseCard";
 import ProductColorOption from "./ProductColorOption";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
-const FlatCard = ({ img, alt, title, netPrice, totalPrice, rating, rateCount, productColorOptions=[] }) => {
-    const badgeText = "New";
-    const [colorOptions, setColorOptions] = useState(productColorOptions);
+const FlatCard = ({
+  id,
+  img,
+  alt,
+  isNew,
+  name,
+  netPrice,
+  rating,
+  rateCount,
+  productColorOptions = [],
+}) => {
+  const badgeText = isNew && "New";
+  const [productCurrentColor, setProductCurrentColor] = useState(productColorOptions[0]);
+  const handleChangeProductColor = (e) => {
+    setProductCurrentColor(e.target.value);
+  };
 
-    // useEffect(() => {
-    //     setColorOptions(productColorOptions || []);
-    // }, [productColorOptions]);
-
-    const handleProductColorOption = (e) => {
-        setColorOptions((prevOptions) =>
-            prevOptions.map((option) => ({
-                ...option,
-                state: e.target.id === option.id ? true : false
-            }))
-        );
-    };
-    
-    return (
-        <BaseCard
-            cardImg={img}
-            altText={alt}
-            badge={badgeText}
-            badgeBgColor="bg-[#00FF66]"
-            cardTitle={title}
-            netPrice={netPrice}
-            totalPrice={totalPrice}
-            rating={rating}
-            rateCount={rateCount}
-        >
-            {colorOptions.map((option) => (
-                <ProductColorOption
-                    key={option.id}
-                    id={option.id}
-                    bgColor={option.color}
-                    onCheck={(e) => handleProductColorOption(e)}
-                    state={option.state}
-                />
-            ))}
-        </BaseCard>
-    );
+  return (
+    <BaseCard
+      cardImg={img}
+      altText={alt}
+      badge={badgeText}
+      badgeBgColor="bg-[#00FF66]"
+      cardTitle={name}
+      netPrice={netPrice}
+      totalPrice={null}
+      rating={rating}
+      rateCount={rateCount}
+    >
+      {productColorOptions.map((color, index) => (
+        <ProductColorOption
+          key={index}
+          productId={id}
+          id={index}
+          bgColor={color}
+          onCheck={(e) => handleChangeProductColor(e)}
+          state={productCurrentColor===color}
+        />
+      ))}
+    </BaseCard>
+  );
 };
 
 export default FlatCard;
