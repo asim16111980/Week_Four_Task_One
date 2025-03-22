@@ -415,5 +415,66 @@
         "desc": "We reurn money within 30 days"
       }
     ]
+  },
+  {
+    "sectionName": "Carousel",
+    "sectionData": [
+      {
+        "id": 0,
+        "name": "Woman’s Fashion",
+        "href": "#",
+        "nested_list": [
+          { "id": 0, "name": "dgfd", "href": "https//:www.google.com" }
+        ]
+      },
+      {
+        "id": 1,
+        "name": "Men’s Fashion",
+        "href": "#",
+        "nested_list": []
+      },
+      {
+        "id": 2,
+        "name": "Electronics",
+        "href": "#",
+        "nested_list": []
+      },
+      {
+        "id": 3,
+        "name": "Home & Lifestyle",
+        "href": "#",
+        "nested_list": []
+      },
+      {
+        "id": 4,
+        "name": "Medicine",
+        "href": "#",
+        "nested_list": []
+      },
+      {
+        "id": 5,
+        "name": "Sports & Outdoor",
+        "href": "#",
+        "nested_list": []
+      },
+      {
+        "id": 6,
+        "name": "Baby’s & Toys",
+        "href": "#",
+        "nested_list": []
+      },
+      {
+        "id": 7,
+        "name": "Groceries & Pets",
+        "href": "#",
+        "nested_list": []
+      },
+      {
+        "id": 8,
+        "name": "Health & Beauty",
+        "href": "#",
+        "nested_list": []
+      }
+    ]
   }
 ]

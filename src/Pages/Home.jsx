@@ -9,14 +9,14 @@ import CategoryPhone from "../components/CategoryPhone";
 import FlatCard from "../components/FlatCard";
 import BlackCard from "../components/BlackCard";
 import ServiceCard from "../components/ServiceCard";
+import CategoriesList from "../components/CategoriesList";
 import { MenusContext } from "../context/MenusProvider";
 import { useContext, useState } from "react";
-import sectionsData from "../data/mockData.json";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
-import CategoriesList from "../components/CategoriesList";
+import { getSectionData } from "../utils/fetchData";
 
 const images = [
   "/public/images/carousel/carousel_slide_1.png",
@@ -29,12 +29,7 @@ const images = [
 const Home = () => {
   const { state, dispatch } = useContext(MenusContext);
   const [sliderPosition, setSliderPosition] = useState("start");
-  const getSectionData = (sectionName) => {
-    const section = sectionsData.find(
-      (data) => data.sectionName === sectionName
-    );
-    return section ? section.sectionData : [];
-  };
+ 
   return (
     <div className="w-full" onClick={() => dispatch({ currentMenu: null })}>
        {/* Carousel Section */}
