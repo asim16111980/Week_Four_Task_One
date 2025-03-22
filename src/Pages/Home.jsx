@@ -16,6 +16,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
+import CategoriesList from "../components/CategoriesList";
 
 const images = [
   "/public/images/carousel/carousel_slide_1.png",
@@ -35,13 +36,15 @@ const Home = () => {
     return section ? section.sectionData : [];
   };
   return (
-    <div
-      className="w-full"
-      onClick={() => dispatch({ currentMenu: null })}
-    >
-      <Carousel images={images} />
+    <div className="w-full" onClick={() => dispatch({ currentMenu: null })}>
+       {/* Carousel Section */}
+      <section className="flex gap-6">
+        <CategoriesList />
+        <Divider type="vr" />
+        <Carousel images={images} />
+      </section>
       <div className="flex flex-col gap-12 py-4">
-           {/* Flash Sales Section */}
+        {/* Flash Sales Section */}
         <section className="flex flex-col items-center gap-8">
           <header className="flex flex-col items-center gap-2 px-2">
             <SectionTitle title="Today’s" subTitle="Flash Sales" />
@@ -86,7 +89,7 @@ const Home = () => {
           <Button value="View All Products" width="234" />
         </section>
         <Divider thickness={0.5} />
-          {/* Category Phone Section */}
+        {/* Category Phone Section */}
         <section className="flex flex-col items-center gap-8">
           <header className="flex flex-col items-center gap-2 px-2">
             <SectionTitle title="Categories" subTitle="Browse By Category" />
@@ -121,7 +124,7 @@ const Home = () => {
           </div>
         </section>
         <Divider thickness={0.5} />
-         {/* Best Selling Section */}
+        {/* Best Selling Section */}
         <section className="flex flex-col items-center gap-8">
           <header className="flex flex-col items-center gap-2 px-2">
             <SectionTitle title="This Month" subTitle="Best Selling Products" />
@@ -146,7 +149,7 @@ const Home = () => {
             </Swiper>
           </div>
         </section>
-         {/*  Enhance Music Section */}
+        {/*  Enhance Music Section */}
         <section className="w-full flex flex-col bg-black px-3 py-6">
           <div className="flex flex-col items-center gap-6">
             <span className="font-['poppins'] text-base font-semibold text-[#00FF66]">
@@ -170,7 +173,7 @@ const Home = () => {
             />
           </div>
         </section>
-         {/* Our Products Section */}
+        {/* Our Products Section */}
         <section className="flex flex-col items-center gap-8">
           <header className="flex flex-col items-center gap-2 px-2">
             <SectionTitle
@@ -249,7 +252,7 @@ const Home = () => {
           </div>
           <Button value="View All Products" width="234" />
         </section>
-         {/* New Arrival Section */}
+        {/* New Arrival Section */}
         <section className="flex flex-col items-center gap-8">
           <header className="flex flex-col items-center gap-2 px-2">
             <SectionTitle title="Featured" subTitle="New Arrival" />
@@ -266,17 +269,17 @@ const Home = () => {
             ))}
           </div>
         </section>
-         {/* Services Section */}
+        {/* Services Section */}
         <section className="flex flex-col items-center gap-12">
-        {getSectionData("Services").map((item) => (
-              <ServiceCard
-                key={item.id}
-                title={item.title}
-                desc={item.desc}
-                img={`/public/icons/services/${item.img_src}`}
-                alt={item.img_src}
-              />
-            ))}
+          {getSectionData("Services").map((item) => (
+            <ServiceCard
+              key={item.id}
+              title={item.title}
+              desc={item.desc}
+              img={`/public/icons/services/${item.img_src}`}
+              alt={item.img_src}
+            />
+          ))}
         </section>
       </div>
     </div>

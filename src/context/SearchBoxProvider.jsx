@@ -1,16 +1,16 @@
 import React, { createContext, useState } from "react";
 
-const SearchBoxContext = createContext();
+const MobileSearchBoxContext = createContext();
 
 const SearchBoxProvider = ({ children }) => {
     // Using useState for state management
-    const [isSearchBoxOpened, setIsSearchBoxOpened] = useState( false );
+    const [isMobileSearchBoxOpened, setIsMobileSearchBoxOpened] = useState( false );
 
     return (
-        <SearchBoxContext.Provider value={{ isSearchBoxOpened, setIsSearchBoxOpened }}>
+        <MobileSearchBoxContext.Provider value={{ isMobileSearchBoxOpened, setIsMobileSearchBoxOpened }}>
             {children}
-        </SearchBoxContext.Provider>
+        </MobileSearchBoxContext.Provider>
     );
 };
 
-export { SearchBoxContext, SearchBoxProvider };
+export { MobileSearchBoxContext, SearchBoxProvider };

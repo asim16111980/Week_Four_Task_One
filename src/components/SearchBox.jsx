@@ -1,12 +1,18 @@
-import { useContext } from "react";
-import { SearchBoxContext } from '../context/SearchBoxProvider';
 import Icon from "./Icon";
 
 const SearchBox = () => {
-  const { isSearchBoxOpened, setIsSearchBoxOpened } = useContext(SearchBoxContext);
   return (
-    <div className={`absolute inset-0 bg-white  ${isSearchBoxOpened ? "block" : "hidden"}`} ><div className="w-full h-full flex items-center gap-1 p-1"><button type="button" onClick={() => setIsSearchBoxOpened(false)}> <Icon icon="../public/icons/IArrowLeft.svg" /> </button><input type="search" className='flex-1 h-full text-sm text-black placeholder:text-[#A0A3BD] border-2 rounded-3xl px-3 outline-0 bg-[#D9DBE9]' placeholder="What are you looking for?" /></div></div>
-  )
-}
+    <div className="hidden sm:block">
+      <div className="w-60 h-10 flex items-center justify-between rounded bg-[#F5F5F5] px-3">
+        <input
+          type="search"
+          className="py-2 text-xs text-black bg-[#F5F5F5] focus:outline-0"
+          placeholder="What are you looking for?"
+        />
+        <Icon icon="/public/icons/header/search.png" alt="Search" />
+      </div>
+    </div>
+  );
+};
 
-export default SearchBox
+export default SearchBox;

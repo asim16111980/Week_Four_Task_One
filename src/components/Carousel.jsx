@@ -8,7 +8,7 @@ import "swiper/css/pagination";
 
 const Carousel = ({ images = [] }) => {
   return (
-    <div className="w-full max-w-3xl mx-auto">
+    <div className="w-full mx-auto">
       <Swiper
         modules={[Pagination, Autoplay]}
         loop={true}
