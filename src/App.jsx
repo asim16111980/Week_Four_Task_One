@@ -5,6 +5,7 @@ import Home from "./Pages/Home";
 import { SearchBoxProvider } from "./context/SearchBoxProvider";
 import { MenusProvider } from "./context/MenusProvider";
 import Footer from "./components/Footer";
+import Divider from "./components/Divider";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <MenusProvider>
           <TopHeader />
           <Header />
+          <Divider className="hidden sm:block"/>
           <Home />
           <Footer />
         </MenusProvider>

@@ -20,10 +20,10 @@ const Header = () => {
 
   return (
     <header className="w-full h-auto flex flex-col lg:flex-row items-stretch justify-center relative shadow z-20 p-2 lg:px-8">
-      <div className="h-12 flex items-center relative px-2 lg:gap-10 xl:gap-24">
+      <div className="h-12 flex items-center px-2 lg:gap-10 xl:gap-24">
         <h1 className="font-bold text-black text-lg md:text-2xl">Exclusive</h1>
         <nav
-          className={`w-full h-auto px-2 md:gap-6 absolute lg:static top-full left-0 text-black bg-white transition-all duration-300 ease-in-out shadow lg:block lg:shadow-none  ${
+          className={`w-full h-auto px-2 md:gap-6 absolute lg:static top-full left-0 text-black bg-white transition-all duration-300 ease-in-out shadow lg:block lg:shadow-none ${
             state.NavMenuOpened ? "block" : "hidden"
           }`}
         >
@@ -78,7 +78,7 @@ const Header = () => {
         </button>
           </div>
           <div
-      className={`w-full h-auto px-2 md:gap-6 absolute md:static top-full left-0 text-black bg-white transition-all duration-300 ease-in-out shadow  ${
+      className={`w-full h-auto px-2 md:gap-6 absolute md:static top-full left-0 text-black bg-white transition-all duration-300 ease-in-out shadow ${
         state.CatsMenuOpened ? "block" : "hidden"
       }`}
     >

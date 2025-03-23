@@ -8,8 +8,9 @@ import "swiper/css/pagination";
 
 const Carousel = ({ images = [] }) => {
   return (
-    <div className="w-full mx-auto">
+    <>
       <Swiper
+        className="h-fit sm:w-3/5 mt-10"
         modules={[Pagination, Autoplay]}
         loop={true}
         autoplay={{ delay: 2000, disableOnInteraction: false }}
@@ -23,8 +24,8 @@ const Carousel = ({ images = [] }) => {
         speed={800}
       >
         {images.map((src, index) => (
-          <SwiperSlide key={index}>
-            <div className="size-full flex flex-col items-center bg-black py-3 gap-3">
+          <SwiperSlide key={index} >
+            <div className="size-full flex flex-col md:flex-row items-center bg-black py-3 gap-6">
               <div className="h-1/2 p-2">
                 <div className="flex items-center gap-3 mb-3">
                   <FontAwesomeIcon icon={faApple} className="h-10 text-white" />
@@ -54,7 +55,7 @@ const Carousel = ({ images = [] }) => {
           </SwiperSlide>
         ))}
       </Swiper>
-    </div>
+    </>
   );
 };
 

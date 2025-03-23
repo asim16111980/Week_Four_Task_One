@@ -6,7 +6,7 @@ const Timer = ({
 }) => {
   const [timer, setTimer] = useState({
     days: initialTimer.days,
-    hours:initialTimer.hours,
+    hours: initialTimer.hours,
     minutes: initialTimer.minutes,
     seconds: initialTimer.seconds,
   });

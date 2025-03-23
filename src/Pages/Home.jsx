@@ -33,9 +33,9 @@ const Home = () => {
   return (
     <div className="w-full" onClick={() => dispatch({ currentMenu: null })}>
        {/* Carousel Section */}
-      <section className="flex gap-6">
-        <CategoriesList />
-        <Divider type="vr" />
+      <section className="flex gap-6 mb-40">
+        <CategoriesList className="hidden sm:block w-48 max-h-full mt-10"/>
+        <Divider type="vr" className="hidden sm:block"/>
         <Carousel images={images} />
       </section>
       <div className="flex flex-col gap-12 py-4">
