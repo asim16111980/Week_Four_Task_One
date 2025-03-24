@@ -29,19 +29,19 @@ const images = [
 const Home = () => {
   const { state, dispatch } = useContext(MenusContext);
   const [sliderPosition, setSliderPosition] = useState("start");
- 
+
   return (
     <div className="w-full" onClick={() => dispatch({ currentMenu: null })}>
-       {/* Carousel Section */}
-      <section className="flex gap-6 mb-40">
-        <CategoriesList className="hidden sm:block w-48 max-h-full mt-10"/>
-        <Divider type="vr" className="hidden sm:block"/>
+      {/* Carousel Section */}
+      <section className="flex gap-6 mb-20 sm:px-2 md:px-10">
+        <CategoriesList className="hidden sm:block w-48 max-h-full" />
+        <Divider type="vr" className="hidden sm:block" />
         <Carousel images={images} />
       </section>
-      <div className="flex flex-col gap-12 py-4">
+      <div className="flex flex-col gap-12 sm:px-2 md:px-10 py-4">
         {/* Flash Sales Section */}
-        <section className="flex flex-col items-center gap-8">
-          <header className="flex flex-col items-center gap-2 px-2">
+        <section className="flex flex-col items-center gap-8 md:gap:10">
+          <header className="w-full flex flex-col justify-between sm:flex-row sm:items-end items-center gap-2">
             <SectionTitle title="Today’s" subTitle="Flash Sales" />
             <Timer
               type="flat"
@@ -54,9 +54,32 @@ const Home = () => {
               sliderPosition={sliderPosition}
             />
           </header>
-          <div className="w-full max-w-3xl mx-auto">
+          <div className="w-full mx-auto">
             <Swiper
               modules={[Navigation]}
+              spaceBetween={10}
+              breakpoints={{
+                0: {
+                  slidesPerView: 1,
+                  spaceBetween: 5,
+                },
+                640: {
+                  slidesPerView: 2,
+                  spaceBetween: 10,
+                },
+                768: {
+                  slidesPerView: 3,
+                  spaceBetween: 15,
+                },
+                1024: {
+                  slidesPerView: 4,
+                  spaceBetween: 20,
+                },
+                1280: {
+                  slidesPerView: 5,
+                  spaceBetween: 25,
+                },
+              }}
               grabCursor={true}
               navigation={{ prevEl: "#flashPrevBtn", nextEl: "#flashNextBtn" }}
               onSlideChange={(swiper) => {
@@ -85,8 +108,8 @@ const Home = () => {
         </section>
         <Divider thickness={0.5} />
         {/* Category Phone Section */}
-        <section className="flex flex-col items-center gap-8">
-          <header className="flex flex-col items-center gap-2 px-2">
+        <section className="flex flex-col items-center gap-8 md:gap:10">
+          <header className="w-full flex flex-col justify-between sm:flex-row sm:items-end items-center gap-2">
             <SectionTitle title="Categories" subTitle="Browse By Category" />
             <NavigationButtons
               prevId="catsPrevBtn"
@@ -95,9 +118,32 @@ const Home = () => {
               sliderPosition={sliderPosition}
             />
           </header>
-          <div className="w-full max-w-3xl mx-auto">
+          <div className="w-full mx-auto">
             <Swiper
               modules={[Navigation]}
+              spaceBetween={10}
+              breakpoints={{
+                0: {
+                  slidesPerView: 1,
+                  spaceBetween: 5,
+                },
+                640: {
+                  slidesPerView: 2,
+                  spaceBetween: 10,
+                },
+                768: {
+                  slidesPerView: 3,
+                  spaceBetween: 15,
+                },
+                1024: {
+                  slidesPerView: 4,
+                  spaceBetween: 20,
+                },
+                1280: {
+                  slidesPerView: 6,
+                  spaceBetween: 25,
+                },
+              }}
               grabCursor={true}
               navigation={{ prevEl: "#catsPrevBtn", nextEl: "#catsNextBtn" }}
               onSlideChange={(swiper) => {
@@ -110,7 +156,6 @@ const Home = () => {
                 <SwiperSlide key={item.id}>
                   <CategoryPhone
                     img={`/public/icons/category_phone/${item.img_src}`}
-                    alt={item.img_src}
                     name={item.name}
                   />
                 </SwiperSlide>

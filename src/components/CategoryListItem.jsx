@@ -3,7 +3,7 @@ import Icon from "./Icon";
 
 const CategoryListItem = ({ name, href, hasNestedList = false, children }) => {
   const [isOpened, setIsOpened] = useState(false);
-  const contentRef = useRef(null); // 🔹 مرجع لتحديد طول القائمة الفرعية
+  const contentRef = useRef(null); 
 
   useEffect(() => {
     if (contentRef.current) {
@@ -16,7 +16,7 @@ const CategoryListItem = ({ name, href, hasNestedList = false, children }) => {
   return (
     <li className="relative text-sm sm:text-base cursor-pointer flex flex-col">
       <div
-        className={`flex items-center justify-between p-1 cursor-pointer 
+        className={`flex items-center justify-between p-2 cursor-pointer 
                    hover:bg-[#F4F4F6] transition-colors duration-300 ${
                      isOpened ? "bg-[#F7F7FC] rounded-t-md" : ""
                    }`}

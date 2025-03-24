@@ -7,7 +7,7 @@ const Icon = ({
 }) => {
   return (
     <span
-      className={`flex relative transition-all duration-300 ease-in-out caret-transparent ${className}`}
+      className={`flex relative transition-transform duration-300 ease-in-out caret-transparent ${className}`}
       style={{ width: `${width}px`, height: `${height}px` }}
     >
       <img src={icon} loading="lazy" className="pointer-events-none" />

@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const NavigationButtons = ({ prevId, NextId, style, sliderPosition }) => {
   return (
-    <div className={`flex items-center p-2 gap-2 ${style}`}>
+    <div className={`flex items-center p-2 gap-2 sm:w-28 ${style}`}>
       <button
         id={prevId}
         type="button"
@@ -14,7 +14,7 @@ const NavigationButtons = ({ prevId, NextId, style, sliderPosition }) => {
         }`}
         disabled={sliderPosition === "start"}
       >
-        <FontAwesomeIcon icon={faArrowLeft} className="text-lg" />
+        <FontAwesomeIcon icon={faArrowLeft} className="text-lg sm:text-2xl" />
       </button>
       <button
         id={NextId}
@@ -26,7 +26,7 @@ const NavigationButtons = ({ prevId, NextId, style, sliderPosition }) => {
         }`}
         disabled={sliderPosition === "end"}
       >
-        <FontAwesomeIcon icon={faArrowRight} className="text-lg" />
+        <FontAwesomeIcon icon={faArrowRight} className="text-lg sm:text-2xl" />
       </button>
     </div>
   );

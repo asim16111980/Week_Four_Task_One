@@ -5,16 +5,16 @@ import StarRating from "./StartRating";
 const BaseCard = ({ cardImg, altText, badge, badgeBgColor, cardTitle, netPrice, totalPrice = null, rating, rateCount,ratingInline=false, children }) => {
     return (
         <div className="w-full flex flex-col gap-4 font-['poppins'] group">
-            <div className="w-full h-[250px] bg-[#F5F5F5] rounded relative flex justify-center pt-6">
-                <div className="size-44 flex items-center justify-center">
+            <div className="w-full h-[250px] md:h-60 bg-[#F5F5F5] rounded relative flex justify-center pt-6">
+                <div className="size-44 md:size-40 flex items-center justify-center">
                 <img src={cardImg} alt={altText} loading="lazy"/>
                 </div> 
                 <div className="absolute inset-0 w-full h-full bg-transparent flex flex-col justify-between">
                     <div className="flex justify-between items-start p-3">
                         {badge && <span className={`${badgeBgColor} text-[#FAFAFA] text-xs px-3 py-1 rounded`}>{badge}</span>}
                         <div className="flex flex-col gap-2 items-center ml-auto">
-                            <FontAwesomeIcon icon={faHeart} className="rounded-full p-2 bg-white" />
-                            <FontAwesomeIcon icon={faEye} className="rounded-full p-2 bg-white" />
+                            <FontAwesomeIcon icon={faHeart} className="rounded-full p-2 text-xl bg-white" />
+                            <FontAwesomeIcon icon={faEye} className="rounded-full p-2 text-xl bg-white" />
                         </div>
                     </div>
                     <button type="button" className="hidden group-hover:block w-full h-10 bg-black rounded-b text-base font-medium text-white">Add To Cart</button>

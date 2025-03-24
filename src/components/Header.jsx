@@ -71,7 +71,7 @@ const Header = () => {
         {/* <button type='button'><Icon icon="/public/icons/IUser.svg" /></button> */}
         <button
           type="button"
-          className="w-8 h-8 text-xl text-black md:hidden"
+          className="w-8 h-8 text-xl text-black sm:hidden"
           onClick={() => dispatch({ currentMenu: "CatsMenuOpened" })}
         >
           <FontAwesomeIcon icon={state.CatsMenuOpened ? faTimes : faThLarge} />
