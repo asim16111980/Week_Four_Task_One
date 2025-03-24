@@ -1,8 +1,8 @@
 const Button = ({ isFilled = true, isPrimary = true, width, value }) => {
   return (
     <button
-      type="button"
-      className={`rounded font-["poppins"] text-sm font-medium h-14 px-6 py-3 ${
+      type="button" 
+      className={`rounded caret-transparent font-["poppins"] text-sm font-medium h-14 px-6 py-3 ${
         (isFilled &&
           isPrimary &&
           "bg-[#DB4444] text-[#FAFAFA] hover:bg-[#E07575]") ||

@@ -73,11 +73,11 @@ const Home = () => {
                 },
                 1024: {
                   slidesPerView: 4,
-                  spaceBetween: 20,
+                  spaceBetween: 15,
                 },
                 1280: {
                   slidesPerView: 5,
-                  spaceBetween: 25,
+                  spaceBetween: 20,
                 },
               }}
               grabCursor={true}
@@ -127,21 +127,25 @@ const Home = () => {
                   slidesPerView: 1,
                   spaceBetween: 5,
                 },
-                640: {
+                400: {
                   slidesPerView: 2,
+                  spaceBetween: 5,
+                },
+                570: {
+                  slidesPerView: 3,
                   spaceBetween: 10,
                 },
-                768: {
-                  slidesPerView: 3,
+                868: {
+                  slidesPerView: 4,
                   spaceBetween: 15,
                 },
-                1024: {
-                  slidesPerView: 4,
-                  spaceBetween: 20,
+                1124: {
+                  slidesPerView: 5,
+                  spaceBetween: 15,
                 },
                 1280: {
                   slidesPerView: 6,
-                  spaceBetween: 25,
+                  spaceBetween: 20,
                 },
               }}
               grabCursor={true}
@@ -165,13 +169,39 @@ const Home = () => {
         </section>
         <Divider thickness={0.5} />
         {/* Best Selling Section */}
-        <section className="flex flex-col items-center gap-8">
-          <header className="flex flex-col items-center gap-2 px-2">
+        <section className="flex flex-col items-center gap-8 md:gap:10">
+          <header className="w-full flex flex-col justify-between sm:flex-row sm:items-end items-center gap-2">
             <SectionTitle title="This Month" subTitle="Best Selling Products" />
             <Button value="View All" width="159" />
           </header>
-          <div className="w-full max-w-3xl mx-auto">
-            <Swiper modules={[Navigation]} grabCursor={true}>
+          <div className="w-full mx-auto">
+            <Swiper
+              modules={[Navigation]}
+              spaceBetween={10}
+              breakpoints={{
+                0: {
+                  slidesPerView: 1,
+                  spaceBetween: 5,
+                },
+                500: {
+                  slidesPerView: 2,
+                  spaceBetween: 10,
+                },
+                768: {
+                  slidesPerView: 3,
+                  spaceBetween: 15,
+                },
+                1024: {
+                  slidesPerView: 4,
+                  spaceBetween: 15,
+                },
+                1280: {
+                  slidesPerView: 5,
+                  spaceBetween: 20,
+                },
+              }}
+              grabCursor={true}
+            >
               {getSectionData("Best Selling").map((item) => (
                 <SwiperSlide key={item.id}>
                   <DiscCard
@@ -190,12 +220,12 @@ const Home = () => {
           </div>
         </section>
         {/*  Enhance Music Section */}
-        <section className="w-full flex flex-col bg-black px-3 py-6">
-          <div className="flex flex-col items-center gap-6">
-            <span className="font-['poppins'] text-base font-semibold text-[#00FF66]">
+        <section className="w-full flex flex-col items-center sm:flex-row bg-black px-3 md:px-10 py-6">
+          <div className="h-1/2 sm:w-1/2 flex flex-col items-center sm:items-start gap-6">
+            <span className="font-['poppins'] text-sm md:text-base font-semibold text-[#00FF66]">
               Categories
             </span>
-            <h2 className="text-4xl font-semibold text-center text-[#FAFAFA]">
+            <h2 className="text-2xl md:text-5xl font-semibold text-center sm:text-left text-[#FAFAFA]">
               Enhance Your Music Experience
             </h2>
             <Timer
@@ -204,18 +234,18 @@ const Home = () => {
             />
             <Button isPrimary={false} value="Buy Now!" width="171" />
           </div>
-          <div className="relative flex items-center justify-center bg-black">
+          <div className="h-1/2 sm:w-1/2 relative flex items-center justify-center bg-black">
             <div className="w-full aspect-square rounded-full bg-[#D9D9D9] bg-opacity-30 filter blur-[70px]"></div>
             <img
               src="/public/images/JBL_BOOMBOX_2_HERO_020_x1.png"
               alt="Enhance Image"
-              className="w-10/12 absolute"
+              className="w-9/12 absolute"
             />
           </div>
         </section>
         {/* Our Products Section */}
-        <section className="flex flex-col items-center gap-8">
-          <header className="flex flex-col items-center gap-2 px-2">
+        <section className="flex flex-col items-center gap-8 md:gap:10">
+          <header className="w-full flex flex-col justify-between sm:flex-row sm:items-end items-center gap-2">
             <SectionTitle
               title="Our Products"
               subTitle="Explore Our Products"
@@ -228,9 +258,32 @@ const Home = () => {
             />
           </header>
           <div className="max-w-full flex flex-col items-center gap-14">
-            <div className="w-full max-w-3xl mx-auto">
+            <div className="w-full mx-auto">
               <Swiper
                 modules={[Navigation]}
+                spaceBetween={10}
+              breakpoints={{
+                0: {
+                  slidesPerView: 1,
+                  spaceBetween: 5,
+                },
+                500: {
+                  slidesPerView: 2,
+                  spaceBetween: 10,
+                },
+                768: {
+                  slidesPerView: 3,
+                  spaceBetween: 15,
+                },
+                1024: {
+                  slidesPerView: 4,
+                  spaceBetween: 15,
+                },
+                1280: {
+                  slidesPerView: 5,
+                  spaceBetween: 20,
+                },
+              }}
                 grabCursor={true}
                 navigation={{
                   prevEl: "#productPrevBtn",
@@ -258,9 +311,32 @@ const Home = () => {
                 ))}
               </Swiper>
             </div>
-            <div className="w-full max-w-3xl mx-auto">
+            <div className="w-full mx-auto">
               <Swiper
                 modules={[Navigation]}
+                spaceBetween={10}
+                breakpoints={{
+                  0: {
+                    slidesPerView: 1,
+                    spaceBetween: 5,
+                  },
+                  500: {
+                    slidesPerView: 2,
+                    spaceBetween: 10,
+                  },
+                  768: {
+                    slidesPerView: 3,
+                    spaceBetween: 15,
+                  },
+                  1024: {
+                    slidesPerView: 4,
+                    spaceBetween: 15,
+                  },
+                  1280: {
+                    slidesPerView: 5,
+                    spaceBetween: 20,
+                  },
+                }}
                 grabCursor={true}
                 navigation={{
                   prevEl: "#productPrevBtn",
@@ -293,11 +369,11 @@ const Home = () => {
           <Button value="View All Products" width="234" />
         </section>
         {/* New Arrival Section */}
-        <section className="flex flex-col items-center gap-8">
-          <header className="flex flex-col items-center gap-2 px-2">
+        <section className="flex flex-col items-center gap-8 md:gap:10">
+          <header className="w-full flex flex-col justify-between sm:flex-row sm:items-end items-center gap-2">
             <SectionTitle title="Featured" subTitle="New Arrival" />
           </header>
-          <div className="flex flex-col items-center gap-2">
+          <div className="grid grid-cols-[repeat(auto-fill,minmax(250px,1fr))] gap-2">
             {getSectionData("New Arrival").map((item) => (
               <BlackCard
                 key={item.id}

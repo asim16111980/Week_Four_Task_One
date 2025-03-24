@@ -85,36 +85,36 @@ const Timer = ({
       )) ||
         (type === "rounded" && (
           <div className="flex items-center gap-2">
-            <div className="size-[62px] flex flex-col items-center justify-center rounded-full bg-white">
+            <div className="size-12 sm:size-[62px] flex flex-col items-center justify-center rounded-full bg-white">
               <div className="flex flex-col items-center font-['poppins'] text-black">
-                <span className="text-base leading-none font-semibold">
+                <span className="text-sm sm:text-base leading-none font-semibold">
                   {timer.hours.toString().padStart(2, 0)}
                 </span>
-                <span className="text-xs">Hours</span>
+                <span className="text-[9px] sm:text-xs">Hours</span>
               </div>
             </div>
-            <div className="size-[62px] flex flex-col items-center justify-center rounded-full bg-white">
+            <div className="size-12 sm:size-[62px] flex flex-col items-center justify-center rounded-full bg-white">
               <div className="flex flex-col items-center font-['poppins'] text-black">
-                <span className="text-base leading-none font-semibold">
+                <span className="text-sm sm:text-base leading-none font-semibold">
                   {timer.days.toString().padStart(2, 0)}
                 </span>
-                <span className="text-xs">Days</span>
+                <span className="text-[9px] sm:text-xs">Days</span>
               </div>
             </div>
-            <div className="size-[62px] flex flex-col items-center justify-center rounded-full bg-white">
+            <div className="size-12 sm:size-[62px] flex flex-col items-center justify-center rounded-full bg-white">
               <div className="flex flex-col items-center font-['poppins'] text-black">
-                <span className="text-base leading-none font-semibold">
+                <span className="text-sm sm:text-base leading-none font-semibold">
                   {timer.minutes.toString().padStart(2, 0)}
                 </span>
-                <span className="text-xs">Minutes</span>
+                <span className="text-[9px] sm:text-xs">Minutes</span>
               </div>
             </div>
-            <div className="size-[62px] flex flex-col items-center justify-center rounded-full bg-white">
+            <div className="size-12 sm:size-[62px] flex flex-col items-center justify-center rounded-full bg-white">
               <div className="flex flex-col items-center font-['poppins'] text-black">
-                <span className="text-base leading-none font-semibold">
+                <span className="text-sm sm:text-base leading-none font-semibold">
                   {timer.seconds.toString().padStart(2, 0)}
                 </span>
-                <span className="text-xs">Seconds</span>
+                <span className="text-[9px] sm:text-xs">Seconds</span>
               </div>
             </div>
           </div>
