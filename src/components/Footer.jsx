@@ -14,8 +14,8 @@ const Footer = () => {
   };
 
   return (
-    <footer className="flex flex-col items-center gap-6 bg-black text-[#FAFAFA] py-4 px-2 sm:px-4">
-      <div className="mx-auto grid grid-cols-[repeat(auto-fill,minmax(250px,1fr))] gap-4 sm:grid-cols-2 sm:gap-10">
+    <footer className="flex flex-col items-center gap-10 bg-black text-[#FAFAFA] py-4 px-2 sm:px-4">
+      <div className="w-full mx-auto grid grid-cols-[repeat(auto-fill,minmax(200px,1fr))] gap-4 sm:gap-10">
         <div className="flex flex-col gap-2">
           <h3 className="text-xl font-bold">Exclusive</h3>
           <p className="font-['poppins'] text-lg font-medium">Subscribe</p>
@@ -27,7 +27,7 @@ const Footer = () => {
           ) : (
             <form
               onSubmit={handleSubmit}
-              className="font-['poppins'] flex items-center ps-4 py-3 pe-3 gap-4 border-2 border-[#FAFAFA] rounded overflow-hidden"
+              className="font-['poppins'] w-3/4 flex items-center ps-4 py-3 pe-3 gap-4 border-2 border-[#FAFAFA] rounded overflow-hidden"
             >
               <input
                 type="email"
@@ -162,7 +162,7 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      <div className="w-full flex justify-center items-end font-['poppins'] text-xs text-white text-opacity-60">
+      <div className="w-full flex justify-center items-end font-['poppins'] text-xs text-white text-opacity-60 py-8">
         <p className="flex items-center gap-1">
           <Copyright size={20} strokeWidth={1.5} /> Copyright Rimel 2022. All
           right reserved

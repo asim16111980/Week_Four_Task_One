@@ -6,9 +6,9 @@ const ServiceCard = ({ img, alt, title, desc }) => {
           <img src={img} alt={alt} />
         </div>
       </div>
-      <div className="flex flex-col items-center gap-2">
-        <h2 className="text-lg font-semibold text-black">{title}</h2>
-        <p className="text-xs text-black">{desc}</p>
+      <div className="flex flex-col items-center gap-2 text-center">
+        <h2 className="text-base md:text-xl font-semibold text-black">{title}</h2>
+        <p className="text-xs lg:text-sm text-black">{desc}</p>
       </div>
     </div>
   );

@@ -31,14 +31,14 @@ const Home = () => {
   const [sliderPosition, setSliderPosition] = useState("start");
 
   return (
-    <div className="w-full" onClick={() => dispatch({ currentMenu: null })}>
+    <div className="w-full mb-24" onClick={() => dispatch({ currentMenu: null })}>
+      <div className="flex flex-col gap-24 sm:px-2 md:px-10 pb-4">
       {/* Carousel Section */}
-      <section className="flex gap-6 mb-20 sm:px-2 md:px-10">
-        <CategoriesList className="hidden sm:block w-48 max-h-full" />
+      <section className="flex gap-6 sm:px-2 md:px-10">
+        <CategoriesList className="hidden sm:block w-48 mt-10 max-h-full" />
         <Divider type="vr" className="hidden sm:block" />
         <Carousel images={images} />
       </section>
-      <div className="flex flex-col gap-12 sm:px-2 md:px-10 py-4">
         {/* Flash Sales Section */}
         <section className="flex flex-col items-center gap-8 md:gap:10">
           <header className="w-full flex flex-col justify-between sm:flex-row sm:items-end items-center gap-2">
@@ -220,8 +220,8 @@ const Home = () => {
           </div>
         </section>
         {/*  Enhance Music Section */}
-        <section className="w-full flex flex-col items-center sm:flex-row bg-black px-3 md:px-10 py-6">
-          <div className="h-1/2 sm:w-1/2 flex flex-col items-center sm:items-start gap-6">
+        <section className="w-full flex flex-col items-center sm:flex-row bg-black px-3 md:px-10 py-6 md:py-0">
+          <div className="h-1/2 sm:w-1/2 flex flex-col items-center sm:items-start gap-6 md:gap-10">
             <span className="font-['poppins'] text-sm md:text-base font-semibold text-[#00FF66]">
               Categories
             </span>
@@ -235,7 +235,7 @@ const Home = () => {
             <Button isPrimary={false} value="Buy Now!" width="171" />
           </div>
           <div className="h-1/2 sm:w-1/2 relative flex items-center justify-center bg-black">
-            <div className="w-full aspect-square rounded-full bg-[#D9D9D9] bg-opacity-30 filter blur-[70px]"></div>
+            <div className="w-full aspect-square rounded-full bg-[#D9D9D9] bg-opacity-30 filter blur-[70px] md:blur-[130px]"></div>
             <img
               src="/public/images/JBL_BOOMBOX_2_HERO_020_x1.png"
               alt="Enhance Image"
@@ -262,28 +262,28 @@ const Home = () => {
               <Swiper
                 modules={[Navigation]}
                 spaceBetween={10}
-              breakpoints={{
-                0: {
-                  slidesPerView: 1,
-                  spaceBetween: 5,
-                },
-                500: {
-                  slidesPerView: 2,
-                  spaceBetween: 10,
-                },
-                768: {
-                  slidesPerView: 3,
-                  spaceBetween: 15,
-                },
-                1024: {
-                  slidesPerView: 4,
-                  spaceBetween: 15,
-                },
-                1280: {
-                  slidesPerView: 5,
-                  spaceBetween: 20,
-                },
-              }}
+                breakpoints={{
+                  0: {
+                    slidesPerView: 1,
+                    spaceBetween: 5,
+                  },
+                  500: {
+                    slidesPerView: 2,
+                    spaceBetween: 10,
+                  },
+                  768: {
+                    slidesPerView: 3,
+                    spaceBetween: 15,
+                  },
+                  1024: {
+                    slidesPerView: 4,
+                    spaceBetween: 15,
+                  },
+                  1280: {
+                    slidesPerView: 5,
+                    spaceBetween: 20,
+                  },
+                }}
                 grabCursor={true}
                 navigation={{
                   prevEl: "#productPrevBtn",
@@ -373,7 +373,12 @@ const Home = () => {
           <header className="w-full flex flex-col justify-between sm:flex-row sm:items-end items-center gap-2">
             <SectionTitle title="Featured" subTitle="New Arrival" />
           </header>
-          <div className="grid grid-cols-[repeat(auto-fill,minmax(250px,1fr))] gap-2">
+          <div
+            className="w-full grid gap-4 p-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-4  
+                md:[&>*:nth-child(1)]:col-span-2 md:[&>*:nth-child(1)]:row-span-2 
+                md:[&>*:nth-child(2)]:col-span-2 
+               "
+          >
             {getSectionData("New Arrival").map((item) => (
               <BlackCard
                 key={item.id}
@@ -386,7 +391,7 @@ const Home = () => {
           </div>
         </section>
         {/* Services Section */}
-        <section className="flex flex-col items-center gap-12">
+        <section className="flex flex-col sm:flex-row items-center sm:items-start gap-6 lg:gap-8">
           {getSectionData("Services").map((item) => (
             <ServiceCard
               key={item.id}
