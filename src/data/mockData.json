@@ -417,7 +417,7 @@
     ]
   },
   {
-    "sectionName": "Carousel",
+    "sectionName": "Categories List",
     "sectionData": [
       {
         "id": 0,
@@ -425,8 +425,8 @@
         "href": "#",
         "nested_list": [
           { "id": 0, "name": "dgfd", "href": "https//:www.google.com" },
-          { "id": 0, "name": "dgfd", "href": "https//:www.google.com" },
-          { "id": 0, "name": "dgfd", "href": "https//:www.google.com" }
+          { "id": 1, "name": "dgfd", "href": "https//:www.google.com" },
+          { "id": 2, "name": "dgfd", "href": "https//:www.google.com" }
         ]
       },
       {

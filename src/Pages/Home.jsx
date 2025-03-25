@@ -17,6 +17,7 @@ import { Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import { getSectionData } from "../utils/fetchData";
+import Icon from "../components/Icon";
 
 const images = [
   "/public/images/carousel/carousel_slide_1.png",
@@ -391,7 +392,7 @@ const Home = () => {
           </div>
         </section>
         {/* Services Section */}
-        <section className="flex flex-col sm:flex-row items-center sm:items-start gap-6 lg:gap-8">
+        <section className="flex flex-col sm:flex-row items-center justify-center sm:items-start gap-6 lg:gap-8">
           {getSectionData("Services").map((item) => (
             <ServiceCard
               key={item.id}

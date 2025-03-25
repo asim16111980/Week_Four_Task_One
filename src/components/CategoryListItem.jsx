@@ -3,7 +3,7 @@ import Icon from "./Icon";
 
 const CategoryListItem = ({ name, href, hasNestedList = false, children }) => {
   const [isOpened, setIsOpened] = useState(false);
-  const contentRef = useRef(null); 
+  const contentRef = useRef(null);
 
   useEffect(() => {
     if (contentRef.current) {
@@ -32,7 +32,6 @@ const CategoryListItem = ({ name, href, hasNestedList = false, children }) => {
               e.stopPropagation();
               setIsOpened((prev) => !prev);
             }}
-            tabIndex="-1"
           >
             <Icon
               icon="/icons/dropdown.png"

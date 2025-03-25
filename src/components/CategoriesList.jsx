@@ -5,7 +5,7 @@ const CategoriesList = ({className=""}) => {
   return (
     <div className={className}>
       <ul className="flex flex-col bg-transparent gap-3 md:gap-1">
-        {getSectionData("Carousel").map((item) => {
+        {getSectionData("Categories List").map((item) => {
           const hasNestedList = item.nested_list.length !== 0;
           return (
             <CategoryListItem
