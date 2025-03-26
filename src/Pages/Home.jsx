@@ -33,7 +33,7 @@ const Home = () => {
 
   return (
     <div
-      className="w-full mb-24"
+      className="w-full"
       onClick={() => dispatch({ currentMenu: null })}
     >
       <div className="flex flex-col gap-24 sm:px-2 md:px-10 pb-4">
@@ -378,7 +378,7 @@ const Home = () => {
             <SectionTitle title="Featured" subTitle="New Arrival" />
           </header>
           <div
-            className="w-full grid gap-4 p-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-4  
+            className="w-full grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-4  
                 md:[&>*:nth-child(1)]:col-span-2 md:[&>*:nth-child(1)]:row-span-2 
                 md:[&>*:nth-child(2)]:col-span-2 
                "

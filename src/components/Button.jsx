@@ -1,4 +1,4 @@
-const Button = ({ isFilled = true, isPrimary = true, width, value }) => {
+const Button = ({ isFilled = true, isPrimary = true, width=100, value }) => {
   return (
     <button
       type="button" 

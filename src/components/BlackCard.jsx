@@ -1,7 +1,7 @@
 const BlackCard = ({title, desc, img, alt}) => {
   return (
     <div
-      className="relative flex flex-col items-center bg-black pt-10"
+      className="relative flex flex-col items-center bg-black pt-10 rounded"
     >
       <div className="size-full flex justify-end items-center px-6">
         <img

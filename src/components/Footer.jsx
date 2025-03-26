@@ -41,7 +41,7 @@ const Footer = () => {
 
   return (
     <footer
-      className="relative flex flex-col items-center gap-6 bg-black text-[#FAFAFA] py-4 px-4 sm:px-4"
+      className="relative flex flex-col items-center gap-6 bg-black text-[#FAFAFA] py-4 px-4 sm:px-4 md:px-10 mt-16"
       ref={footerRef}
     >
       {isVisible && (
@@ -59,10 +59,12 @@ const Footer = () => {
         </button>
       )}
       <div className="w-full mx-auto grid grid-cols-[repeat(auto-fill,minmax(200px,1fr))] gap-8 sm:gap-10">
-        <div className="flex flex-col gap-2">
-          <h3 className="text-xl font-bold">Exclusive</h3>
-          <p className="font-['poppins'] text-lg font-medium">Subscribe</p>
-          <p className="font-['poppins'] text-sm">
+        <div className="flex flex-col gap-3 md:gap-6">
+          <h3 className="text-xl md:text-2xl font-bold">Exclusive</h3>
+          <p className="font-['poppins'] text-lg md:text-xl font-medium">
+            Subscribe
+          </p>
+          <p className="font-['poppins'] text-sm md:text-base">
             Get 10% off your first order
           </p>
           {submitted ? (
@@ -77,7 +79,7 @@ const Footer = () => {
                 placeholder="Enter your email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="w-11/12 bg-black text-white text-sm focus:outline-none"
+                className="w-11/12 bg-black text-white text-sm md:text-base focus:outline-none"
               />
               <button
                 type="submit"
@@ -88,17 +90,25 @@ const Footer = () => {
             </form>
           )}
         </div>
-        <div className="flex flex-col gap-2 font-['poppins']">
-          <h3 className="text-lg font-medium">Support</h3>
-          <p className="text-sm">
-            111 Bijoy sarani, Dhaka, DH 1515, Bangladesh.
-          </p>
-          <p className="text-sm">exclusive@gmail.com</p>
-          <p className="text-sm">+88015-88888-9999</p>
+        <div className="flex flex-col gap-3 md:gap-6 font-['poppins']">
+          <h3 className="text-lg md:text-xl font-medium">Support</h3>
+          <ul className=" flex flex-col gap-2 md:gap-4 text-sm md:text-base">
+            <li>
+              <p className="text-sm md:text-base">
+                111 Bijoy sarani, Dhaka, DH 1515, Bangladesh.
+              </p>
+            </li>{" "}
+            <li>
+              <p className="text-sm md:text-base">exclusive@gmail.com</p>
+            </li>
+            <li>
+              <p className="text-sm md:text-base">+88015-88888-9999</p>
+            </li>
+          </ul>
         </div>
-        <div className="flex flex-col gap-2 font-['poppins']">
-          <h3 className="text-lg font-medium">Account</h3>
-          <ul className=" flex flex-col gap-4 text-sm">
+        <div className="flex flex-col gap-3 md:gap-6 font-['poppins']">
+          <h3 className="text-lg md:text-xl font-medium">Account</h3>
+          <ul className=" flex flex-col gap-2 md:gap-4 text-sm md:text-base">
             <li>
               <a href="/myaccount"> My Account</a>
             </li>
@@ -116,9 +126,9 @@ const Footer = () => {
             </li>
           </ul>
         </div>
-        <div className="flex flex-col gap-2 font-['poppins']">
-          <h3 className="text-lg font-medium">Quick Link</h3>
-          <ul className=" flex flex-col gap-4 text-sm">
+        <div className="flex flex-col gap-3 md:gap-6 font-['poppins']">
+          <h3 className="text-lg md:text-xl font-medium">Quick Link</h3>
+          <ul className=" flex flex-col gap-2 md:gap-4 text-sm md:text-base">
             <li>
               <a href="/">Privacy Policy</a>
             </li>
@@ -133,9 +143,9 @@ const Footer = () => {
             </li>
           </ul>
         </div>
-        <div className="flex flex-col gap-2 font-['poppins']">
-          <h3 className="text-lg font-medium">Download App</h3>
-          <div className="flex flex-col gap-2">
+        <div className="flex flex-col gap-3 md:gap-6 font-['poppins']">
+          <h3 className="text-lg md:text-xl font-medium">Download App</h3>
+          <div className="flex flex-col gap-2 md:gap-4">
             <p className="text-xs font-medium text-opacity-70">
               Save $3 with App New User Only
             </p>
