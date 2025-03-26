@@ -32,14 +32,17 @@ const Home = () => {
   const [sliderPosition, setSliderPosition] = useState("start");
 
   return (
-    <div className="w-full mb-24" onClick={() => dispatch({ currentMenu: null })}>
+    <div
+      className="w-full mb-24"
+      onClick={() => dispatch({ currentMenu: null })}
+    >
       <div className="flex flex-col gap-24 sm:px-2 md:px-10 pb-4">
-      {/* Carousel Section */}
-      <section className="flex gap-6 sm:px-2 md:px-10">
-        <CategoriesList className="hidden sm:block w-48 mt-10 max-h-full" />
-        <Divider type="vr" className="hidden sm:block" />
-        <Carousel images={images} />
-      </section>
+        {/* Carousel Section */}
+        <section className="flex gap-6 sm:px-2 md:px-10">
+          <CategoriesList className="hidden sm:block w-48 mt-10 max-h-full" />
+          <Divider type="vr" className="hidden sm:block" />
+          <Carousel images={images} />
+        </section>
         {/* Flash Sales Section */}
         <section className="flex flex-col items-center gap-8 md:gap:10">
           <header className="w-full flex flex-col justify-between sm:flex-row sm:items-end items-center gap-2">

@@ -1,7 +1,13 @@
 import { useState, useRef, useEffect } from "react";
 import Icon from "./Icon";
 
-const CategoryListItem = ({ name, href, hasNestedList = false, children }) => {
+const CategoryListItem = ({
+  name,
+  href,
+  hasNestedList = false,
+  children,
+  onClick = null
+}) => {
   const [isOpened, setIsOpened] = useState(false);
   const contentRef = useRef(null);
 
@@ -14,7 +20,10 @@ const CategoryListItem = ({ name, href, hasNestedList = false, children }) => {
   }, [isOpened]);
 
   return (
-    <li className="relative text-sm sm:text-base cursor-pointer flex flex-col">
+    <li
+      className="relative text-sm sm:text-base cursor-pointer flex flex-col"
+      onClick={onClick}
+    >
       <div
         className={`flex items-center justify-between p-2 cursor-pointer 
                    hover:bg-[#F4F4F6] transition-colors duration-300 ${

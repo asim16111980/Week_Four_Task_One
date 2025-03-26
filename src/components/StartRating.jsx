@@ -24,7 +24,10 @@ const StarRating = ({ initialRating = 0 }) => {
             onMouseLeave={() => setHoverRating(0)}
             onClick={() => handleRating(rating)}
           >
-            <FontAwesomeIcon icon={faStar} className="size-4 absolute inset-0 text-black opacity-25" />
+            <FontAwesomeIcon
+              icon={faStar}
+              className="size-4 absolute inset-0 text-black opacity-25"
+            />
             {isFull && (
               <FontAwesomeIcon
                 icon={faStar}
@@ -32,7 +35,10 @@ const StarRating = ({ initialRating = 0 }) => {
               />
             )}
             {isHalf && (
-              <FontAwesomeIcon icon={faStarHalf} className="size-4 absolute inset-0 text-[#FFAD33]" />
+              <FontAwesomeIcon
+                icon={faStarHalf}
+                className="size-4 absolute inset-0 text-[#FFAD33]"
+              />
             )}
           </div>
         );
@@ -42,4 +48,3 @@ const StarRating = ({ initialRating = 0 }) => {
 };
 
 export default StarRating;
-

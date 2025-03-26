@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect,useLayoutEffect } from "react";
+import { useState, useRef, useEffect, useLayoutEffect } from "react";
 import { SendHorizontal, Copyright } from "lucide-react";
 import Icon from "../components/Icon";
 
@@ -18,10 +18,8 @@ const Footer = () => {
       if (footer) {
         const footerTop = footer.getBoundingClientRect().top + scrollY;
 
-        // إظهار الزر عند التمرير لأسفل
         setIsVisible(scrollY > 200);
 
-        // إذا وصل إلى الفوتر، اجعله يتوقف عند حافته العلوية
         setIsAtFooter(scrollY + windowHeight >= footerTop);
       }
     };
@@ -43,23 +41,25 @@ const Footer = () => {
 
   return (
     <footer
-      className="relative flex flex-col items-center gap-10 bg-black text-[#FAFAFA] py-4 px-2 sm:px-4"
+      className="relative flex flex-col items-center gap-6 bg-black text-[#FAFAFA] py-4 px-4 sm:px-4"
       ref={footerRef}
     >
-    {isVisible && (
+      {isVisible && (
         <button
           onClick={scrollToTop}
           className="fixed right-8 p-3 rounded-full bg-[#F5F5F5] shadow-lg transition-all z-50"
           style={{
-            bottom: isAtFooter ? `${footerRef.current.offsetHeight + 20}px` : "20px",
+            bottom: isAtFooter
+              ? `${footerRef.current.offsetHeight + 20}px`
+              : "20px",
             position: isAtFooter ? "absolute" : "fixed",
           }}
         >
           <Icon icon="/public/icons/home/icons_arrow-up.png" />
         </button>
       )}
-      <div className="w-full mx-auto grid grid-cols-[repeat(auto-fill,minmax(200px,1fr))] gap-4 sm:gap-10">
-        <div className="flex flex-col gap-2 pe-4">
+      <div className="w-full mx-auto grid grid-cols-[repeat(auto-fill,minmax(200px,1fr))] gap-8 sm:gap-10">
+        <div className="flex flex-col gap-2">
           <h3 className="text-xl font-bold">Exclusive</h3>
           <p className="font-['poppins'] text-lg font-medium">Subscribe</p>
           <p className="font-['poppins'] text-sm">
@@ -70,14 +70,14 @@ const Footer = () => {
           ) : (
             <form
               onSubmit={handleSubmit}
-              className="font-['poppins'] flex items-center ps-4 py-3 pe-3 gap-4 border-2 border-[#FAFAFA] rounded overflow-hidden"
+              className="max-w-max font-['poppins'] flex items-center ps-4 py-3 pe-3 gap-4 border-2 border-[#FAFAFA] rounded overflow-hidden"
             >
               <input
                 type="email"
                 placeholder="Enter your email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="w-11/12 bg-black text-white focus:outline-none"
+                className="w-11/12 bg-black text-white text-sm focus:outline-none"
               />
               <button
                 type="submit"
