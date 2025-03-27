@@ -6,7 +6,7 @@ const Nav = () => {
   const { state, dispatch } = useContext(MenusContext);
   return (
     <div>
-      <ul className="flex flex-col bg-transparent lg:flex-row lg:gap-6 text-sm md:text-base">
+      <ul className="flex flex-col bg-transparent md:flex-row md:gap-2 lg:gap-6 text-sm md:text-base">
         {["Home", "About", "Contact", "SignUp"].map((item) => (
           <li
             key={item}
@@ -23,30 +23,6 @@ const Nav = () => {
             </NavLink>
           </li>
         ))}
-        {/* <li
-          className="p-2 cursor-pointer"
-          onClick={() => dispatch({ currentMenu: null })}
-        >
-          <Link to="/">Home</Link>
-        </li>
-        <li
-          className="p-2 cursor-pointer"
-          onClick={() => dispatch({ currentMenu: null })}
-        >
-          <Link to="/contact">Contact</Link>
-        </li>
-        <li
-          className="p-2 cursor-pointer"
-          onClick={() => dispatch({ currentMenu: null })}
-        >
-          <Link to="/about"> About</Link>
-        </li>
-        <li
-          className="p-2 cursor-pointer"
-          onClick={() => dispatch({ currentMenu: null })}
-        >
-          <Link to="/signup">Sign up</Link>
-        </li> */}
       </ul>
     </div>
   );

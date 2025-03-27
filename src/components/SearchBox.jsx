@@ -3,7 +3,7 @@ import Icon from "./Icon";
 const SearchBox = () => {
   return (
     <div className="hidden sm:block">
-      <div className="w-60 h-10 flex items-center justify-between rounded bg-[#F5F5F5] px-3">
+      <div className="w-min max-w-60 h-10 flex items-center justify-between rounded bg-[#F5F5F5] px-3">
         <input
           type="search"
           className="py-2 text-xs text-black bg-[#F5F5F5] focus:outline-0"
