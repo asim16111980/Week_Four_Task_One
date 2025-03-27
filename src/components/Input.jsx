@@ -4,7 +4,7 @@ const Input = ({ type = "text", placeholder = "" }) => {
       <input
         type="text"
         placeholder="Email or Phone Number"
-        className="size-full placeholder:opacity-40 focus:outline-none text-sm md:text-base"
+        className="size-full py-2 placeholder:opacity-40 focus:outline-none text-sm md:text-base"
       />
     </div>
   );

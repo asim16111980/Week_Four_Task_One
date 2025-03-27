@@ -101,7 +101,7 @@ const Home = () => {
             ))}
           </Swiper>
         </div>
-        <Button value="View All Products" width="234" />
+        <Button value="View All Products" className="w-60"/>
       </section>
       <Divider thickness={0.5} />
       {/* Category Phone Section */}
@@ -169,7 +169,7 @@ const Home = () => {
       <section className="flex flex-col items-center gap-8 md:gap:10">
         <header className="w-full flex flex-col justify-between sm:flex-row sm:items-end items-center gap-2">
           <SectionTitle title="This Month" subTitle="Best Selling Products" />
-          <Button value="View All" width="159" />
+          <Button value="View All" className="w-36" />
         </header>
         <div className="w-full mx-auto">
           <Swiper
@@ -229,7 +229,7 @@ const Home = () => {
             type="rounded"
             initialTimer={{ days: 6, hours: 0, minutes: 0, seconds: 0 }}
           />
-          <Button isPrimary={false} value="Buy Now!" width="171" />
+          <Button isPrimary={false} value="Buy Now!" className="w-36" />
         </div>
         <div className="h-1/2 sm:w-1/2 relative flex items-center justify-center bg-black">
           <div className="w-full aspect-square rounded-full bg-[#D9D9D9] bg-opacity-30 filter blur-[70px] md:blur-[130px]"></div>
@@ -360,7 +360,7 @@ const Home = () => {
             </Swiper>
           </div>
         </div>
-        <Button value="View All Products" width="234" />
+        <Button value="View All Products" className="w-60" />
       </section>
       {/* New Arrival Section */}
       <section className="flex flex-col items-center gap-8 md:gap:10">

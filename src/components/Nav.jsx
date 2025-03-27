@@ -14,9 +14,9 @@ const Nav = () => {
             onClick={() => dispatch({ currentMenu: null })}
           >
             <NavLink
-              to={(item === "Home" ? "/" : `/${item}`)}
+              to={(item === "Home" ? "/" : `/${item.toLowerCase()}`)}
               className={({ isActive }) =>
-                `text-base text-black ${isActive ? "border-opacity-50 border-b border-black" : "border-b-0"}`
+                `caret-transparent text-base text-black ${isActive ? "border-opacity-50 border-b border-black" : "border-b-0"}`
               }
             >
               {item}
