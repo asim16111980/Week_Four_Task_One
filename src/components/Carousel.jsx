@@ -13,7 +13,7 @@ const Carousel = ({ images = [] }) => {
         className="h-fit md:h-96 sm:w-3/5 md:flex-1 mt-10"
         modules={[Pagination, Autoplay]}
         loop={true}
-        autoplay={{ delay: 2000, disableOnInteraction: false }}
+        // autoplay={{ delay: 2000, disableOnInteraction: false }}
         pagination={{
           clickable: true,
           horizontalClass: "pagination",
@@ -26,7 +26,7 @@ const Carousel = ({ images = [] }) => {
         {images.map((src, index) => (
           <SwiperSlide key={index} >
             <div className="size-full flex flex-col md:flex-row items-center justify-center bg-black py-3 md:px-4 lg:px-6 gap-6">
-              <div className="flex-[1/2] p-2">
+              <div className="flex-[50%] p-2">
                 <div className="flex items-center gap-3 mb-3">
                   <FontAwesomeIcon icon={faApple} className="h-10 text-white" />
                   <span className='font-["Poppins"] text-[#fafafa] text-xs lg:text-base'>
@@ -43,7 +43,7 @@ const Carousel = ({ images = [] }) => {
                   <FontAwesomeIcon icon={faArrowRight} />
                 </div>
               </div>
-              <div className="flex-[1/2]">
+              <div className="flex-[50%]">
                 <img
                   src={src}
                   alt={`Slide ${index + 1}`}

@@ -28,6 +28,7 @@ const CategoriesList = ({ className = "" }) => {
                       key={nestedItem.id}
                       name={nestedItem.name}
                       href={nestedItem.href}
+                      className="px-2"
                     />
                   ))}
                 </ul>

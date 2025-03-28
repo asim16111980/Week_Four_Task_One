@@ -1,14 +1,11 @@
 const Icon = ({
   icon,
-  width = 24,
-  height = 24,
-  className = "",
+  className = "size-6",
   badgeCount = null,
 }) => {
   return (
     <span
       className={`flex relative transition-transform duration-300 ease-in-out caret-transparent ${className}`}
-      style={{ width: `${width}px`, height: `${height}px` }}
     >
       <img src={icon} loading="lazy" className="pointer-events-none" />
       {badgeCount && (

@@ -1,12 +1,13 @@
 import { useState, useRef, useEffect } from "react";
-import Icon from "./Icon";
+import { ChevronDown } from "lucide-react";
 
 const CategoryListItem = ({
   name,
   href,
   hasNestedList = false,
   children,
-  onClick = null
+  className,
+  onClick = null,
 }) => {
   const [isOpened, setIsOpened] = useState(false);
   const contentRef = useRef(null);
@@ -21,14 +22,12 @@ const CategoryListItem = ({
 
   return (
     <li
-      className="relative text-sm sm:text-base cursor-pointer flex flex-col"
+      className={`relative text-sm sm:text-base cursor-pointer flex flex-col hover:bg-[#F4F4F6] transition-colors duration-300${className}`}
       onClick={onClick}
     >
       <div
-        className={`flex items-center justify-between p-2 cursor-pointer 
-                   hover:bg-[#F4F4F6] transition-colors duration-300 ${
-                     isOpened ? "bg-[#F7F7FC] rounded-t-md" : ""
-                   }`}
+        className={`flex items-center justify-between py-2 cursor-pointer 
+                    ${isOpened ? "bg-[#F7F7FC] rounded-t-md" : ""}`}
       >
         <a href={href} className="flex-1">
           {name}
@@ -42,12 +41,10 @@ const CategoryListItem = ({
               setIsOpened((prev) => !prev);
             }}
           >
-            <Icon
-              icon="/icons/dropdown.png"
-              className={`transition-transform duration-300 ${
+            <ChevronDown
+              className={`pointer-events-none transition-transform duration-300 ${
                 isOpened ? "rotate-180" : "rotate-0"
               }`}
-              style={{ pointerEvents: "none" }}
             />
           </button>
         )}
