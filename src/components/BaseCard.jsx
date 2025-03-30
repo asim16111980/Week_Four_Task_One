@@ -1,11 +1,27 @@
 import { faEye, faHeart } from "@fortawesome/free-regular-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import StarRating from "./StartRating";
+import CardHeader from "./CardHeader";
 
-const BaseCard = ({ cardImg, altText, badge, badgeBgColor, cardTitle, netPrice, totalPrice = null, rating, rateCount,ratingInline=false, children }) => {
-    return (
-        <div className="w-full flex flex-col gap-4 font-['poppins'] group cursor-grab">
-            <div className="w-full h-[250px] md:h-60 bg-[#F5F5F5] rounded relative flex justify-center pt-6">
+const BaseCard = ({
+  cardImg,
+  altText,
+  hasBadge,
+  headerIcons,
+  buttonValue,
+  buttonIcon,
+  badgeBgColor,
+  cardTitle,
+  netPrice,
+  totalPrice = null,
+  rating,
+  rateCount,
+  ratingInline = false,
+  children,
+}) => {
+  return (
+    <div className="w-full flex flex-col gap-4 font-['poppins'] group cursor-grab">
+      {/* <div className="w-full h-[250px] md:h-60 bg-[#F5F5F5] rounded relative flex justify-center pt-6">
                 <div className="size-44 md:size-40 flex items-center justify-center">
                 <img src={cardImg} alt={altText} loading="lazy"/>
                 </div> 
@@ -19,25 +35,40 @@ const BaseCard = ({ cardImg, altText, badge, badgeBgColor, cardTitle, netPrice, 
                     </div>
                     <button type="button" className="hidden group-hover:block w-full h-10 bg-black rounded-b text-base font-medium text-white">Add To Cart</button>
                 </div>
-            </div>
-            <div className="flex flex-col items-start gap-2">
-                <h3 className="text-base font-medium">{cardTitle}</h3>
-                <div className={`flex gap-2 ${ratingInline ? "flex-row" : "flex-col"}`}>
-                    <div className="flex gap-2">
-                        <span className="text-base font-medium text-[#DB4444]">${netPrice}</span>
-                        {totalPrice && <span className="text-base font-medium text-[#727272] line-through">${totalPrice}</span>}
-                    </div>
-                    <div className="flex items-center gap-2">
-                        <StarRating initialRating={rating} />
-                        <span className="text-sm font-semibold text-[#727272]">({rateCount})</span>
-                    </div>
-                </div>
-                <div className="flex items-center gap-1">
-                    {children}
-                </div>
-            </div>
+            </div> */}
+      <CardHeader
+        cardImg={cardImg}
+        altText={altText}
+        hasBadge={hasBadge}
+        headerIcons={headerIcons}
+        badgeBgColor={badgeBgColor}
+        buttonValue={buttonValue}
+        buttonIcon={buttonIcon}
+      />
+      <div className="flex flex-col items-start gap-2">
+        <h3 className="text-base font-medium">{cardTitle}</h3>
+        <div className={`flex gap-2 ${ratingInline ? "flex-row" : "flex-col"}`}>
+          <div className="flex gap-2">
+            <span className="text-base font-medium text-[#DB4444]">
+              ${netPrice}
+            </span>
+            {totalPrice && (
+              <span className="text-base font-medium text-[#727272] line-through">
+                ${totalPrice}
+              </span>
+            )}
+          </div>
+          <div className="flex items-center gap-2">
+            <StarRating initialRating={rating} />
+            <span className="text-sm font-semibold text-[#727272]">
+              ({rateCount})
+            </span>
+          </div>
         </div>
-    );
+        <div className="flex items-center gap-1">{children}</div>
+      </div>
+    </div>
+  );
 };
 
 export default BaseCard;

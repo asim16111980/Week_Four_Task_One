@@ -1,6 +1,6 @@
 import Input from "./Input";
 import Button from "./Button";
-import Icon from "./Icon";
+import { FcGoogle } from "react-icons/fc";
 
 const SignUpForm = () => {
   return (
@@ -15,14 +15,15 @@ const SignUpForm = () => {
         <Input placeholder="Name" />
         <Input placeholder="Email or Phone Number" />
         <Input type="password" placeholder="Password" />
-        <Button value="Create Account" className="w-full text-base" />
-        <button
+        <Button value="Create Account" className="w-full text-base bg-[#DB4444] text-[#FAFAFA] hover:bg-[#E07575]" />
+        {/* <button
           type="button"
           className="w-full flex justify-center items-center text-base py-4 border border-black border-opacity-40 rounded gap-3"
         >
           <Icon icon="icons/sign_up/Icon-Google.png" />
           Sign up with Google
-        </button>
+        </button> */}
+        <Button value="Sign up with Google" icon={<FcGoogle size={24}/>} className="w-full bg-transparent border border-black border-opacity-50 hover:text-opacity-50"/>
         <p className="flex flex-col sm:flex-row justify-center items-center gap-4 text-base opacity-70">
           <span>Already have account?</span>
           <a
