@@ -15,7 +15,7 @@ const MobileSearchBox = () => {
       <div className="w-full h-full flex items-center gap-1 p-1">
         <button type="button" onClick={() => setIsMobileSearchBoxOpened(false)}>
           {" "}
-          <Icon icon="/public/icons/header/arrowLeft.svg" />{" "}
+          <Icon icon="/icons/header/arrowLeft.svg" />{" "}
         </button>
         <input
           type="search"

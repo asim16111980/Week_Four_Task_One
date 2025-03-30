@@ -13,7 +13,7 @@ const Carousel = ({ images = [] }) => {
         className="h-fit md:h-96 sm:w-3/5 md:flex-1 mt-10"
         modules={[Pagination, Autoplay]}
         loop={true}
-        // autoplay={{ delay: 2000, disableOnInteraction: false }}
+        autoplay={{ delay: 2000, disableOnInteraction: false }}
         pagination={{
           clickable: true,
           horizontalClass: "pagination",

@@ -55,7 +55,7 @@ const Footer = () => {
             position: isAtFooter ? "absolute" : "fixed",
           }}
         >
-          <Icon icon="/public/icons/home/icons_arrow-up.png" />
+          <Icon icon="icons/homeicons_arrow-up.png" />
         </button>
       )}
       <div className="w-full mx-auto grid grid-cols-[repeat(auto-fill,minmax(200px,1fr))] gap-8 sm:gap-10">
@@ -151,7 +151,7 @@ const Footer = () => {
             </p>
             <div className="flex gap-2">
               <div className="size-20 border-2 border-white">
-                <img src="/public/images/footer/Qrcode.png" alt="Qr Code" />
+                <img src="images/footer/Qrcode.png" alt="Qr Code" />
               </div>
               <div className="flex flex-col justify-between">
                 <a
@@ -161,7 +161,7 @@ const Footer = () => {
                   className="bg-black border border-white rounded"
                 >
                   <img
-                    src="/public/images/footer/png-transparent-google-play-store-logo-google-play-app-store-android-wallets-text-label-logo.png"
+                    src="images/footer/png-transparent-google-play-store-logo-google-play-app-store-android-wallets-text-label-logo.png"
                     alt="Google Play"
                   />
                 </a>
@@ -172,7 +172,7 @@ const Footer = () => {
                   className="bg-black border border-white rounded"
                 >
                   <img
-                    src="/public/images/footer/download-appstore.png"
+                    src="images/footer/download-appstore.png"
                     alt="App Store"
                   />
                 </a>
@@ -182,7 +182,7 @@ const Footer = () => {
           <div className="flex text-lg gap-6 text-white">
             <a href="#" target="_blank" rel="noopener noreferrer">
               <Icon
-                icon="/public/icons/social_media/Icon-Facebook.png"
+                icon="icons/social_media/Icon-Facebook.png"
                 alt="Facebook"
                 width={24}
                 height={24}
@@ -190,7 +190,7 @@ const Footer = () => {
             </a>
             <a href="#" target="_blank" rel="noopener noreferrer">
               <Icon
-                icon="/public/icons/social_media/Icon-Twitter.png"
+                icon="icons/social_media/Icon-Twitter.png"
                 alt="Twitter"
                 width={24}
                 height={24}
@@ -198,7 +198,7 @@ const Footer = () => {
             </a>
             <a href="#" target="_blank" rel="noopener noreferrer">
               <Icon
-                icon="/public/icons/social_media/icon-instagram.png"
+                icon="icons/social_media/icon-instagram.png"
                 alt="instagram"
                 width={24}
                 height={24}
@@ -206,7 +206,7 @@ const Footer = () => {
             </a>
             <a href="#" target="_blank" rel="noopener noreferrer">
               <Icon
-                icon="/public/icons/social_media/Icon-Linkedin.png"
+                icon="icons/social_media/Icon-Linkedin.png"
                 alt="Linkedin"
                 width={24}
                 height={24}

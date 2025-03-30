@@ -18,11 +18,11 @@ import "swiper/css/navigation";
 import { getSectionData } from "../utils/fetchData";
 
 const images = [
-  "/public/images/carousel/carousel_slide_1.png",
-  "/public/images/carousel/carousel_slide_1.png",
-  "/public/images/carousel/carousel_slide_1.png",
-  "/public/images/carousel/carousel_slide_1.png",
-  "/public/images/carousel/carousel_slide_1.png",
+  "images/carousel/carousel_slide_1.png",
+  "images/carousel/carousel_slide_1.png",
+  "images/carousel/carousel_slide_1.png",
+  "images/carousel/carousel_slide_1.png",
+  "images/carousel/carousel_slide_1.png",
 ];
 
 const Home = () => {
@@ -88,7 +88,7 @@ const Home = () => {
             {getSectionData("Flash Sales").map((item) => (
               <SwiperSlide key={item.id}>
                 <DiscCard
-                  img={`/public/images/flash_sales/${item.img_src}`}
+                  img={`images/flash_sales/${item.img_src}`}
                   alt={item.img_src}
                   name={item.name}
                   discount={item.discount}
@@ -101,7 +101,7 @@ const Home = () => {
             ))}
           </Swiper>
         </div>
-        <Button value="View All Products" className="w-60"/>
+        <Button value="View All Products" className="w-60" />
       </section>
       <Divider thickness={0.5} />
       {/* Category Phone Section */}
@@ -156,7 +156,7 @@ const Home = () => {
             {getSectionData("Category Phone").map((item) => (
               <SwiperSlide key={item.id}>
                 <CategoryPhone
-                  img={`/public/icons/category_phone/${item.img_src}`}
+                  img={`icons/category_phone/${item.img_src}`}
                   name={item.name}
                 />
               </SwiperSlide>
@@ -202,7 +202,7 @@ const Home = () => {
             {getSectionData("Best Selling").map((item) => (
               <SwiperSlide key={item.id}>
                 <DiscCard
-                  img={`/public/images/best_selling/${item.img_src}`}
+                  img={`images/best_selling/${item.img_src}`}
                   alt={item.img_src}
                   name={item.name}
                   discount={item.discount}
@@ -234,7 +234,7 @@ const Home = () => {
         <div className="h-1/2 sm:w-1/2 relative flex items-center justify-center bg-black">
           <div className="w-full aspect-square rounded-full bg-[#D9D9D9] bg-opacity-30 filter blur-[70px] md:blur-[130px]"></div>
           <img
-            src="/public/images/JBL_BOOMBOX_2_HERO_020_x1.png"
+            src="images/JBL_BOOMBOX_2_HERO_020_x1.png"
             alt="Enhance Image"
             className="w-9/12 absolute"
           />
@@ -292,7 +292,7 @@ const Home = () => {
               {getSectionData("Our Products 1").map((item) => (
                 <SwiperSlide key={item.id}>
                   <DiscCard
-                    img={`/public/images/our_products/${item.img_src}`}
+                    img={`images/our_products/${item.img_src}`}
                     alt={item.img_src}
                     name={item.name}
                     discount={item.discount}
@@ -346,7 +346,7 @@ const Home = () => {
                 <SwiperSlide key={item.id}>
                   <FlatCard
                     id={item.id}
-                    img={`/public/images/our_products/${item.img_src}`}
+                    img={`images/our_products/${item.img_src}`}
                     alt={item.img_src}
                     isNew={item.isNew}
                     name={item.name}
@@ -378,7 +378,7 @@ const Home = () => {
               key={item.id}
               title={item.title}
               desc={item.desc}
-              img={`/public/images/new_arrival/${item.img_src}`}
+              img={`images/new_arrival/${item.img_src}`}
               alt={item.img_src}
             />
           ))}
@@ -391,7 +391,7 @@ const Home = () => {
             key={item.id}
             title={item.title}
             desc={item.desc}
-            img={`/public/icons/services/${item.img_src}`}
+            img={`icons/services/${item.img_src}`}
             alt={item.img_src}
           />
         ))}

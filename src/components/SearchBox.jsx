@@ -9,7 +9,7 @@ const SearchBox = () => {
           className="py-2 text-xs text-black bg-[#F5F5F5] focus:outline-0"
           placeholder="What are you looking for?"
         />
-        <Icon icon="/public/icons/header/search.png" alt="Search" />
+        <Icon icon="/icons/header/search.png" alt="Search" />
       </div>
     </div>
   );

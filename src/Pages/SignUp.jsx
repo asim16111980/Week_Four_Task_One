@@ -6,7 +6,11 @@ const SignUp = () => {
   return (
     <div className="flex items-stretch py-10">
       <div className="w-1/2 lg:w-3/5 hidden md:block">
-        <img src="/public/images/sign_up/dl.beatsnoop.png" alt="beatsnoop" className="h-full" />
+        <img
+          src="images/sign_up/dl.beatsnoop.png"
+          alt="beatsnoop"
+          className="h-full"
+        />
       </div>
       <div className="flex-1 flex flex-col justify-center px-2 sm:px-10 md:px-8 gap-3 md:gap-6 ">
         {location.pathname === "/login" ? <LogInForm /> : <SignUpForm />}

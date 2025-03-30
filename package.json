@@ -3,6 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "homepage" : "https://asim16111980.github.io/Week_Four_Task_One/",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
