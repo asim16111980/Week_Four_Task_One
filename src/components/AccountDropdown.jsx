@@ -14,7 +14,7 @@ const AccountDropdown = () => {
             onClick={() => dispatch({ currentMenu: null })}
           >
             <UserRound />
-            <span className="font-['Poppins'] text-sm">Manage My Account</span>
+            <span className="font-poppins text-sm">Manage My Account</span>
           </a>
         </li>
         <li>
@@ -24,7 +24,7 @@ const AccountDropdown = () => {
             onClick={() => dispatch({ currentMenu: null })}
           >
             <ShoppingBag />
-            <span className="font-['Poppins'] text-sm">My Order</span>
+            <span className="font-poppins text-sm">My Order</span>
           </a>
         </li>
         <li>
@@ -34,7 +34,7 @@ const AccountDropdown = () => {
             onClick={() => dispatch({ currentMenu: null })}
           >
             <CircleX />
-            <span className="font-['Poppins'] text-sm">My Cancellations</span>
+            <span className="font-poppins text-sm">My Cancellations</span>
           </a>
         </li>
         <li>
@@ -44,7 +44,7 @@ const AccountDropdown = () => {
             onClick={() => dispatch({ currentMenu: null })}
           >
             <Star />
-            <span className="font-['Poppins'] text-sm">My Reviews</span>
+            <span className="font-poppins text-sm">My Reviews</span>
           </a>
         </li>
         <li>
@@ -54,7 +54,7 @@ const AccountDropdown = () => {
             onClick={() => dispatch({ currentMenu: null })}
           >
             <LogOut />
-            <span className="font-['Poppins'] text-sm">Logout</span>
+            <span className="font-poppins text-sm">Logout</span>
           </a>
         </li>
       </ul>

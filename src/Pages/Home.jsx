@@ -2,20 +2,21 @@ import Carousel from "../components/Carousel";
 import Timer from "../components/Timer";
 import NavigationButtons from "../components/NavigationButtons";
 import SectionTitle from "../components/SectionTitle";
-import DiscCard from "../components/DiscCard";
 import Button from "../components/Button";
 import Divider from "../components/Divider";
 import CategoryPhone from "../components/CategoryPhone";
-import FlatCard from "../components/FlatCard";
 import BlackCard from "../components/BlackCard";
 import ServiceCard from "../components/ServiceCard";
 import CategoriesList from "../components/CategoriesList";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
-import { getSectionData } from "../utils/fetchData";
+import { getSectionData, calNetPrice } from "../utils/fetchData";
+import ProductCard from "../components/ProductCard";
+import { IoHeartOutline, IoEyeOutline } from "react-icons/io5";
+import axios from "axios";
 
 const images = [
   "images/carousel/carousel_slide_1.png",
@@ -27,7 +28,20 @@ const images = [
 
 const Home = () => {
   const [sliderPosition, setSliderPosition] = useState("start");
-
+  const [products, setProducts] = useState([]);
+  useEffect(() => {
+    axios
+      .get("https://dummyjson.com/products?limit=10")
+      .then((response) => setProducts(response.data.products))
+      .catch((error) => console.log("Error fetching products:", error));
+  }, []);
+  const addProductToWishList = (productId) => {
+    console.log(productId);
+    axios.patch(`https://dummyjson.com/products/${productId}`, {
+      isWish: true,
+    });
+  };
+  console.log(products);
   return (
     <div className="w-full flex flex-col gap-24 sm:px-2 md:px-10 pb-4">
       {/* Carousel Section */}
@@ -85,12 +99,38 @@ const Home = () => {
               );
             }}
           >
-            {getSectionData("Flash Sales").map((item) => (
+            {products.map((item) => (
               <SwiperSlide key={item.id}>
-                <DiscCard
-                  img={`images/flash_sales/${item.img_src}`}
-                  alt={item.img_src}
-                  name={item.name}
+                <ProductCard
+                  id={item.id}
+                  cardImg={item.thumbnail}
+                  altText={item.thumbnail}
+                  headerIcons={[
+                    <IoHeartOutline
+                      // onClick={() => addProductToWishList(item.id)}
+                    />,
+                    <IoEyeOutline />,
+                  ]}
+                  cardTitle={item.title}
+                  hasBadge={true}
+                  badgeBgColor="bg-[#DB4444]"
+                  discount={item.discountPercentage}
+                  netPrice={calNetPrice(item.price, item.discountPercentage)}
+                  totalPrice={item.price}
+                  rating={item.rating}
+                  rateCount={item.reviews.length}
+                />
+              </SwiperSlide>
+            ))}
+            {/* {getSectionData("Flash Sales").map((item) => (
+              <SwiperSlide key={item.id}>
+                <ProductCard
+                  id={item.id}
+                  cardImg={`images/flash_sales/${item.img_src}`}
+                  altText={item.img_src}
+                  headerIcons={[<IoHeartOutline />, <IoEyeOutline />]}
+                  cardTitle={item.name}
+                  hasBadge={true}
                   discount={item.discount}
                   netPrice={item.net_price}
                   totalPrice={item.total_price}
@@ -98,10 +138,13 @@ const Home = () => {
                   rateCount={item.rate_count}
                 />
               </SwiperSlide>
-            ))}
+            ))} */}
           </Swiper>
         </div>
-        <Button value="View All Products" className="w-60 bg-[#DB4444] text-[#FAFAFA] hover:bg-[#E07575]" />
+        <Button
+          value="View All Products"
+          className="w-60 h-14 rounded bg-[#DB4444] text-[#FAFAFA] hover:bg-[#E07575]"
+        />
       </section>
       <Divider thickness={0.5} />
       {/* Category Phone Section */}
@@ -169,7 +212,10 @@ const Home = () => {
       <section className="flex flex-col items-center gap-8 md:gap:10">
         <header className="w-full flex flex-col justify-between sm:flex-row sm:items-end items-center gap-2">
           <SectionTitle title="This Month" subTitle="Best Selling Products" />
-          <Button value="View All" className="w-36 bg-[#DB4444] text-[#FAFAFA] hover:bg-[#E07575]" />
+          <Button
+            value="View All"
+            className="w-36 h-14 rounded bg-[#DB4444] text-[#FAFAFA] hover:bg-[#E07575]"
+          />
         </header>
         <div className="w-full mx-auto">
           <Swiper
@@ -201,10 +247,13 @@ const Home = () => {
           >
             {getSectionData("Best Selling").map((item) => (
               <SwiperSlide key={item.id}>
-                <DiscCard
-                  img={`images/best_selling/${item.img_src}`}
-                  alt={item.img_src}
-                  name={item.name}
+                <ProductCard
+                  id={item.id}
+                  cardImg={`images/best_selling/${item.img_src}`}
+                  altText={item.img_src}
+                  headerIcons={[<IoHeartOutline />, <IoEyeOutline />]}
+                  cardTitle={item.name}
+                  hasBadge={true}
                   discount={item.discount}
                   netPrice={item.net_price}
                   totalPrice={item.total_price}
@@ -219,7 +268,7 @@ const Home = () => {
       {/*  Enhance Music Section */}
       <section className="w-full flex flex-col items-center sm:flex-row bg-black px-3 md:px-10 py-6 md:py-0">
         <div className="h-1/2 sm:w-1/2 flex flex-col items-center sm:items-start gap-6 md:gap-10">
-          <span className="font-['poppins'] text-sm md:text-base font-semibold text-[#00FF66]">
+          <span className="font-poppins text-sm md:text-base font-semibold text-[#00FF66]">
             Categories
           </span>
           <h2 className="text-2xl md:text-5xl font-semibold text-center sm:text-left text-[#FAFAFA]">
@@ -229,7 +278,10 @@ const Home = () => {
             type="rounded"
             initialTimer={{ days: 6, hours: 0, minutes: 0, seconds: 0 }}
           />
-          <Button value="Buy Now!" className="w-36 bg-[#00FF66] text-[#FAFAFA] hover:bg-[#3cf385]" />
+          <Button
+            value="Buy Now!"
+            className="w-36 h-14 rounded bg-[#00FF66] text-[#FAFAFA] hover:bg-[#3cf385]"
+          />
         </div>
         <div className="h-1/2 sm:w-1/2 relative flex items-center justify-center bg-black">
           <div className="w-full aspect-square rounded-full bg-[#D9D9D9] bg-opacity-30 filter blur-[70px] md:blur-[130px]"></div>
@@ -291,13 +343,16 @@ const Home = () => {
             >
               {getSectionData("Our Products 1").map((item) => (
                 <SwiperSlide key={item.id}>
-                  <DiscCard
-                    img={`images/our_products/${item.img_src}`}
-                    alt={item.img_src}
-                    name={item.name}
+                  <ProductCard
+                    id={item.id}
+                    cardImg={`images/our_products/${item.img_src}`}
+                    altText={item.img_src}
+                    headerIcons={[<IoHeartOutline />, <IoEyeOutline />]}
+                    cardTitle={item.name}
+                    hasBadge={true}
                     discount={item.discount}
+                    isRatingInline={true}
                     netPrice={item.net_price}
-                    totalPrice={item.total_price}
                     rating={item.rating}
                     rateCount={item.rate_count}
                   />
@@ -344,12 +399,13 @@ const Home = () => {
             >
               {getSectionData("Our Products 2").map((item) => (
                 <SwiperSlide key={item.id}>
-                  <FlatCard
+                  <ProductCard
                     id={item.id}
-                    img={`images/our_products/${item.img_src}`}
-                    alt={item.img_src}
-                    isNew={item.isNew}
-                    name={item.name}
+                    cardImg={`images/our_products/${item.img_src}`}
+                    altText={item.img_src}
+                    headerIcons={[<IoHeartOutline />, <IoEyeOutline />]}
+                    cardTitle={item.name}
+                    hasBadge={true}
                     netPrice={item.net_price}
                     rating={item.rating}
                     rateCount={item.rate_count}
@@ -360,7 +416,10 @@ const Home = () => {
             </Swiper>
           </div>
         </div>
-        <Button value="View All Products" className="w-60 bg-[#DB4444] text-[#FAFAFA] hover:bg-[#E07575]" />
+        <Button
+          value="View All Products"
+          className="w-60 h-14 rounded bg-[#DB4444] text-[#FAFAFA] hover:bg-[#E07575]"
+        />
       </section>
       {/* New Arrival Section */}
       <section className="flex flex-col items-center gap-8 md:gap:10">

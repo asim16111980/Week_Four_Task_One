@@ -8,4 +8,9 @@ const getSectionData = (sectionName) => {
     return section ? section.sectionData : [];
 };
 
-export { getSectionData };
+// Calculate product net price after the discount
+const calNetPrice = (price, discount) => {
+    return (price - ((price * discount) / 100)).toFixed(3)
+}
+
+export { getSectionData,calNetPrice };

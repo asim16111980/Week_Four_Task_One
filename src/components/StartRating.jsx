@@ -19,9 +19,7 @@ const StarRating = ({ initialRating = 0 }) => {
         return (
           <div
             key={starValue}
-            className="relative cursor-pointer size-4"
-            onMouseMove={(e) => handleMouseMove(e, starValue)}
-            onMouseLeave={() => setHoverRating(0)}
+            className="relative size-4"
             onClick={() => handleRating(rating)}
           >
             <FontAwesomeIcon

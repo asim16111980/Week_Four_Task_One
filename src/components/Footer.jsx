@@ -61,10 +61,10 @@ const Footer = () => {
       <div className="w-full mx-auto grid grid-cols-[repeat(auto-fill,minmax(200px,1fr))] gap-8 sm:gap-10">
         <div className="flex flex-col gap-3 md:gap-6">
           <h3 className="text-xl md:text-2xl font-bold">Exclusive</h3>
-          <p className="font-['poppins'] text-lg md:text-xl font-medium">
+          <p className="font-poppins text-lg md:text-xl font-medium">
             Subscribe
           </p>
-          <p className="font-['poppins'] text-sm md:text-base">
+          <p className="font-poppins text-sm md:text-base">
             Get 10% off your first order
           </p>
           {submitted ? (
@@ -72,7 +72,7 @@ const Footer = () => {
           ) : (
             <form
               onSubmit={handleSubmit}
-              className="max-w-max font-['poppins'] flex items-center ps-4 py-3 pe-3 gap-4 border-2 border-[#FAFAFA] rounded overflow-hidden"
+              className="max-w-max font-poppins flex items-center ps-4 py-3 pe-3 gap-4 border-2 border-[#FAFAFA] rounded overflow-hidden"
             >
               <input
                 type="email"
@@ -90,7 +90,7 @@ const Footer = () => {
             </form>
           )}
         </div>
-        <div className="flex flex-col gap-3 md:gap-6 font-['poppins']">
+        <div className="flex flex-col gap-3 md:gap-6 font-poppins">
           <h3 className="text-lg md:text-xl font-medium">Support</h3>
           <ul className=" flex flex-col gap-2 md:gap-4 text-sm md:text-base">
             <li>
@@ -106,7 +106,7 @@ const Footer = () => {
             </li>
           </ul>
         </div>
-        <div className="flex flex-col gap-3 md:gap-6 font-['poppins']">
+        <div className="flex flex-col gap-3 md:gap-6 font-poppins">
           <h3 className="text-lg md:text-xl font-medium">Account</h3>
           <ul className=" flex flex-col gap-2 md:gap-4 text-sm md:text-base">
             <li>
@@ -126,7 +126,7 @@ const Footer = () => {
             </li>
           </ul>
         </div>
-        <div className="flex flex-col gap-3 md:gap-6 font-['poppins']">
+        <div className="flex flex-col gap-3 md:gap-6 font-poppins">
           <h3 className="text-lg md:text-xl font-medium">Quick Link</h3>
           <ul className=" flex flex-col gap-2 md:gap-4 text-sm md:text-base">
             <li>
@@ -143,7 +143,7 @@ const Footer = () => {
             </li>
           </ul>
         </div>
-        <div className="flex flex-col gap-3 md:gap-6 font-['poppins']">
+        <div className="flex flex-col gap-3 md:gap-6 font-poppins">
           <h3 className="text-lg md:text-xl font-medium">Download App</h3>
           <div className="flex flex-col gap-2 md:gap-4">
             <p className="text-xs font-medium text-opacity-70">
@@ -215,7 +215,7 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      <div className="w-full flex justify-center items-end font-['poppins'] text-xs text-white text-opacity-60 py-8">
+      <div className="w-full flex justify-center items-end font-poppins text-xs text-white text-opacity-60 py-8">
         <p className="flex items-center gap-1">
           <Copyright size={20} strokeWidth={1.5} /> Copyright Rimel 2022. All
           right reserved

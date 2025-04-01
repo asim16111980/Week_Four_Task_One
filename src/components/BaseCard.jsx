@@ -20,7 +20,7 @@ const BaseCard = ({
   children,
 }) => {
   return (
-    <div className="w-full flex flex-col gap-4 font-['poppins'] group cursor-grab">
+    <div className="w-full flex flex-col gap-4 font-poppins group cursor-grab">
       {/* <div className="w-full h-[250px] md:h-60 bg-[#F5F5F5] rounded relative flex justify-center pt-6">
                 <div className="size-44 md:size-40 flex items-center justify-center">
                 <img src={cardImg} alt={altText} loading="lazy"/>

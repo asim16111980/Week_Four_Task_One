@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import {
   X,
   AlignJustify,
@@ -8,6 +8,7 @@ import {
   Search,
   ShoppingCart,
 } from "lucide-react";
+import { IoHeartOutline } from "react-icons/io5";
 import MobileSearchBox from "./MobileSearchBox";
 import { MobileSearchBoxContext } from "../context/SearchBoxProvider";
 import { MenusContext } from "../context/MenusProvider";
@@ -21,20 +22,15 @@ const Header = () => {
     MobileSearchBoxContext
   );
   const { state, dispatch } = useContext(MenusContext);
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className="w-full h-auto sm:px-2 md:px-10 flex flex-col md:flex-row items-stretch justify-center relative shadow z-20 p-2 lg:px-8 bg-white">
+    <header className="w-full h-auto sm:px-2 md:px-10 flex flex-col md:flex-row items-stretch justify-center shadow z-20 p-2 lg:px-8 bg-white">
       <div className="w-full h-12 flex items-center lg:gap-10 xl:gap-24">
         <h1 className="font-bold text-black text-lg md:text-xl lg:text-2xl">
           Exclusive
         </h1>
-        <nav
-          className={`w-full h-auto px-2 md:gap-6 absolute md:static top-full left-0 text-black bg-white transition-all duration-300 ease-in-out shadow md:block md:shadow-none ${
-            state.NavMenuOpened ? "block" : "hidden"
-          }`}
-        >
-          <Nav />
-        </nav>
+        <Nav isOpen={isOpen} onClose={()=>setIsOpen(false)}/>
         <div className="ml-auto flex items-center gap-2 lg:gap-6">
           <button
             type="button"
@@ -44,11 +40,11 @@ const Header = () => {
             <Search />
           </button>
           <SearchBox />
+          <a href="/wishlist">
+            <IoHeartOutline className="lg:size-8" />
+          </a>
           <button type="button">
-            <Heart className="lg:size-8" />
-          </button>
-          <button type="button">
-            <ShoppingCart  className="lg:size-8"/>
+            <ShoppingCart className="lg:size-8" />
           </button>
           <div className="relative">
             <button
@@ -61,7 +57,9 @@ const Header = () => {
               onClick={() => dispatch({ currentMenu: "UserMenuOpened" })}
             >
               <UserRound
-                className={`${state.UserMenuOpened ? "size-4 lg:size-6" : "size-6 lg:size-8"}`}
+                className={`${
+                  state.UserMenuOpened ? "size-4 lg:size-6" : "size-6 lg:size-8"
+                }`}
               />
             </button>
             <div
@@ -79,7 +77,7 @@ const Header = () => {
         <button
           type="button"
           className="flex justify-center items-center mr-auto"
-          onClick={() => dispatch({ currentMenu: "NavMenuOpened" })}
+          onClick={() => setIsOpen(true)}
         >
           {state.NavMenuOpened ? <X /> : <AlignJustify />}
         </button>

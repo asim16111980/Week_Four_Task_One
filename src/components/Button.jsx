@@ -2,11 +2,13 @@ const Button = ({ className = "", value, icon = null }) => {
   return (
     <button
       type="button"
-      className={`${className} flex justify-center items-center gap-3 rounded caret-transparent font-["poppins"] text-sm md:text-base font-medium h-14 px-6 py-4 
+      className={`${className} 
         `}
     >
-      {icon && icon}
-      <span> {value}</span>
+      <span className="min-w-28 size-full flex justify-center items-center gap-3 caret-transparent font-poppins text-xs sm:text-sm md:text-base font-medium py-4 ">
+        {icon && icon}
+        <span className="h-full flex justify-center items-center">{value}</span>
+      </span>
     </button>
   );
 };

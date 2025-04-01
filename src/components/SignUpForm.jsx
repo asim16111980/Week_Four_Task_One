@@ -9,13 +9,16 @@ const SignUpForm = () => {
         <h2 className="font-medium text-2xl sm:text-3xl md:text-4xl ">
           Create an account
         </h2>
-        <p className="font-['poppins'] text-base">Enter your details below</p>
+        <p className="font-poppins text-base">Enter your details below</p>
       </div>
-      <form className="font-['poppins'] w-full flex flex-col gap-3 lg:gap-6">
+      <form className="font-poppins w-full flex flex-col gap-3 lg:gap-6">
         <Input placeholder="Name" />
         <Input placeholder="Email or Phone Number" />
         <Input type="password" placeholder="Password" />
-        <Button value="Create Account" className="w-full text-base bg-[#DB4444] text-[#FAFAFA] hover:bg-[#E07575]" />
+        <Button
+          value="Create Account"
+          className="w-full rounded h-14 text-base bg-[#DB4444] text-[#FAFAFA] hover:bg-[#E07575]"
+        />
         {/* <button
           type="button"
           className="w-full flex justify-center items-center text-base py-4 border border-black border-opacity-40 rounded gap-3"
@@ -23,7 +26,11 @@ const SignUpForm = () => {
           <Icon icon="icons/sign_up/Icon-Google.png" />
           Sign up with Google
         </button> */}
-        <Button value="Sign up with Google" icon={<FcGoogle size={24}/>} className="w-full bg-transparent border border-black border-opacity-50 hover:text-opacity-50"/>
+        <Button
+          value="Sign up with Google"
+          icon={<FcGoogle size={24} />}
+          className="w-full h-14 rounded bg-transparent border border-black border-opacity-50 hover:text-opacity-50"
+        />
         <p className="flex flex-col sm:flex-row justify-center items-center gap-4 text-base opacity-70">
           <span>Already have account?</span>
           <a
