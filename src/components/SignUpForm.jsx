@@ -1,6 +1,6 @@
 import Input from "./Input";
 import Button from "./Button";
-import { FcGoogle } from "react-icons/fc";
+// import { FcGoogle } from "react-icons/fc";
 
 const SignUpForm = () => {
   return (
@@ -28,7 +28,7 @@ const SignUpForm = () => {
         </button> */}
         <Button
           value="Sign up with Google"
-          icon={<FcGoogle size={24} />}
+          // icon={<FcGoogle size={24} />}
           className="w-full h-14 rounded bg-transparent border border-black border-opacity-50 hover:text-opacity-50"
         />
         <p className="flex flex-col sm:flex-row justify-center items-center gap-4 text-base opacity-70">

@@ -1,9 +1,10 @@
-const Button = ({ className = "", value, icon = null }) => {
+const Button = ({ className = "", value, icon = null,onClick }) => {
   return (
     <button
       type="button"
       className={`${className} 
         `}
+      onClick={onClick}
     >
       <span className="min-w-28 size-full flex justify-center items-center gap-3 caret-transparent font-poppins text-xs sm:text-sm md:text-base font-medium py-4 ">
         {icon && icon}
