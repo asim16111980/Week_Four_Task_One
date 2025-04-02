@@ -17,6 +17,7 @@ import { getSectionData, calNetPrice } from "../utils/fetchData";
 import ProductCard from "../components/ProductCard";
 import { IoHeartOutline, IoEyeOutline } from "react-icons/io5";
 import axios from "axios";
+import { updateProduct } from "../utils/crud";
 
 const images = [
   "images/carousel/carousel_slide_1.png",
@@ -35,18 +36,13 @@ const Home = () => {
       .then((response) => setProducts(response.data.products))
       .catch((error) => console.log("Error fetching products:", error));
   }, []);
-  const addProductToWishList = (productId) => {
-    console.log(productId);
-    axios.patch(`https://dummyjson.com/products/${productId}`, {
-      isWish: true,
-    });
-  };
-  console.log(products);
+  
+  
   return (
     <div className="w-full flex flex-col gap-24 sm:px-2 md:px-10 pb-4">
       {/* Carousel Section */}
       <section className="flex gap-6">
-        <CategoriesList className="hidden sm:block w-48 mt-10 max-h-full" />
+        <CategoriesList className="hidden sm:block mt-10 px-0 max-h-full" />
         <Divider type="vr" className="hidden sm:block" />
         <Carousel images={images} />
       </section>
@@ -107,7 +103,7 @@ const Home = () => {
                   altText={item.thumbnail}
                   headerIcons={[
                     <IoHeartOutline
-                    // onClick={() => addProductToWishList(item.id)}
+                    onClick={() => updateProduct(item.id,{ inWish:true })}
                     />,
                     <IoEyeOutline />,
                   ]}

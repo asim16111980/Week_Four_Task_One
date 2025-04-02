@@ -37,21 +37,29 @@ import { NavLink } from "react-router-dom";
 import { useContext } from "react";
 import { MenusContext } from "../context/MenusProvider";
 
-const NavMenu = ({ onClose }) => {
+const NavMenu = ({ className = "", onClose = null }) => {
   const handleClickLink = () => {
-    onClose();     
+    onClose();
   };
 
   return (
-    <nav className="w-full h-auto md:gap-6 md:static text-black bg-white shadow md:block md:shadow-none">
-      <ul className="flex flex-col bg-transparent md:flex-row md:gap-2 lg:gap-6 text-sm md:text-base">
+    <nav
+      className={`${className} w-full h-auto flex-1 sm:static text-black bg-white shadow sm:shadow-none`}
+    >
+      <ul className="flex flex-col bg-transparent sm:flex-row justify-center sm:items-center sm:gap-6 xl:gap-16 text-sm sm:text-base">
         {["Home", "About", "Contact", "SignUp"].map((item) => (
-          <li key={item} className="p-2 cursor-pointer" onClick={handleClickLink}>
+          <li
+            key={item}
+            className="p-2 cursor-pointer"
+            onClick={handleClickLink}
+          >
             <NavLink
               to={item === "Home" ? "/" : `/${item.toLowerCase()}`}
               className={({ isActive }) =>
-                `caret-transparent text-base text-black ${
-                  isActive ? "border-opacity-50 border-b border-black" : "border-b-0"
+                `caret-transparent text-black ${
+                  isActive
+                    ? "border-opacity-50 border-b border-black"
+                    : "border-b-0"
                 }`
               }
             >

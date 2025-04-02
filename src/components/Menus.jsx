@@ -66,7 +66,6 @@ import Menu from "./Menu";
 import NavMenu from "./NavMenu";
 import CategoriesList from "./CategoriesList";
 import { MenusContext } from "../context/MenusProvider";
-import AccountDropdown from "./AccountDropdown";
 
 const Menus = () => {
   const [openedMenu, setOpenedMenu] = useContext(MenusContext);
@@ -81,8 +80,6 @@ const Menus = () => {
       case "CatsMenu":
         return <CategoriesList onClose={closeMenu} />;
       case "UserMenu":
-        //   return <AccountDropdown onClose={closeMenu} />;
-        // default:
         return null;
     }
   }, [openedMenu]);

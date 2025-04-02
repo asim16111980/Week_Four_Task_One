@@ -132,6 +132,7 @@ import Nav from "./Nav";
 import AccountDropdown from "./AccountDropdown";
 import Button from "./Button";
 import Icon from "./Icon";
+import NavMenu from "./NavMenu";
 
 const Header = () => {
   const { isMobileSearchBoxOpened, setIsMobileSearchBoxOpened } = useContext(
@@ -142,17 +143,19 @@ const Header = () => {
     openedMenu === menu ? setOpenedMenu(null) : setOpenedMenu(menu);
   };
   return (
-    <header className="w-full h-auto sm:px-2 md:px-10 flex flex-col md:flex-row items-stretch justify-center shadow z-20 p-2 lg:px-8 bg-white">
-      <div className="w-full h-12 flex items-center lg:gap-10 xl:gap-24">
+    <header className="w-full h-auto sm:px-2 md:px-10 flex flex-col sm:flex-row  items-stretch justify-center shadow z-20 p-2 bg-white">
+      <div className="relative w-full min-h-12 flex sm:flex-wrap md:flex-nowrap items-center gap-2 lg:gap-10 xl:gap-24">
         <h1 className="font-bold text-black text-lg md:text-xl lg:text-2xl">
           Exclusive
         </h1>
-        <div className="ml-auto flex items-center gap-2 lg:gap-6">
+        <NavMenu className="hidden sm:block"/>
+        <div className="ml-auto sm:flex-1 flex items-center gap-2 md:gap-4 lg:gap-6">
           <Icon
             icon={<IoSearchOutline />}
             className="size-4 sm:hidden"
             onClick={() => setIsMobileSearchBoxOpened(true)}
           />
+            {isMobileSearchBoxOpened && <MobileSearchBox />}
           {/* <button
             type="button"
             className="sm:hidden"
@@ -205,16 +208,15 @@ const Header = () => {
               <UserRound />
             </button> */}
             {openedMenu === "UserMenu" && (
-              <AccountDropdown onClose={()=>setOpenedMenu(null)} />
+              <AccountDropdown onClose={() => setOpenedMenu(null)} />
             )}
             {/* <div>
               <AccountDropdown />
             </div> */}
           </div>
         </div>
-        {isMobileSearchBoxOpened && <MobileSearchBox />}
       </div>
-      <div className="flex-1 flex items-center justify-between gap-2 py-2 md:hidden">
+      <div className="flex-1 flex items-center justify-between gap-2 py-2 sm:hidden">
         <Icon
           icon={openedMenu === "NavMenu" ? <IoClose /> : <IoMenuOutline />}
           className="size-4"

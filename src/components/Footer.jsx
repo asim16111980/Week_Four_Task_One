@@ -44,7 +44,7 @@ const Footer = () => {
       className="relative flex flex-col items-center gap-6 bg-black text-neutral-50 py-4 px-4 sm:px-4 md:px-10 mt-16"
       ref={footerRef}
     >
-      {isVisible && (
+      {/* {isVisible && (
         <button
           onClick={scrollToTop}
           className="fixed right-8 p-3 rounded-full bg-[#F5F5F5] shadow-lg transition-all z-50"
@@ -57,7 +57,7 @@ const Footer = () => {
         >
           <Icon icon="icons/homeicons_arrow-up.png" />
         </button>
-      )}
+      )} */}
       <div className="w-full mx-auto grid grid-cols-[repeat(auto-fill,minmax(200px,1fr))] gap-8 sm:gap-10">
         <div className="flex flex-col gap-3 md:gap-6">
           <h3 className="text-xl md:text-2xl font-bold">Exclusive</h3>

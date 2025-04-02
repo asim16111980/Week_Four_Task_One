@@ -102,6 +102,7 @@ import { useState, useCallback } from "react";
 import Button from "./Button";
 import StarRating from "./StartRating";
 import ProductColorOption from "./ProductColorOption";
+import Icon from "./Icon";
 
 const ProductCard = ({
   className = "",
@@ -153,12 +154,11 @@ const ProductCard = ({
             )}
             <div className="flex flex-col gap-2 items-center ml-auto">
               {headerIcons.map((icon, index) => (
-                <span
+                <Icon
                   key={index}
+                  icon={icon}
                   className="rounded-full p-1 sm:p-2 text-xl bg-white cursor-pointer"
-                >
-                  {icon}
-                </span>
+                />
               ))}
             </div>
           </div>
