@@ -11,9 +11,9 @@ createRoot(document.getElementById("root")).render(
   <StrictMode>
     <Router>
       <SearchBoxProvider>
-        <MenusProvider>
+      
           <App />
-        </MenusProvider>
+        
       </SearchBoxProvider>
     </Router>
   </StrictMode>

@@ -3,11 +3,13 @@ import { MenusContext } from "../context/MenusProvider";
 import { getSectionData } from "../utils/fetchData";
 import CategoryListItem from "./CategoryListItem";
 
-const CategoriesList = ({ className = "" }) => {
-  const { state, dispatch } = useContext(MenusContext);
+const CategoriesList = ({  onClose }) => {
+  const handleClickLink = () => {
+    onClose();     
+  };
   return (
-    <div className={className}>
-      <ul className="flex flex-col bg-transparent gap-3 md:gap-1">
+    <div className="w-full h-auto px-2 md:gap-6 md:static text-black bg-white shadow md:block md:shadow-none">
+      <ul className="flex flex-col bg-transparent md:gap-1">
         {getSectionData("Categories List").map((item) => {
           const hasNestedList = item.nested_list.length !== 0;
           return (
@@ -17,14 +19,14 @@ const CategoriesList = ({ className = "" }) => {
               href={item.href}
               hasNestedList={hasNestedList}
               onClick={
-                !hasNestedList ? () => dispatch({ currentMenu: null }) : null
+                !hasNestedList ? () =>handleClickLink() : null
               }
             >
               {hasNestedList && (
                 <ul className="flex flex-col py-1">
                   {item.nested_list.map((nestedItem) => (
                     <CategoryListItem
-                      onClick={() => dispatch({ currentMenu: null })}
+                      onClick={() => () =>handleClickLink()}
                       key={nestedItem.id}
                       name={nestedItem.name}
                       href={nestedItem.href}

@@ -107,7 +107,7 @@ const Home = () => {
                   altText={item.thumbnail}
                   headerIcons={[
                     <IoHeartOutline
-                      // onClick={() => addProductToWishList(item.id)}
+                    // onClick={() => addProductToWishList(item.id)}
                     />,
                     <IoEyeOutline />,
                   ]}
@@ -143,7 +143,7 @@ const Home = () => {
         </div>
         <Button
           value="View All Products"
-          className="w-60 h-14 rounded bg-[#DB4444] text-[#FAFAFA] hover:bg-[#E07575]"
+          className="w-60 h-14 rounded bg-[#DB4444] text-neutral-50 hover:bg-[#E07575]"
         />
       </section>
       <Divider thickness={0.5} />
@@ -214,7 +214,7 @@ const Home = () => {
           <SectionTitle title="This Month" subTitle="Best Selling Products" />
           <Button
             value="View All"
-            className="w-36 h-14 rounded bg-[#DB4444] text-[#FAFAFA] hover:bg-[#E07575]"
+            className="w-36 h-14 rounded bg-[#DB4444] text-neutral-50 hover:bg-[#E07575]"
           />
         </header>
         <div className="w-full mx-auto">
@@ -271,7 +271,7 @@ const Home = () => {
           <span className="font-poppins text-sm md:text-base font-semibold text-[#00FF66]">
             Categories
           </span>
-          <h2 className="text-2xl md:text-5xl font-semibold text-center sm:text-left text-[#FAFAFA]">
+          <h2 className="text-2xl md:text-5xl font-semibold text-center sm:text-left text-neutral-50">
             Enhance Your Music Experience
           </h2>
           <Timer
@@ -280,7 +280,7 @@ const Home = () => {
           />
           <Button
             value="Buy Now!"
-            className="w-36 h-14 rounded bg-[#00FF66] text-[#FAFAFA] hover:bg-[#3cf385]"
+            className="w-36 h-14 rounded bg-[#00FF66] text-neutral-50 hover:bg-[#3cf385]"
           />
         </div>
         <div className="h-1/2 sm:w-1/2 relative flex items-center justify-center bg-black">
@@ -418,7 +418,7 @@ const Home = () => {
         </div>
         <Button
           value="View All Products"
-          className="w-60 h-14 rounded bg-[#DB4444] text-[#FAFAFA] hover:bg-[#E07575]"
+          className="w-60 h-14 rounded bg-[#DB4444] text-neutral-50 hover:bg-[#E07575]"
         />
       </section>
       {/* New Arrival Section */}

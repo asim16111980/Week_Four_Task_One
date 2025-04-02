@@ -27,7 +27,7 @@ const BaseCard = ({
                 </div> 
                 <div className="absolute inset-0 w-full h-full bg-transparent flex flex-col justify-between">
                     <div className="flex justify-between items-start p-3">
-                        {badge && <span className={`${badgeBgColor} text-[#FAFAFA] text-xs px-3 py-1 rounded`}>{badge}</span>}
+                        {badge && <span className={`${badgeBgColor} text-neutral-50 text-xs px-3 py-1 rounded`}>{badge}</span>}
                         <div className="flex flex-col gap-2 items-center ml-auto">
                             <FontAwesomeIcon icon={faHeart} className="rounded-full p-2 text-xl bg-white" />
                             <FontAwesomeIcon icon={faEye} className="rounded-full p-2 text-xl bg-white" />

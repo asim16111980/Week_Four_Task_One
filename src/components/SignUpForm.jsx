@@ -17,7 +17,7 @@ const SignUpForm = () => {
         <Input type="password" placeholder="Password" />
         <Button
           value="Create Account"
-          className="w-full rounded h-14 text-base bg-[#DB4444] text-[#FAFAFA] hover:bg-[#E07575]"
+          className="w-full rounded h-14 text-base bg-[#DB4444] text-neutral-50 hover:bg-[#E07575]"
         />
         {/* <button
           type="button"

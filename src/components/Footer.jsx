@@ -41,7 +41,7 @@ const Footer = () => {
 
   return (
     <footer
-      className="relative flex flex-col items-center gap-6 bg-black text-[#FAFAFA] py-4 px-4 sm:px-4 md:px-10 mt-16"
+      className="relative flex flex-col items-center gap-6 bg-black text-neutral-50 py-4 px-4 sm:px-4 md:px-10 mt-16"
       ref={footerRef}
     >
       {isVisible && (

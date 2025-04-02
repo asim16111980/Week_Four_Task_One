@@ -16,7 +16,7 @@ const LogInForm = () => {
         <div className="flex flex-col sm:flex-row gap-3 justify-between items-center">
           <Button
             value="Log In"
-            className="w-full sm:w-48 md:w-36 bg-[#DB4444] text-[#FAFAFA] hover:bg-[#E07575]"
+            className="w-full sm:w-48 md:w-36 bg-[#DB4444] text-neutral-50 hover:bg-[#E07575]"
           />
           <span className="text-[#DB4444] text-base">
             <a href="#">Forget Password?</a>

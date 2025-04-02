@@ -5,7 +5,7 @@
 // const AccountDropdown = () => {
 //   const { state, dispatch } = useContext(MenusContext);
 //   return (
-//     <div className="size-full flex justify-center items-center p-5 rounded bg-black bg-opacity-5 text-[#FAFAFA]">
+//     <div className="size-full flex justify-center items-center p-5 rounded bg-black bg-opacity-5 text-neutral-50">
 //       <ul className="flex flex-col gap-3">
 //         <li>
 //           <a
@@ -68,11 +68,11 @@ import { useContext } from "react";
 import { MenusContext } from "../context/MenusProvider";
 import { CircleX, Star, UserRound, LogOut, ShoppingBag } from "lucide-react";
 
-const AccountDropdown = () => {
+const AccountDropdown = ({onClose}) => {
   const { openedMenu, setOpenedMenu } = useContext(MenusContext);
 
-  const handleCloseMenu = () => {
-    setOpenedMenu(null); // إغلاق القائمة عندما يتم النقر على أي عنصر
+  const handleClickLink = () => {
+    onClose();
   };
 
   return (
@@ -83,7 +83,7 @@ const AccountDropdown = () => {
             href="#"
             className="flex items-center gap-4 text-black hover:bg-gray-100 p-2 rounded"
             onClick={() => {
-              handleCloseMenu();
+              handleClickLink();
               // إضافة الكود المناسب للانتقال إلى صفحة "Manage My Account" إذا لزم الأمر
             }}
           >
@@ -96,7 +96,7 @@ const AccountDropdown = () => {
             href="#"
             className="flex items-center gap-4 text-black hover:bg-gray-100 p-2 rounded"
             onClick={() => {
-              handleCloseMenu();
+              handleClickLink();
               // إضافة الكود المناسب للانتقال إلى "My Order"
             }}
           >
@@ -109,7 +109,7 @@ const AccountDropdown = () => {
             href="#"
             className="flex items-center gap-4 text-black hover:bg-gray-100 p-2 rounded"
             onClick={() => {
-              handleCloseMenu();
+              handleClickLink();
               // إضافة الكود المناسب للانتقال إلى "My Cancellations"
             }}
           >
@@ -122,7 +122,7 @@ const AccountDropdown = () => {
             href="#"
             className="flex items-center gap-4 text-black hover:bg-gray-100 p-2 rounded"
             onClick={() => {
-              handleCloseMenu();
+              handleClickLink();
               // إضافة الكود المناسب للانتقال إلى "My Reviews"
             }}
           >
@@ -135,7 +135,7 @@ const AccountDropdown = () => {
             href="#"
             className="flex items-center gap-4 text-black hover:bg-gray-100 p-2 rounded"
             onClick={() => {
-              handleCloseMenu();
+              handleClickLink();
               // إضافة الكود المناسب للانتقال إلى "Logout"
             }}
           >
@@ -149,4 +149,3 @@ const AccountDropdown = () => {
 };
 
 export default AccountDropdown;
-

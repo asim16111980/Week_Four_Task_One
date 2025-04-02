@@ -4,7 +4,7 @@ const BlackCard = ({ title, desc, img, alt }) => {
       <div className="size-full flex justify-end items-center px-6">
         <img src={img} alt={alt} className="max-h-full object-cover" />
       </div>
-      <div className="absolute max-w-56 bottom-6 left-6 p-2 flex flex-col gap-2 text-[#fafafa]">
+      <div className="absolute max-w-56 bottom-6 left-6 p-2 flex flex-col gap-2 text-neutral-50">
         <h2 className="text-xl font-semibold">{title}</h2>
         <p className="text-xs">{desc}</p>
         <a

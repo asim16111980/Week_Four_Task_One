@@ -38,7 +38,7 @@
 //           <div className="flex justify-between items-start p-1 md:p-3">
 //             {hasBadge && (
 //               <span
-//                 className={`${badgeBgColor} text-[#FAFAFA] text-xs px-3 py-1 rounded`}
+//                 className={`${badgeBgColor} text-neutral-50 text-xs px-3 py-1 rounded`}
 //               >
 //                 {badgeText}
 //               </span>
@@ -146,7 +146,7 @@ const ProductCard = ({
           <div className="flex justify-between items-start p-1 md:p-3">
             {hasBadge && (
               <span
-                className={`${badgeBgColor} text-[#FAFAFA] text-xs px-3 py-1 rounded`}
+                className={`${badgeBgColor} text-neutral-50 text-xs px-3 py-1 rounded`}
               >
                 {badgeText}
               </span>

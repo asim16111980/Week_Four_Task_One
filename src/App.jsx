@@ -47,7 +47,7 @@
 // }
 
 // export default App;
-
+import { MenusProvider } from "./context/MenusProvider";
 import { useContext } from "react";
 import { MenusContext } from "./context/MenusProvider";
 import TopHeader from "./components/TopHeader";
@@ -63,28 +63,27 @@ import SignUp from "./Pages/SignUp";
 import WishList from "./Pages/WishList";
 
 function App() {
-  const { openedMenu, openMenu, closeMenu } = useContext(MenusContext);
-
   return (
     <>
-      <TopHeader />
-      <Header openMenu={openMenu} />
-      <Divider className="hidden sm:block" />
-      <Menus />
-      <div>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/login" element={<SignUp />} />
-          <Route path="/signup" element={<SignUp />} />
-          <Route path="/wishlist" element={<WishList />} />
-        </Routes>
-      </div>
-      <Footer />
+      <TopHeader />{" "}
+      <MenusProvider>
+        <Header />
+        <Divider className="hidden sm:block" />{" "}
+        <div className="relative">
+          <Menus />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/login" element={<SignUp />} />
+            <Route path="/signup" element={<SignUp />} />
+            <Route path="/wishlist" element={<WishList />} />
+          </Routes>
+          <Footer />
+        </div>{" "}
+      </MenusProvider>
     </>
   );
 }
 
 export default App;
-
