@@ -17,8 +17,8 @@ import { getSectionData, calNetPrice } from "../utils/fetchData";
 import ProductCard from "../components/ProductCard";
 import { IoHeartOutline, IoEyeOutline } from "react-icons/io5";
 import axios from "axios";
-import { updateProduct } from "../utils/crud";
-
+import { addToLocalStorage } from "../utils/Storage";
+import { useNavigate } from "react-router-dom";
 const images = [
   "images/carousel/carousel_slide_1.png",
   "images/carousel/carousel_slide_1.png",
@@ -30,14 +30,23 @@ const images = [
 const Home = () => {
   const [sliderPosition, setSliderPosition] = useState("start");
   const [products, setProducts] = useState([]);
+  const navigate = useNavigate();
   useEffect(() => {
     axios
       .get("https://dummyjson.com/products?limit=10")
       .then((response) => setProducts(response.data.products))
       .catch((error) => console.log("Error fetching products:", error));
   }, []);
-  
-  
+
+  const addToWishlist = (product) => {
+    const token = localStorage.getItem("accessToken");
+
+    if (token) {
+      addToLocalStorage("wishlist", product);
+    } else {
+      navigate("/login");
+    }
+  };
   return (
     <div className="w-full flex flex-col gap-24 sm:px-2 md:px-10 pb-4">
       {/* Carousel Section */}
@@ -103,7 +112,13 @@ const Home = () => {
                   altText={item.thumbnail}
                   headerIcons={[
                     <IoHeartOutline
-                    onClick={() => updateProduct(item.id,{ inWish:true })}
+                      onClick={() =>
+                        addToWishlist({
+                          id: 3,
+                          name: "MacBook Air",
+                          price: 1200,
+                        })
+                      }
                     />,
                     <IoEyeOutline />,
                   ]}
