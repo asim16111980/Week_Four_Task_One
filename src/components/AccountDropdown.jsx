@@ -68,15 +68,15 @@ import { useContext } from "react";
 import { MenusContext } from "../context/MenusProvider";
 import { CircleX, Star, UserRound, LogOut, ShoppingBag } from "lucide-react";
 
-const AccountDropdown = ({onClose}) => {
+const AccountDropdown = ({ onClose }) => {
   const { openedMenu, setOpenedMenu } = useContext(MenusContext);
 
   const handleClickLink = () => {
-    onClose();
+    // onClose();
   };
 
   return (
-    <div className="absolute right-0 top-full mt-2 bg-white shadow-lg w-48 rounded-md p-3 z-30">
+    <div className="w-max absolute right-0 top-full mt-2 bg-white shadow-lg rounded-md p-3 z-30">
       <ul className="flex flex-col gap-3">
         <li>
           <a
@@ -84,7 +84,6 @@ const AccountDropdown = ({onClose}) => {
             className="flex items-center gap-4 text-black hover:bg-gray-100 p-2 rounded"
             onClick={() => {
               handleClickLink();
-              // إضافة الكود المناسب للانتقال إلى صفحة "Manage My Account" إذا لزم الأمر
             }}
           >
             <UserRound />

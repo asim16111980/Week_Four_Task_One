@@ -18,7 +18,7 @@
 
 //   return (
 //     <>
-    
+
 //       {/* <div ref={menuRef} className={`z-20 bg-white ${isOpen ? "block" : "hidden"}`}>
 //          {children}
 //       </div> */}
@@ -30,45 +30,32 @@
 
 import { useEffect, useRef } from "react";
 
-const Menu = ({ isOpen, onClose,  children }) => {
-  const menuRef = useRef(null);
+const Menu = ({ isOpen, onClose, children }) => {
+  // const menuRef = useRef(null);
 
   // useEffect(() => {
+  //   if (!isOpen) return; 
+
   //   const handleClickOutside = (e) => {
-  //     if (menuRef.current && !menuRef.current.contains(e.target)) {
-  //       menuRef.current.classList.add("hidden"); // إخفاء القائمة عند الضغط خارجها
-  //       onClose(); // نغلق القائمة منطقيًا
+  //     if (
+  //       menuRef.current &&
+  //       !menuRef.current.contains(e.target)
+  //     ) {
+  //       // onClose(); 
   //     }
   //   };
 
-  //   if (isOpen) {
-  //     menuRef.current.classList.remove("hidden"); // إظهار القائمة عند الفتح
-  //     document.addEventListener("mousedown", handleClickOutside);
-  //   } else {
-  //     menuRef.current.classList.add("hidden");
-  //   }
-
+  //   document.addEventListener("mousedown", handleClickOutside);
   //   return () => {
   //     document.removeEventListener("mousedown", handleClickOutside);
   //   };
-  // }, [isOpen, onClose]);
-  useEffect(() => {
-    const handleClickOutside = (e) => {
-      if (menuRef.current && !menuRef.current.contains(e.target)) {
-        onClose(); // ✅ التأكد من تنفيذ `onClose` عند الضغط خارج القائمة
-      }
-    };
-
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, [isOpen, onClose]);
+  // }, [isOpen]); // كده `useEffect` هيشتغل بس لما `isOpen` يتغير
 
   return (
     <div
-      ref={menuRef}
-      className="absolute w-full top-0 left-0 z-20 bg-white" onClose={onClose} // مخفي في البداية
+      // ref={menuRef}
+      className="absolute w-full top-0 left-0 z-20 bg-white"
+      onClose={onClose} // مخفي في البداية
     >
       {children}
     </div>
@@ -76,4 +63,3 @@ const Menu = ({ isOpen, onClose,  children }) => {
 };
 
 export default Menu;
-

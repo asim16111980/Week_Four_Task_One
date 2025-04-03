@@ -61,14 +61,15 @@ import Contact from "./Pages/Contact";
 import About from "./Pages/About";
 import SignUp from "./Pages/SignUp";
 import WishList from "./Pages/WishList";
+import Cart from "./Pages/Cart";
 
 function App() {
   return (
     <>
-      <TopHeader />{" "}
+      <TopHeader />
       <MenusProvider>
         <Header />
-        <Divider className="hidden sm:block" />{" "}
+        <Divider className="hidden sm:block" />
         <div className="relative">
           <Menus />
           <Routes>
@@ -78,9 +79,10 @@ function App() {
             <Route path="/login" element={<SignUp />} />
             <Route path="/signup" element={<SignUp />} />
             <Route path="/wishlist" element={<WishList />} />
+            <Route path="/cart" element={<Cart />} />
           </Routes>
           <Footer />
-        </div>{" "}
+        </div>
       </MenusProvider>
     </>
   );

@@ -104,40 +104,14 @@
 
 // export default Header;
 
-import { useContext, useState } from "react";
-import {
-  X,
-  AlignJustify,
-  List,
-  UserRound,
-  Heart,
-  Search,
-  ShoppingCart,
-} from "lucide-react";
-import {
-  IoHeartOutline,
-  IoSearchOutline,
-  IoCartOutline,
-  IoClose,
-  IoMenuOutline,
-  IoList,
-} from "react-icons/io5";
-import { FiUser } from "react-icons/fi";
-import MobileSearchBox from "./MobileSearchBox";
-import { MobileSearchBoxContext } from "../context/SearchBoxProvider";
+import { useContext } from "react";
+import { IoClose, IoMenuOutline, IoList } from "react-icons/io5";
 import { MenusContext } from "../context/MenusProvider";
-import SearchBox from "./SearchBox";
-import CategoriesList from "./CategoriesList";
-import Nav from "./Nav";
-import AccountDropdown from "./AccountDropdown";
-import Button from "./Button";
 import Icon from "./Icon";
 import NavMenu from "./NavMenu";
+import HeaderIcons from "./HeaderIcons";
 
 const Header = () => {
-  const { isMobileSearchBoxOpened, setIsMobileSearchBoxOpened } = useContext(
-    MobileSearchBoxContext
-  );
   const [openedMenu, setOpenedMenu] = useContext(MenusContext);
   const toggleMenu = (menu) => {
     openedMenu === menu ? setOpenedMenu(null) : setOpenedMenu(menu);
@@ -148,73 +122,8 @@ const Header = () => {
         <h1 className="font-bold text-black text-lg md:text-xl lg:text-2xl">
           Exclusive
         </h1>
-        <NavMenu className="hidden sm:block"/>
-        <div className="ml-auto sm:flex-1 flex items-center gap-2 md:gap-4 lg:gap-6">
-          <Icon
-            icon={<IoSearchOutline />}
-            className="size-4 sm:hidden"
-            onClick={() => setIsMobileSearchBoxOpened(true)}
-          />
-            {isMobileSearchBoxOpened && <MobileSearchBox />}
-          {/* <button
-            type="button"
-            className="sm:hidden"
-            onClick={() => setIsMobileSearchBoxOpened(true)}
-          >
-            <Search />
-          </button> */}
-          <SearchBox />
-          <Icon
-            type="link"
-            href="/wishlist"
-            icon={<IoHeartOutline />}
-            className="size-4"
-          />
-          {/* <a href="/wishlist">
-            <IoHeartOutline className="lg:size-8" />
-          </a> */}
-          <Icon
-            type="link"
-            href="/wishlist"
-            icon={<IoCartOutline />}
-            className="size-4"
-          />
-          {/* <Button
-            icon={<IoCartOutline />}
-            className="lg:size-8"
-            onClick={() => setIsMobileSearchBoxOpened(true)}
-          /> */}
-          {/* <button type="button">
-            <ShoppingCart className="lg:size-8" />
-          </button> */}
-          <div className="relative">
-            <Icon
-              icon={<FiUser />}
-              className="size-4"
-              onClick={() => {
-                toggleMenu("UserMenu");
-              }}
-            />
-            {/* <Button
-              icon={<FiUser />}
-              className="lg:size-8"
-              onClick={() => openMenu("UserMenu")}
-            /> */}
-
-            {/* <button
-              type="button"
-              onClick={() => openMenu("UserMenu")} 
-            >
-              <UserRound />
-            </button> */}
-            {openedMenu === "UserMenu" && (
-              <AccountDropdown onClose={() => setOpenedMenu(null)} />
-            )}
-            {/* <div>
-              <AccountDropdown />
-            </div> */}
-          </div>
-        </div>
+        <NavMenu className="hidden sm:block" />
+        <HeaderIcons />
       </div>
       <div className="flex-1 flex items-center justify-between gap-2 py-2 sm:hidden">
         <Icon

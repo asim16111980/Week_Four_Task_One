@@ -79,7 +79,7 @@ const Menus = () => {
         return <NavMenu onClose={closeMenu} />;
       case "CatsMenu":
         return <CategoriesList onClose={closeMenu} />;
-      case "UserMenu":
+     default:
         return null;
     }
   }, [openedMenu]);
