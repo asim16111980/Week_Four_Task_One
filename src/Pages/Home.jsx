@@ -17,7 +17,7 @@ import { getSectionData, calNetPrice } from "../utils/fetchData";
 import ProductCard from "../components/ProductCard";
 import { IoHeartOutline, IoEyeOutline } from "react-icons/io5";
 import axios from "axios";
-import { addToLocalStorage } from "../utils/Storage";
+import { addToLocalStorage, getValue } from "../utils/Storage";
 import { useNavigate } from "react-router-dom";
 const images = [
   "images/carousel/carousel_slide_1.png",
@@ -39,7 +39,7 @@ const Home = () => {
   }, []);
 
   const addToWishlist = (product) => {
-    const token = localStorage.getItem("accessToken");
+    const token = getValue("accessToken");
 
     if (token) {
       addToLocalStorage("wishlist", product);
@@ -48,7 +48,7 @@ const Home = () => {
     }
   };
   return (
-    <div className="w-full flex flex-col gap-24 sm:px-2 md:px-10 pb-4">
+    <div className="w-full flex flex-col gap-24 px-2 md:px-10 pb-4">
       {/* Carousel Section */}
       <section className="flex gap-6">
         <CategoriesList className="hidden sm:block mt-10 px-0 max-h-full" />

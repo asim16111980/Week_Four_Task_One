@@ -117,7 +117,7 @@ const Header = () => {
     openedMenu === menu ? setOpenedMenu(null) : setOpenedMenu(menu);
   };
   return (
-    <header className="w-full h-auto sm:px-2 md:px-10 flex flex-col sm:flex-row  items-stretch justify-center shadow z-20 p-2 bg-white">
+    <header className="w-full h-auto px-2 md:px-10 flex flex-col sm:flex-row  items-stretch justify-center shadow z-20 p-2 bg-white">
       <div className="relative w-full min-h-12 flex sm:flex-wrap md:flex-nowrap items-center gap-2 lg:gap-10 xl:gap-24">
         <h1 className="font-bold text-black text-lg md:text-xl lg:text-2xl">
           Exclusive

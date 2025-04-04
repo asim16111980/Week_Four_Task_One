@@ -1,4 +1,4 @@
-import { useContext, useRef } from "react";
+import { useContext } from "react";
 import { MobileSearchBoxContext } from "../context/SearchBoxProvider";
 import { MenusContext } from "../context/MenusProvider";
 import Icon from "./Icon";
@@ -11,16 +11,20 @@ import { FiUser } from "react-icons/fi";
 import MobileSearchBox from "./MobileSearchBox";
 import SearchBox from "./SearchBox";
 import AccountDropdown from "./AccountDropdown";
+import { getValue } from "../utils/Storage";
 
 const HeaderIcons = () => {
-  const buttonRef = useRef(null);
   const { isMobileSearchBoxOpened, setIsMobileSearchBoxOpened } = useContext(
     MobileSearchBoxContext
   );
+
   const [openedMenu, setOpenedMenu] = useContext(MenusContext);
   const toggleMenu = (menu) => {
     openedMenu === menu ? setOpenedMenu(null) : setOpenedMenu(menu);
   };
+
+  const token = getValue("accessToken");
+
   return (
     <div className="ml-auto sm:flex-1 flex items-center gap-2 md:gap-4 lg:gap-6">
       <Icon
@@ -32,13 +36,13 @@ const HeaderIcons = () => {
       <SearchBox />
       <Icon
         type="link"
-        href="/wishlist"
+        href={token ? "/wishlist" : "/login"}
         icon={<IoHeartOutline />}
         className="size-4"
       />
       <Icon
         type="link"
-        href="/cart"
+        href={token ? "/cart" : "/login"}
         icon={<IoCartOutline />}
         className="size-4"
       />

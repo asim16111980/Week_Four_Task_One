@@ -1,5 +1,9 @@
 import axios from "axios";
 
+// Get item value from local storage
+const getValue = (item) => {
+    return JSON.parse(localStorage.getItem(item))
+}
 
 // Add object to item in local storage
 const addToLocalStorage = (item, object) => {
@@ -22,4 +26,4 @@ const addToLocalStorage = (item, object) => {
 //     }
 // };
 
-export { addToLocalStorage }
+export { getValue,addToLocalStorage }

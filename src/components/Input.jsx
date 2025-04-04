@@ -1,18 +1,22 @@
 const Input = ({
+  className = "",
+  borderType = "underlined",
   type = "text",
   placeholder = "",
   value = "",
-  onChange = null,onFocus
+  onChange = null,
 }) => {
   return (
-    <div className=" border-b border-black">
+    <div
+      className={`${className} border-black text-sm md:text-base ${(borderType =
+        "underlined" ? "size-full border-b py-2" : "border rounded")}`}
+    >
       <input
         type={type}
         placeholder={placeholder}
         value={value}
         onChange={onChange}
-        onFocus={onFocus}
-        className="size-full py-2 placeholder:opacity-40 focus:outline-none text-sm md:text-base"
+        className="placeholder:opacity-50 focus:outline-none "
       />
     </div>
   );

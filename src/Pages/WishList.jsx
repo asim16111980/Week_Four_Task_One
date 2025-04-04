@@ -16,7 +16,7 @@ const WishList = ({ WishListCount }) => {
   }, []);
     console.log("test");
   return (
-    <div className="w-full flex flex-col sm:px-2 md:px-10 gap-20 md:gap-40  py-10">
+    <div className="w-full flex flex-col px-2 md:px-10 gap-20 md:gap-40 py-10">
       <section className="w-full flex flex-col items-center gap-14 md:gap:30">
         <header className="w-full flex flex-col sm:flex-row  justify-between items-center gap-2">
           <h2>
