@@ -11,7 +11,7 @@ import { FiUser } from "react-icons/fi";
 import MobileSearchBox from "./MobileSearchBox";
 import SearchBox from "./SearchBox";
 import AccountDropdown from "./AccountDropdown";
-import { getValue } from "../utils/Storage";
+import { getValue } from "../utils/storage";
 
 const HeaderIcons = () => {
   const { isMobileSearchBoxOpened, setIsMobileSearchBoxOpened } = useContext(

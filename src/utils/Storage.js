@@ -1,16 +1,32 @@
-import axios from "axios";
 
-// Get item value from local storage
+
+// Get value from local storage
 const getValue = (item) => {
-    return JSON.parse(localStorage.getItem(item))
+    return localStorage.getItem(item)
+}
+// Get item from local storage
+const getItem = (item) => {
+    return JSON.parse(localStorage.getItem(key)) || [];
+}
+
+// Store value in local storage 
+const addValue = (item, value) => {
+    localStorage.setItem(item, value)
+}
+
+// Function to add new data in item in local storage
+const addData = (item, data) => {
+    const oldData = getItem(item);
+    const newData = [...oldData, { ...data }];
+    localStorage.setItem(item, JSON.stringify(newData));
 }
 
 // Add object to item in local storage
 const addToLocalStorage = (item, object) => {
-    let storedItem = JSON.parse(localStorage.getItem(item)) || [];
-    storedItem.push(object);
-    localStorage.setItem(item, JSON.stringify(storedItem));
-    console.log("Product added to wishlist:", product);
+    // let storedItem = JSON.parse(localStorage.getItem(item)) || [];
+    // storedItem.push(object);
+    // localStorage.setItem(item, JSON.stringify(storedItem));
+    // console.log("Product added to wishlist:", product);
 }
 
 
@@ -26,4 +42,4 @@ const addToLocalStorage = (item, object) => {
 //     }
 // };
 
-export { getValue,addToLocalStorage }
+export { getValue, getItem, addValue, addToLocalStorage, addData }

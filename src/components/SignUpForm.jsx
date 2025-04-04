@@ -3,15 +3,10 @@ import Button from "./Button";
 import { addNewData } from "../utils/crud";
 import { useReducer, useState } from "react";
 import { initialState, userReducer } from "../hooks/userReducer";
+import { NavLink } from "react-router-dom";
 // import { FcGoogle } from "react-icons/fc";
 
 const SignUpForm = () => {
-  const [userData, setUserData] = useState({
-    username: "",
-    email: "",
-    phone: "",
-    password: "",
-  });
   const [errorMsg, setErrorMsg] = useState("");
   const [state, dispatch] = useReducer(userReducer, initialState);
 
@@ -21,32 +16,38 @@ const SignUpForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-   
-    if (!state.name || !state.emailOrPhone || !state.password) {
+
+    if (!state.firstName || !state.emailOrPhone || !state.password) {
       setErrorMsg("Please fill in all fields");
       return;
     }
 
-    let updatedUserData = { ...userData, username: state.name, password: state.password };
+    let userData = {
+      firstName: state.firstName,
+      username: state.emailOrPhone,
+      password: state.password,
+      email: "",
+      phone: "",
+    };
 
     const emailRegex =
       /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     const phonePattern = /^(010|011|012|015)\d{8}$/;
 
     if (emailRegex.test(state.emailOrPhone)) {
-      updatedUserData.email = state.emailOrPhone;
-      updatedUserData.phone = "";
+      userData.email = state.emailOrPhone;
     } else if (phonePattern.test(state.emailOrPhone)) {
-      updatedUserData.phone = state.emailOrPhone;
-      updatedUserData.email = "";
+      userData.phone = state.emailOrPhone;
     } else {
       setErrorMsg("Please enter a valid email or phone number");
       return;
     }
 
-    setUserData(updatedUserData);
-
-    addNewData("users", updatedUserData); 
+    addNewData("users", userData);
+    const userId = getValue ("users").length||0;
+    const newUser = { ...userData, id: userId };
+    addNewData("users", newUser);
+    dispatch({ type: "CLEAR_STATE" });
   };
   // const handleEmailOrPhoneChange = (e) => {
 
@@ -70,14 +71,14 @@ const SignUpForm = () => {
         onSubmit={handleSubmit}
       >
         <Input
+          className="w-full"
           placeholder="Name"
-          value={state.name}
-          onChange={(e) => handleInputChange(e, "SET_NAME")}
+          value={state.firstName}
+          onChange={(e) => handleInputChange(e, "SET_FIRSTNAME")}
         />
         <Input
           placeholder="Email or Phone Number"
           value={state.emailOrPhone || errorMsg}
-          onFocus={() => dispatch({ type: "SET_EMAILORPHONE", payload: "" })}
           onChange={(e) => handleInputChange(e, "SET_EMAILORPHONE")}
         />
         <Input
@@ -107,12 +108,12 @@ const SignUpForm = () => {
         />
         <p className="flex flex-col sm:flex-row justify-center items-center gap-4 text-base opacity-70">
           <span>Already have account?</span>
-          <a
-            href="/login"
+          <NavLink
+            to="/login"
             className="font-medium border-b border-black border-opacity-50"
           >
             Log in
-          </a>
+          </NavLink>
         </p>
       </form>
     </>

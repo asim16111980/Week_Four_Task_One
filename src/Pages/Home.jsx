@@ -17,8 +17,10 @@ import { getSectionData, calNetPrice } from "../utils/fetchData";
 import ProductCard from "../components/ProductCard";
 import { IoHeartOutline, IoEyeOutline } from "react-icons/io5";
 import axios from "axios";
-import { addToLocalStorage, getValue } from "../utils/Storage";
+import { addToLocalStorage, getValue } from "../utils/storage";
+
 import { useNavigate } from "react-router-dom";
+import { getProducts } from "../utils/crud";
 const images = [
   "images/carousel/carousel_slide_1.png",
   "images/carousel/carousel_slide_1.png",
@@ -31,15 +33,13 @@ const Home = () => {
   const [sliderPosition, setSliderPosition] = useState("start");
   const [products, setProducts] = useState([]);
   const navigate = useNavigate();
+
   useEffect(() => {
-    axios
-      .get("https://dummyjson.com/products?limit=10")
-      .then((response) => setProducts(response.data.products))
-      .catch((error) => console.log("Error fetching products:", error));
+    getProducts(setProducts);
   }, []);
 
   const addToWishlist = (product) => {
-    const token = getValue("accessToken");
+    // const token = getValue("accessToken");
 
     if (token) {
       addToLocalStorage("wishlist", product);

@@ -1,5 +1,13 @@
 import axios from "axios";
-import { getValue } from "./Storage";
+import { getValue,addValue } from "./storage";
+
+// Get all products
+const getProducts = (setData) => {
+    axios
+        .get("https://dummyjson.com/products?limit=10")
+        .then((response) => setData(response.data.products))
+        .catch((error) => console.log("Error fetching products:", error));
+}
 
 // Add new data in dummy json api
 const addNewData = (endPoint, data) => {
@@ -13,7 +21,7 @@ const getToken = () => {
 
 // Get user id
 const getUserId = () => {
-  return  axios.get('https://dummyjson.com/user/me', { headers: { Authorization: getToken() } }).then((res) => res.data).then((error) => console.log(error))
+    axios.get('https://dummyjson.com/user/me', { headers: { Authorization: getToken() } }).then((res) => res.data).then((error) => console.log(error))
 }
 
 // Get cart by user id
@@ -22,4 +30,16 @@ const getCart = () => {
     console.log(getUserId());
 }
 
-export { addNewData, getCart }
+// Login user
+const logIn = async (loginData) => {
+    try {
+      const res = await axios.post('https://dummyjson.com/auth/login', loginData);
+      addValue("accessToken", res.data.accessToken); 
+      return true; 
+    } catch (error) {
+      return false; 
+    }
+  };
+  
+
+export { getProducts, addNewData, getCart, logIn }
