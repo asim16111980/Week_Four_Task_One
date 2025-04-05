@@ -75,7 +75,7 @@ const Cart = ({ thumbnail = "", title = "", price = 0, shipping = 0 }) => {
             </ul>
           </div>
           <Button
-            value="Apply Coupon"
+            value="Process to checkout"
             className="w-60 h-14 rounded bg-[#DB4444] text-neutral-50 hover:bg-[#E07575]"
           />
         </section>

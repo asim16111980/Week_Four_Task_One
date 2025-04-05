@@ -15,6 +15,8 @@ const Icon = ({
   type = "button",
   onClick = null,
   href = "#",
+  target = "",
+  rel = "",
   icon,
   className = "",
   badgeCount = null,
@@ -26,7 +28,7 @@ const Icon = ({
           <Children icon={icon} badgeCount={badgeCount} />
         </button>
       ) : (
-        <a href={href} className={className}>
+        <a href={href} target={target} rel={rel} className={className}>
           <Children icon={icon} badgeCount={badgeCount} />
         </a>
       )}

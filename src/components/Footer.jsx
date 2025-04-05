@@ -1,6 +1,13 @@
-import { useState, useRef, useEffect, useLayoutEffect } from "react";
-import { SendHorizontal, Copyright } from "lucide-react";
+import { useState, useRef, useEffect } from "react";
 import Icon from "../components/Icon";
+import {
+  RiFacebookLine,
+  RiTwitterLine,
+  RiInstagramLine,
+  RiLinkedinLine,
+  RiCopyrightLine,
+} from "react-icons/ri";
+import { VscSend } from "react-icons/vsc";
 
 const Footer = () => {
   const [email, setEmail] = useState("");
@@ -39,25 +46,18 @@ const Footer = () => {
     }
   };
 
+  const socialIcons = [
+    { icon: <RiFacebookLine />, alt: "Facebook", href: "#" },
+    { icon: <RiTwitterLine />, alt: "Twitter", href: "#" },
+    { icon: <RiInstagramLine />, alt: "instagram", href: "#" },
+    { icon: <RiLinkedinLine />, alt: "Linkedin", href: "#" },
+  ];
+
   return (
     <footer
       className="relative flex flex-col items-center gap-6 bg-black text-neutral-50 py-4 px-4 sm:px-4 md:px-10 mt-16"
       ref={footerRef}
     >
-      {/* {isVisible && (
-        <button
-          onClick={scrollToTop}
-          className="fixed right-8 p-3 rounded-full bg-[#F5F5F5] shadow-lg transition-all z-50"
-          style={{
-            bottom: isAtFooter
-              ? `${footerRef.current.offsetHeight + 20}px`
-              : "20px",
-            position: isAtFooter ? "absolute" : "fixed",
-          }}
-        >
-          <Icon icon="icons/homeicons_arrow-up.png" />
-        </button>
-      )} */}
       <div className="w-full mx-auto grid grid-cols-[repeat(auto-fill,minmax(200px,1fr))] gap-8 sm:gap-10">
         <div className="flex flex-col gap-3 md:gap-6">
           <h3 className="text-xl md:text-2xl font-bold">Exclusive</h3>
@@ -85,7 +85,7 @@ const Footer = () => {
                 type="submit"
                 className="size-6 hover:text-gray-300 transition"
               >
-                <SendHorizontal strokeWidth={1.5} />
+                <VscSend size={24} />
               </button>
             </form>
           )}
@@ -179,46 +179,24 @@ const Footer = () => {
               </div>
             </div>
           </div>
-          <div className="flex text-lg gap-6 text-white">
-            <a href="#" target="_blank" rel="noopener noreferrer">
+          <div className="d flex text-lg sm:text-2xl gap-6 text-white">
+            {socialIcons.map((item, index) => (
               <Icon
-                icon="icons/social_media/Icon-Facebook.png"
-                alt="Facebook"
-                width={24}
-                height={24}
+                key={index}
+                type="link"
+                href={item.href}
+                icon={item.icon}
+                alt={item.alt}
+                target="_blank"
+                rel="noopener noreferrer"
               />
-            </a>
-            <a href="#" target="_blank" rel="noopener noreferrer">
-              <Icon
-                icon="icons/social_media/Icon-Twitter.png"
-                alt="Twitter"
-                width={24}
-                height={24}
-              />
-            </a>
-            <a href="#" target="_blank" rel="noopener noreferrer">
-              <Icon
-                icon="icons/social_media/icon-instagram.png"
-                alt="instagram"
-                width={24}
-                height={24}
-              />
-            </a>
-            <a href="#" target="_blank" rel="noopener noreferrer">
-              <Icon
-                icon="icons/social_media/Icon-Linkedin.png"
-                alt="Linkedin"
-                width={24}
-                height={24}
-              />
-            </a>
+            ))}
           </div>
         </div>
       </div>
-      <div className="w-full flex justify-center items-end font-poppins text-xs text-white text-opacity-60 py-8">
-        <p className="flex items-center gap-1">
-          <Copyright size={20} strokeWidth={1.5} /> Copyright Rimel 2022. All
-          right reserved
+      <div className="w-full flex justify-center items-end font-poppins text-xs opacity-50  py-8">
+        <p className="flex items-center gap-1 text-white text-opacity-60">
+          <RiCopyrightLine /> Copyright Rimel 2022. All right reserved
         </p>
       </div>
     </footer>

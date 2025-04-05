@@ -1,4 +1,4 @@
-const Button = ({type="button", className = "", value, icon = null, onClick }) => {
+const Button = ({type="button", className = "", value="", icon = null, onClick=null }) => {
   return (
     <button
       type={type}
@@ -15,13 +15,3 @@ const Button = ({type="button", className = "", value, icon = null, onClick }) =
 };
 
 export default Button;
-// ${
-//   (isFilled &&
-//     isPrimary &&
-//     "bg-[#DB4444] text-neutral-50 hover:bg-[#E07575]") ||
-//   (isFilled &&
-//     !isPrimary &&
-//     "bg-[#00FF66] text-neutral-50 hover:bg-[#3cf385]") ||
-//   (!isFilled &&
-//     "bg-transparent border border-black border-opacity-50 text-black hover:text-opacity-50")
-// }

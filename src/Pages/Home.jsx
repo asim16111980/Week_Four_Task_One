@@ -15,11 +15,16 @@ import "swiper/css";
 import "swiper/css/navigation";
 import { getSectionData, calNetPrice } from "../utils/fetchData";
 import ProductCard from "../components/ProductCard";
-import { IoHeartOutline, IoEyeOutline } from "react-icons/io5";
+import {
+  IoHeartOutline,
+  IoEyeOutline,
+  IoArrowUpOutline,
+} from "react-icons/io5";
 import { getValue, updateItem } from "../utils/storage";
-import { useNavigate } from "react-router-dom";
+import { href, useNavigate } from "react-router-dom";
 import { getProducts, getProduct } from "../utils/crud";
 import { getItem } from "../utils/storage";
+import Icon from "../components/Icon";
 const images = [
   "images/carousel/carousel_slide_1.png",
   "images/carousel/carousel_slide_1.png",
@@ -90,7 +95,7 @@ const Home = () => {
   return (
     <div className="w-full flex flex-col gap-24 px-2 md:px-10 pb-4">
       {/* Carousel Section */}
-      <section className="flex gap-6">
+      <section id="top" className="flex gap-6">
         <CategoriesList className="hidden sm:block mt-10 px-0 max-h-full" />
         <Divider type="vr" className="hidden sm:block" />
         <Carousel images={images} />
@@ -534,6 +539,12 @@ const Home = () => {
           />
         ))}
       </section>
+      <Icon
+        type="link"
+        href="#top"
+        icon={<IoArrowUpOutline />}
+        className="ms-auto p-2 sm:p-3 rounded-full bg-[#F5F5F5] shadow-lg"
+      />
     </div>
   );
 };
