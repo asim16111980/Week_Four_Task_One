@@ -1,72 +1,5 @@
-// import { useContext } from "react";
-// import { MenusContext } from "../context/MenusProvider";
-// import { CircleX, Star, UserRound, LogOut, ShoppingBag } from "lucide-react";
-
-// const AccountDropdown = () => {
-//   const { state, dispatch } = useContext(MenusContext);
-//   return (
-//     <div className="size-full flex justify-center items-center p-5 rounded bg-black bg-opacity-5 text-neutral-50">
-//       <ul className="flex flex-col gap-3">
-//         <li>
-//           <a
-//             href="#"
-//             className="flex items-center gap-4"
-//             onClick={() => dispatch({ currentMenu: null })}
-//           >
-//             <UserRound />
-//             <span className="font-poppins text-sm">Manage My Account</span>
-//           </a>
-//         </li>
-//         <li>
-//           <a
-//             href="#"
-//             className="flex items-center gap-4"
-//             onClick={() => dispatch({ currentMenu: null })}
-//           >
-//             <ShoppingBag />
-//             <span className="font-poppins text-sm">My Order</span>
-//           </a>
-//         </li>
-//         <li>
-//           <a
-//             href="#"
-//             className="flex items-center gap-4"
-//             onClick={() => dispatch({ currentMenu: null })}
-//           >
-//             <CircleX />
-//             <span className="font-poppins text-sm">My Cancellations</span>
-//           </a>
-//         </li>
-//         <li>
-//           <a
-//             href="#"
-//             className="flex items-center gap-4"
-//             onClick={() => dispatch({ currentMenu: null })}
-//           >
-//             <Star />
-//             <span className="font-poppins text-sm">My Reviews</span>
-//           </a>
-//         </li>
-//         <li>
-//           <a
-//             href="#"
-//             className="flex items-center gap-4"
-//             onClick={() => dispatch({ currentMenu: null })}
-//           >
-//             <LogOut />
-//             <span className="font-poppins text-sm">Logout</span>
-//           </a>
-//         </li>
-//       </ul>
-//     </div>
-//   );
-// };
-
-// export default AccountDropdown;
-
 import { useContext } from "react";
 import { MenusContext } from "../context/MenusProvider";
-import { CircleX, Star, UserRound, LogOut, ShoppingBag } from "lucide-react";
 import {
   FiUser,
   FiShoppingBag,
@@ -91,7 +24,7 @@ const AccountDropdown = ({ onClose }) => {
   ];
   return (
     <div className="w-max absolute right-0 top-full mt-2 bg-white shadow-lg rounded-md p-3 z-30">
-      <ul className="flex flex-col gap-3">
+      <ul className="flex flex-col gap-1">
         {items.map((item, index) => (
           <li key={index}>
             <a

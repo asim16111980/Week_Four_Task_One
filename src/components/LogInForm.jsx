@@ -5,38 +5,73 @@ import { useReducer, useState } from "react";
 import { initialState, loginReducer } from "../hooks/loginReducer";
 import { logIn } from "../utils/crud";
 import { useNavigate } from "react-router-dom";
-import { getValue } from "../utils/storage";
+import { getItem,updateItem } from "../utils/storage";
 
 const LogInForm = () => {
   const navigate = useNavigate();
   const [errorMsg, setErrorMsg] = useState("");
   const [state, dispatch] = useReducer(loginReducer, initialState);
-
   const handleInputChange = (e, type) => {
     dispatch({ type: type, payload: e.target.value });
   };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-  
+
     if (!state.emailOrPhone || !state.password) {
       setErrorMsg("Please fill in all fields");
       return;
     }
-  
+
     let loginData = {
       username: "emilys",
       password: "emilyspass",
     };
-  
-    const isLoggedIn = await logIn(loginData); 
+
+    const isLoggedIn = await logIn(loginData);
     if (isLoggedIn) {
-      navigate("/"); 
+      navigate("/");
     } else {
       dispatch({ type: "CLEAR_STATE" });
       setErrorMsg("Login failed, please try again.");
     }
+
+    const users = getItem("users");
+    const loggedInUsers = [...users].filter((user) => {
+      return (
+        user.username == state.emailOrPhone && user.password == state.password
+      );
+    });
+
+    const loggedInUser = loggedInUsers[0];
+    loggedInUser.loggedIn = true;
+
+    if (loggedInUser) {
+      let loginData = {
+        username: "emilys",
+        password: "emilyspass",
+      };
+      const isLoggedIn = await logIn(loginData);
+      
+      if (isLoggedIn) {
+        const newUsers = users.filter((user) => {
+          return user.id !== loggedInUser.id;
+        });
+        
+        const updatedUsers = [...newUsers, { ...loggedInUser }];
+        updateItem("users", updatedUsers);
+
+        navigate("/");
+      } else {
+        dispatch({ type: "CLEAR_STATE" });
+        setErrorMsg("Login failed, please try again.");
+      }
+    } else {
+      dispatch({ type: "CLEAR_STATE" });
+      setErrorMsg("Incorrect email or password.");
+    }
   };
-  
+
   return (
     <>
       <div className="flex flex-col text-center md:text-left gap-2 md:gap-4 text-black">

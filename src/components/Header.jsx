@@ -110,8 +110,10 @@ import { MenusContext } from "../context/MenusProvider";
 import Icon from "./Icon";
 import NavMenu from "./NavMenu";
 import HeaderIcons from "./HeaderIcons";
+import { useLocation } from "react-router-dom";
 
 const Header = () => {
+  const location = useLocation();
   const [openedMenu, setOpenedMenu] = useContext(MenusContext);
   const toggleMenu = (menu) => {
     openedMenu === menu ? setOpenedMenu(null) : setOpenedMenu(menu);
@@ -123,7 +125,9 @@ const Header = () => {
           Exclusive
         </h1>
         <NavMenu className="hidden sm:block" />
-        <HeaderIcons />
+        {location.pathname !== "/signup" && location.pathname !== "/login" && (
+          <HeaderIcons />
+        )}
       </div>
       <div className="flex-1 flex items-center justify-between gap-2 py-2 sm:hidden">
         <Icon
@@ -133,51 +137,16 @@ const Header = () => {
             toggleMenu("NavMenu");
           }}
         />
-        {/* <Button
-          icon={openedMenu === "NavMenu" ? <IoClose /> : <IoMenuOutline />}
-          className="lg:size-8"
-          onClick={() =>
-            openedMenu === "NavMenu" ? closeMenu() : openMenu("NavMenu")
-          }
-        /> */}
-        {/* <button
-          type="button"
-          className="flex justify-center items-center mr-auto"
-          onClick={() =>
-            openedMenu === "NavMenu" ? closeMenu() : openMenu("NavMenu")
-          }
-        >
-          {openedMenu === "NavMenu" ? <X /> : <AlignJustify />}
-        </button> */}
-        {
-          location.pathname === "/" && (
-            <Icon
-              icon={openedMenu === "CatsMenu" ? <IoClose /> : <IoList />}
-              className="size-4"
-              onClick={() => {
-                toggleMenu("CatsMenu");
-              }}
-            />
-          )
-          //   (<Button
-          //     icon={<IoList />}
-          //     className="text-2xl flex justify-center items-center text-black sm:hidden"
-          //     onClick={() => openMenu("CatsMenu")}
-          // />
-          // )(
-          //     <button
-          //       type="button"
-          //       className="text-2xl flex justify-center items-center text-black sm:hidden"
-          //       onClick={() => openMenu("CatsMenu")} // هنا بنفتح الـ CatsMenu
-          //     >
-          //       {/* لو هنحتاج نعرض أو نخفي الزر هنا بناءً على حالة CatsMenu */}
-          //     </button>
-          // )
-        }
+        {location.pathname === "/" && (
+          <Icon
+            icon={openedMenu === "CatsMenu" ? <IoClose /> : <IoList />}
+            className="size-4"
+            onClick={() => {
+              toggleMenu("CatsMenu");
+            }}
+          />
+        )}
       </div>
-      {/* <div>
-        <CategoriesList />
-      </div> */}
     </header>
   );
 };

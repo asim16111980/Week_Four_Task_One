@@ -48,18 +48,14 @@ const NavMenu = ({ className = "", onClose = null }) => {
     >
       <ul className="flex flex-col bg-transparent sm:flex-row justify-center sm:items-center sm:gap-6 xl:gap-16 text-sm sm:text-base">
         {["Home", "About", "Contact", "SignUp"].map((item) => (
-          <li
-            key={item}
-            className="p-2 cursor-pointer"
-            onClick={handleClickLink}
-          >
+          <li key={item} className="cursor-pointer" onClick={handleClickLink}>
             <NavLink
               to={item === "Home" ? "/" : `/${item.toLowerCase()}`}
               className={({ isActive }) =>
-                `caret-transparent text-black ${
+                `caret-transparent text-black block p-2 w-full ${
                   isActive
-                    ? "border-opacity-50 border-b border-black"
-                    : "border-b-0"
+                    ? "underline underline-offset-4"
+                    : "no-underline"
                 }`
               }
             >

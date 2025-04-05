@@ -112,7 +112,7 @@ const ProductCard = ({
   hasBadge = false,
   discount = null,
   badgeBgColor = "",
-  headerIcons = [],
+  headerButtons = [],
   buttonIcon = null,
   cardTitle = "",
   netPrice = 0,
@@ -153,10 +153,11 @@ const ProductCard = ({
               </span>
             )}
             <div className="flex flex-col gap-2 items-center ml-auto">
-              {headerIcons.map((icon, index) => (
+              {headerButtons.map((button, index) => (
                 <Icon
                   key={index}
-                  icon={icon}
+                  icon={button.icon}
+                  onClick={button.action}
                   className="rounded-full p-1 sm:p-2 text-xl bg-white cursor-pointer"
                 />
               ))}

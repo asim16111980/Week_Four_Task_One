@@ -12,8 +12,10 @@ import MobileSearchBox from "./MobileSearchBox";
 import SearchBox from "./SearchBox";
 import AccountDropdown from "./AccountDropdown";
 import { getValue } from "../utils/storage";
+import { useLocation } from "react-router-dom";
 
 const HeaderIcons = () => {
+  const location = useLocation();
   const { isMobileSearchBoxOpened, setIsMobileSearchBoxOpened } = useContext(
     MobileSearchBoxContext
   );
@@ -23,7 +25,7 @@ const HeaderIcons = () => {
     openedMenu === menu ? setOpenedMenu(null) : setOpenedMenu(menu);
   };
 
-  const token = getValue("accessToken");
+  const accessToken = getValue("accessToken");
 
   return (
     <div className="ml-auto sm:flex-1 flex items-center gap-2 md:gap-4 lg:gap-6">
@@ -36,28 +38,30 @@ const HeaderIcons = () => {
       <SearchBox />
       <Icon
         type="link"
-        href={token ? "/wishlist" : "/login"}
+        href={accessToken ? "/wishlist" : "/login"}
         icon={<IoHeartOutline />}
         className="size-4"
       />
       <Icon
         type="link"
-        href={token ? "/cart" : "/login"}
+        href={accessToken ? "/cart" : "/login"}
         icon={<IoCartOutline />}
         className="size-4"
       />
-      <div className="relative">
-        <Icon
-          icon={<FiUser />}
-          className="size-4"
-          onClick={() => {
-            toggleMenu("UserMenu");
-          }}
-        />
-        {openedMenu === "UserMenu" && (
-          <AccountDropdown onClose={() => setOpenedMenu(null)} />
-        )}
-      </div>
+      { accessToken && location.pathname !== "/" && (
+        <div className="relative">
+          <Icon
+            icon={<FiUser />}
+            className={`size-4 ${openedMenu==="UserMenu"?"bg-[#DB4444] text-white rounded-full text-xs":""}`}
+            onClick={() => {
+              toggleMenu("UserMenu");
+            }}
+          />
+          {openedMenu === "UserMenu" && (
+            <AccountDropdown onClose={() => setOpenedMenu(null)} />
+          )}
+        </div>
+      )}
     </div>
   );
 };

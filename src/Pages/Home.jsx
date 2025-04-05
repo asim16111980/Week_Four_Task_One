@@ -16,11 +16,10 @@ import "swiper/css/navigation";
 import { getSectionData, calNetPrice } from "../utils/fetchData";
 import ProductCard from "../components/ProductCard";
 import { IoHeartOutline, IoEyeOutline } from "react-icons/io5";
-import axios from "axios";
-import { addToLocalStorage, getValue } from "../utils/storage";
-
+import { getValue, updateItem } from "../utils/storage";
 import { useNavigate } from "react-router-dom";
-import { getProducts } from "../utils/crud";
+import { getProducts, getProduct } from "../utils/crud";
+import { getItem } from "../utils/storage";
 const images = [
   "images/carousel/carousel_slide_1.png",
   "images/carousel/carousel_slide_1.png",
@@ -32,21 +31,62 @@ const images = [
 const Home = () => {
   const [sliderPosition, setSliderPosition] = useState("start");
   const [products, setProducts] = useState([]);
+  const [wishlistIds, setWishlistIds] = useState([]);
   const navigate = useNavigate();
 
   useEffect(() => {
     getProducts(setProducts);
   }, []);
 
-  const addToWishlist = (product) => {
-    // const token = getValue("accessToken");
+  const getCurrentUser = () => {
+    const users = getItem("users");
+    const loggedInUser = users.filter((user) => {
+      return user.loggedIn === true;
+    });
+    return loggedInUser[0];
+  };
 
-    if (token) {
-      addToLocalStorage("wishlist", product);
-    } else {
-      navigate("/login");
+  const currentUser = getCurrentUser();
+  const getCurrentWishlist = () => {
+    const wishlists = getItem("wishlist");
+
+    const currentWishlists = wishlists.filter((item) => {
+      return item.id == currentUser.id;
+    });
+
+    return currentWishlists[0]?.products || [];
+  };
+
+  const currentWishlist = getCurrentWishlist();
+
+  const addToWishlist = async (productId) => {
+    if (!wishlistIds.includes(productId)) {
+      setWishlistIds([...wishlistIds, productId]);
+      const product = await getProduct(productId);
+      if (product) {
+        const newWish = [...currentWishlist, { ...product }];
+        const updatedWishlist = { userId: currentUser.id, products: newWish };
+        const usersWishlists = getItem("usersWishlists");
+        const newUsersWishlists = usersWishlists.filter((wishlist) => {
+          return wishlist.userID !== currentUser.id;
+        });
+        const updatedUsersWishlists = [
+          ...newUsersWishlists,
+          { ...updatedWishlist },
+        ];
+        updateItem("usersWishlists", updatedUsersWishlists);
+      }
     }
   };
+
+  // const accessToken = getValue("accessToken");
+
+  // if (accessToken) {
+  //   addToLocalStorage("wishlist", product);
+  // } else {
+  //   navigate("/login");
+  // }
+
   return (
     <div className="w-full flex flex-col gap-24 px-2 md:px-10 pb-4">
       {/* Carousel Section */}
@@ -110,17 +150,20 @@ const Home = () => {
                   id={item.id}
                   cardImg={item.thumbnail}
                   altText={item.thumbnail}
-                  headerIcons={[
-                    <IoHeartOutline
-                      onClick={() =>
-                        addToWishlist({
-                          id: 3,
-                          name: "MacBook Air",
-                          price: 1200,
-                        })
-                      }
-                    />,
-                    <IoEyeOutline />,
+                  headerButtons={[
+                    {
+                      icon: (
+                        <IoHeartOutline
+                          className={`cursor-pointer ${
+                            wishlistIds.includes(item.id)
+                              ? "text-[#DB4444] pointer-events-none"
+                              : ""
+                          }`}
+                        />
+                      ),
+                      action: () => addToWishlist(item.id),
+                    },
+                    { icon: <IoEyeOutline />, action: null },
                   ]}
                   cardTitle={item.title}
                   hasBadge={true}
@@ -133,23 +176,6 @@ const Home = () => {
                 />
               </SwiperSlide>
             ))}
-            {/* {getSectionData("Flash Sales").map((item) => (
-              <SwiperSlide key={item.id}>
-                <ProductCard
-                  id={item.id}
-                  cardImg={`images/flash_sales/${item.img_src}`}
-                  altText={item.img_src}
-                  headerIcons={[<IoHeartOutline />, <IoEyeOutline />]}
-                  cardTitle={item.name}
-                  hasBadge={true}
-                  discount={item.discount}
-                  netPrice={item.net_price}
-                  totalPrice={item.total_price}
-                  rating={item.rating}
-                  rateCount={item.rate_count}
-                />
-              </SwiperSlide>
-            ))} */}
           </Swiper>
         </div>
         <Button
@@ -262,7 +288,21 @@ const Home = () => {
                   id={item.id}
                   cardImg={`images/best_selling/${item.img_src}`}
                   altText={item.img_src}
-                  headerIcons={[<IoHeartOutline />, <IoEyeOutline />]}
+                  headerButtons={[
+                    {
+                      icon: (
+                        <IoHeartOutline
+                          className={`cursor-pointer ${
+                            wishlistIds.includes(item.id)
+                              ? "text-[#DB4444] pointer-events-none"
+                              : ""
+                          }`}
+                        />
+                      ),
+                      action: () => addToWishlist(item.id),
+                    },
+                    { icon: <IoEyeOutline />, action: null },
+                  ]}
                   cardTitle={item.name}
                   hasBadge={true}
                   discount={item.discount}
@@ -358,7 +398,21 @@ const Home = () => {
                     id={item.id}
                     cardImg={`images/our_products/${item.img_src}`}
                     altText={item.img_src}
-                    headerIcons={[<IoHeartOutline />, <IoEyeOutline />]}
+                    headerButtons={[
+                      {
+                        icon: (
+                          <IoHeartOutline
+                            className={`cursor-pointer ${
+                              wishlistIds.includes(item.id)
+                                ? "text-[#DB4444] pointer-events-none"
+                                : ""
+                            }`}
+                          />
+                        ),
+                        action: () => addToWishlist(item.id),
+                      },
+                      { icon: <IoEyeOutline />, action: null },
+                    ]}
                     cardTitle={item.name}
                     hasBadge={true}
                     discount={item.discount}
@@ -414,7 +468,21 @@ const Home = () => {
                     id={item.id}
                     cardImg={`images/our_products/${item.img_src}`}
                     altText={item.img_src}
-                    headerIcons={[<IoHeartOutline />, <IoEyeOutline />]}
+                    headerButtons={[
+                      {
+                        icon: (
+                          <IoHeartOutline
+                            className={`cursor-pointer ${
+                              wishlistIds.includes(item.id)
+                                ? "text-[#DB4444] pointer-events-none"
+                                : ""
+                            }`}
+                          />
+                        ),
+                        action: () => addToWishlist(item.id),
+                      },
+                      { icon: <IoEyeOutline />, action: null },
+                    ]}
                     cardTitle={item.name}
                     hasBadge={true}
                     netPrice={item.net_price}

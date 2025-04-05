@@ -4,22 +4,30 @@
 const getValue = (item) => {
     return localStorage.getItem(item)
 }
+
 // Get item from local storage
 const getItem = (item) => {
-    return JSON.parse(localStorage.getItem(key)) || [];
+    return JSON.parse(localStorage.getItem(item)) || [];
 }
 
 // Store value in local storage 
-const addValue = (item, value) => {
+const setValue = (item, value) => {
     localStorage.setItem(item, value)
 }
 
-// Function to add new data in item in local storage
-const addData = (item, data) => {
+// store new data in item in local storage
+const setNewData = (item, data) => {
     const oldData = getItem(item);
     const newData = [...oldData, { ...data }];
     localStorage.setItem(item, JSON.stringify(newData));
 }
+
+  // Update data in item in local storage
+const updateItem = (item, newData) => {
+    localStorage.removeItem(item);
+    const newDataString = JSON.stringify(newData);
+    localStorage.setItem(item, newDataString);
+  }
 
 // Add object to item in local storage
 const addToLocalStorage = (item, object) => {
@@ -42,4 +50,4 @@ const addToLocalStorage = (item, object) => {
 //     }
 // };
 
-export { getValue, getItem, addValue, addToLocalStorage, addData }
+export { getValue, getItem, setValue, addToLocalStorage, setNewData,updateItem }

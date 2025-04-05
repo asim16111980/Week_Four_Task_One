@@ -1,12 +1,15 @@
 import Input from "./Input";
 import Button from "./Button";
-import { addNewData } from "../utils/crud";
+import { signUp } from "../utils/crud";
 import { useReducer, useState } from "react";
 import { initialState, userReducer } from "../hooks/userReducer";
 import { NavLink } from "react-router-dom";
-// import { FcGoogle } from "react-icons/fc";
+import { getItem, setNewData } from "../utils/storage";
+import { useNavigate } from "react-router-dom";
+import { FcGoogle } from "react-icons/fc";
 
 const SignUpForm = () => {
+  const navigate = useNavigate();
   const [errorMsg, setErrorMsg] = useState("");
   const [state, dispatch] = useReducer(userReducer, initialState);
 
@@ -14,7 +17,7 @@ const SignUpForm = () => {
     dispatch({ type: type, payload: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (!state.firstName || !state.emailOrPhone || !state.password) {
@@ -43,20 +46,17 @@ const SignUpForm = () => {
       return;
     }
 
-    addNewData("users", userData);
-    const userId = getValue ("users").length||0;
-    const newUser = { ...userData, id: userId };
-    addNewData("users", newUser);
-    dispatch({ type: "CLEAR_STATE" });
+    const isSigningUp = await signUp(userData);
+    if (isSigningUp) {
+      const userId = getItem("users").length;
+      const newUser = { ...userData, id: userId,loggedIn:false };
+      setNewData("users", newUser);
+      navigate("/");
+    } else {
+      dispatch({ type: "CLEAR_STATE" });
+      setErrorMsg("SignUp failed, please try again.");
+    }
   };
-  // const handleEmailOrPhoneChange = (e) => {
-
-  //   dispatch({ type: "SET_EMAILORPHONE", payload: e.target.value });
-  // };
-
-  // const handlePasswordChange = (e) => {
-  //   dispatch({ type: "SET_PASSWORD", payload: e.target.value });
-  // };
 
   return (
     <>
@@ -93,17 +93,9 @@ const SignUpForm = () => {
           value="Create Account"
           className="w-full rounded h-14 text-base bg-[#DB4444] text-neutral-50 hover:bg-[#E07575]"
         />
-        {/* <button
-          type="button"
-          className="w-full flex justify-center items-center text-base py-4 border border-black border-opacity-40 rounded gap-3"
-        >
-          <Icon icon="icons/sign_up/Icon-Google.png" />
-          Sign up with Google
-        </button> */}
         <Button
           value="Sign up with Google"
-          // icon={<FcGoogle size={24} />}
-          // onClick={handleSubmit}
+          icon={<FcGoogle size={16}/>}
           className="w-full h-14 rounded bg-transparent border border-black border-opacity-50 hover:text-opacity-50"
         />
         <p className="flex flex-col sm:flex-row justify-center items-center gap-4 text-base opacity-70">
