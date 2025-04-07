@@ -189,7 +189,7 @@ const Home = () => {
         />
       </section>
       <Divider thickness={0.5} />
-      {/* Category Phone Section */}
+      {/* Category Section */}
       <section className="flex flex-col items-center gap-8 md:gap:10">
         <header className="w-full flex flex-col justify-between sm:flex-row sm:items-end items-center gap-2">
           <SectionTitle title="Categories" subTitle="Browse By Category" />

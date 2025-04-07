@@ -42,7 +42,6 @@ const getProduct = async (id) => {
   } catch (error){
     return null;
   }
-}
 
 // Login user
 const logIn = async (loginData) => {
