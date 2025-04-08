@@ -1,3 +1,4 @@
+import { useParams } from "react-router-dom";
 import Breadcrumb from "../components/BreadCrumb";
 import Button from "../components/Button";
 import Divider from "../components/Divider";
@@ -5,10 +6,13 @@ import ProductColorOption from "../components/ProductColorOption";
 import ProductQuantitySelector from "../components/ProductQuantitySelector";
 import ProductSizeOption from "../components/ProductSizeOption";
 import StarRating from "../components/StartRating";
+import Icon from "../components/Icon";
 
 const ProductDetails = () => {
+  const productId = useParams();
+
   return (
-    <div>
+    <main className="w-full flex flex-col items-center py-10" >
       <Breadcrumb
         items={[
           { label: "Account", href: "/Account" },
@@ -90,7 +94,7 @@ const ProductDetails = () => {
           </div>
         </div>
       </section>
-    </div>
+    </main>
   );
 };
 

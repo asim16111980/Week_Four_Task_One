@@ -21,7 +21,7 @@ import {
   IoArrowUpOutline,
 } from "react-icons/io5";
 import { getValue, updateItem } from "../utils/storage";
-import { href, useNavigate } from "react-router-dom";
+import { useNavigate} from "react-router-dom";
 import { getProducts, getProduct } from "../utils/crud";
 import { getItem } from "../utils/storage";
 import Icon from "../components/Icon";
@@ -31,6 +31,14 @@ const images = [
   "images/carousel/carousel_slide_1.png",
   "images/carousel/carousel_slide_1.png",
   "images/carousel/carousel_slide_1.png",
+];
+const Categories = [
+  { title: "Phones", href: "", image: "CellPhone.svg" },
+  { title: "Computers", href: "", image: "Computer.svg" },
+  { title: "SmartWatch", href: "", image: "SmartWatch.svg" },
+  { title: "Camera", href: "", image: "Camera.svg" },
+  { title: "HeadPhones", href: "", image: "Headphone.svg" },
+  { title: "Gaming", href: "", image: "Headphone.svg" },
 ];
 
 const Home = () => {
@@ -93,7 +101,7 @@ const Home = () => {
   // }
 
   return (
-    <div className="w-full flex flex-col gap-24 px-2 md:px-10 pb-4">
+    <div className="w-full flex flex-col gap-24 pb-4">
       {/* Carousel Section */}
       <section id="top" className="flex gap-6">
         <CategoriesList className="hidden sm:block mt-10 px-0 max-h-full" />
@@ -168,7 +176,10 @@ const Home = () => {
                       ),
                       action: () => addToWishlist(item.id),
                     },
-                    { icon: <IoEyeOutline />, action: null },
+                    {
+                      icon: <IoEyeOutline />,
+                      action:()=> navigate(`/ProductDetails/${item.id}`),
+                    },
                   ]}
                   cardTitle={item.title}
                   hasBadge={true}
@@ -238,11 +249,11 @@ const Home = () => {
               );
             }}
           >
-            {getSectionData("Category Phone").map((item) => (
-              <SwiperSlide key={item.id}>
+            {Categories.map((item, index) => (
+              <SwiperSlide key={index}>
                 <CategoryPhone
-                  img={`icons/category_phone/${item.img_src}`}
-                  name={item.name}
+                  img={`public/icons/categories/${item.image}`}
+                  title={item.title}
                 />
               </SwiperSlide>
             ))}

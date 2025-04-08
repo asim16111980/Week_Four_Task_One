@@ -12,7 +12,7 @@ const SignUp = () => {
           className="h-full"
         />
       </div>
-      <div className="flex-1 flex flex-col justify-center px-2 sm:px-10 md:px-8 gap-3 md:gap-6 ">
+      <div className="flex-1 flex flex-col justify-center gap-3 md:gap-6 ">
         {location.pathname === "/login" ? <LogInForm /> : <SignUpForm />}
       </div>
     </div>

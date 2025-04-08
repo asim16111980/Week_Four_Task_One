@@ -1,5 +1,5 @@
 import axios from "axios";
-import { getValue, setValue } from "./storage";
+import { getValue, setValue } from "./storage.js";
 
 // Get all products
 const getProducts = (setData) => {
@@ -7,6 +7,15 @@ const getProducts = (setData) => {
     .get("https://dummyjson.com/products?limit=10")
     .then((response) => setData(response.data.products))
     .catch((error) => console.log("Error fetching products:", error));
+}
+
+// Get product by id
+const getProduct = async (id) => {
+  try {
+    return axios.get(`https://dummyjson.com/products/${id}`).then((res => res.data));
+  } catch (error) {
+    return null;
+  }
 }
 
 // Signup new user
@@ -35,14 +44,6 @@ const getCart = () => {
   console.log(getUserId());
 }
 
-// Get product by id
-const getProduct = async (id) => {
-  try {
-    return axios.get(`https://dummyjson.com/products/${id}`).then((res=>res.data));
-  } catch (error){
-    return null;
-  }
-
 // Login user
 const logIn = async (loginData) => {
   try {
@@ -55,4 +56,4 @@ const logIn = async (loginData) => {
 };
 
 
-export { getProducts,getProduct, signUp, getCart, logIn }
+export { getProducts, getProduct, signUp, getCart, logIn }

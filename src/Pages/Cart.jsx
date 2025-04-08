@@ -19,7 +19,7 @@ const Cart = ({ thumbnail = "", title = "", price = 0, shipping = 0 }) => {
   }, []);
 
   return (
-    <div className="w-full flex flex-col gap-24 px-2 md:px-10 pb-4 font-poppins text-black py-10">
+    <div className="w-full flex flex-col gap-24 pb-4 font-poppins text-black py-10">
       <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "Cart" }]} />
       <section className="flex flex-col items-center">
         <table className="w-full mx-auto text-sm sm:text-base">

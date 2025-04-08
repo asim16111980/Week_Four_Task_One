@@ -62,6 +62,7 @@ import About from "./Pages/About";
 import SignUp from "./Pages/SignUp";
 import WishList from "./Pages/WishList";
 import Cart from "./Pages/Cart";
+import ProductDetails from "./Pages/ProductDetails";
 
 function App() {
   return (
@@ -70,7 +71,7 @@ function App() {
       <MenusProvider>
         <Header />
         <Divider className="hidden sm:block" />
-        <div className="relative">
+        <div className="relative px-2 sm:px-10">
           <Menus />
           <Routes>
             <Route path="/" element={<Home />} />
@@ -80,6 +81,7 @@ function App() {
             <Route path="/signup" element={<SignUp />} />
             <Route path="/wishlist" element={<WishList />} />
             <Route path="/cart" element={<Cart />} />
+            <Route path="/ProductDetails/:productId" element={<ProductDetails />} />
           </Routes>
           <Footer />
         </div>
